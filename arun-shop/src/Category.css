@@ -1,0 +1,11 @@
+/* Category.css */
+.category {
+    margin-bottom: 20px;
+  }
+  
+  .products-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  

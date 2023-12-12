@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+// App.js
+import React from 'react';
+import Category from './Category';
 import './App.css';
 
-function App() {
+/**
+ * The main App component for the groceries store website.
+ *
+ * @returns {JSX.Element} - The App component.
+ */
+const App = () => {
+  const categories = [
+    {
+      categoryName: 'Fruits',
+      products: [
+        { name: 'Apple', price: 1.5 },
+        { name: 'Banana', price: 0.75 },
+        { name: 'Orange', price: 1.2 },
+      ],
+    },
+    {
+      categoryName: 'Vegetables',
+      products: [
+        { name: 'Carrot', price: 0.9 },
+        { name: 'Broccoli', price: 2.0 },
+        { name: 'Tomato', price: 1.0 },
+      ],
+    },
+    // Add more categories as needed
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Groceries Store</h1>
+      {categories.map((category, index) => (
+        <Category key={index} {...category} />
+      ))}
     </div>
   );
 }
