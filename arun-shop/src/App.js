@@ -1,7 +1,8 @@
 // App.js
-import React from 'react';
-import Category from './components/Category';
-import AddProduct from './components/AddProduct';
+import React from "react";
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 /**
  * The main App component for the groceries store website.
@@ -9,35 +10,29 @@ import AddProduct from './components/AddProduct';
  * @returns {JSX.Element} - The App component.
  */
 const App = () => {
-  const categories = [
-    {
-      categoryName: 'Fruits',
-      products: [
-        { name: 'Apple', price: 1.5 },
-        { name: 'Banana', price: 0.75 },
-        { name: 'Orange', price: 1.2 },
-      ],
-    },
-    {
-      categoryName: 'Vegetables',
-      products: [
-        { name: 'Carrot', price: 0.9 },
-        { name: 'Broccoli', price: 2.0 },
-        { name: 'Tomato', price: 1.0 },
-      ],
-    },
-    // Add more categories as needed
-  ];
-
   return (
-    <div>
-      <h1>Groceries Store</h1>
-      <AddProduct />
-      {categories.map((category, index) => (
-        <Category key={index} {...category} />
-      ))}
-    </div>
+<Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Login</Link>
+            </li>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <hr />
+
+        <Routes>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/home" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
