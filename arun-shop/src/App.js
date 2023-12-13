@@ -1,7 +1,7 @@
 // App.js
 import React from 'react';
-import Category from './Category';
-import './App.css';
+import Category from './components/Category';
+import AddProduct from './components/AddProduct';
 
 /**
  * The main App component for the groceries store website.
@@ -32,6 +32,7 @@ const App = () => {
   return (
     <div>
       <h1>Groceries Store</h1>
+      <AddProduct />
       {categories.map((category, index) => (
         <Category key={index} {...category} />
       ))}
