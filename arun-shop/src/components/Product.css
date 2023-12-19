@@ -1,17 +1,21 @@
 /* Product.css */
 .product {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-    text-align: center;
-    background-color: #837474;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .price {
-    color: #27ae60;
-    font-weight: bold;
-  }
-  
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+  background-color: #fff; /* Changed the background color to white */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /* Added a transform transition for a subtle effect on hover */
+}
+
+.product:hover {
+  transform: translateY(-5px); /* Move the card slightly upward on hover */
+}
+
+.price {
+  color: #27ae60;
+  font-weight: bold;
+}
