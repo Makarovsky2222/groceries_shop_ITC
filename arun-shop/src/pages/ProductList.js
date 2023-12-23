@@ -1,10 +1,10 @@
-  //Home.js
+  //ProductList.js
 
   import React from "react";
   import AddProduct from "../components/AddProduct";
   import Category from "../components/Category";
 
-  const Home = () => {
+  const ProductList = () => {
       const categories = [
           {
             categoryName: "Fruits",
@@ -29,12 +29,12 @@
     return (
       <div>
         <h1>Groceries Store</h1>
-        {categories.map((category, index) => (
-          <Category key={index} {...category} />
+        {categories.map((category) => (
+          <Category key={category.categoryName} {...category} />
         ))}
         <AddProduct />
       </div>
     );
   };
 
-  export default Home;
+ export default ProductList;

@@ -1,129 +1,114 @@
-// Import necessary dependencies
-import React, { useState, useEffect } from 'react';
-import ProductList from '../pages/ProductList';
+// OrderProduct.jsx
+import React, { useState } from "react";
+import "./OrderProduct.css";
 
 const OrderProduct = () => {
-  // Define state for order details
-  const [orderDetails, setOrderDetails] = useState({
-    category: '', // selected category
-    product: '', // selected product
-    emissionDate: '',
-    estimatedArrivalDate: '',
-    author: '',
+  //State to manage current orders
+  const [currentOrders, setCurrentOrders] = useState([
+    { id: "1", emissionDate: "2023-12-25", author: "John Doe", products: [] },
+    { id: "2", emissionDate: "2023-12-26", author: "Jane Smith", products: [] },
+    // Add more orders as needed, and we need to fetch them from backend
+  ]);
+
+  // State to manage visibility of current orders
+  const [isOrderListOpen, setOrderListOpen] = useState(false);
+
+  // Function to toggle the visibility of current orders
+  const toggleOrderList = () => {
+    setOrderListOpen(!isOrderListOpen);
+  };
+
+  // State to manage new order data
+  const [order, setOrder] = useState({
+    id: "",
+    emissionDate: "",
+    author: "",
+    selectedCategory: "",
+    selectedProduct: "",
   });
 
-  // Define state for categories and products
-  // const [categories, setCategories] = useState([]);
-  const categories = [
-    {
-      categoryName: "Fruits",
-      products: [
-        { name: "Apple", price: 1.5 },
-        { name: "Banana", price: 0.75 },
-        { name: "Orange", price: 1.2 },
-      ],
-    },
-    {
-      categoryName: "Vegetables",
-      products: [
-        { name: "Carrot", price: 0.9 },
-        { name: "Broccoli", price: 2.0 },
-        { name: "Tomato", price: 1.0 },
-      ],
-    },
-    // Add more categories as needed
-  ];
+  // State to manage categories (you might fetch these from a backend)
+  const [categories, setCategories] = useState([
+    "Category1",
+    "Category2",
+    "Category3",
+  ]);
 
-  // Function to flatten the categories into an array of products
-  const flattenCategories = (categoriesArray) => {
-    return categoriesArray.reduce((products, category) => {
-      return [...products, ...category.products];
-    }, []);
+  // State to manage visibility of the order form window
+  const [isOrderFormOpen, setOrderFormOpen] = useState(false);
+
+  // Function to handle order form submission
+  const handleOrderSubmit = () => {
+    // Implement logic to handle order submission, e.g., send data to the backend
+    console.log("Order Submitted:", order);
   };
-
-  // Function to fetch categories from ProductList
-  const fetchCategories = () => {
-    // Set categories state with the categories array from ProductList
-    //setCategories(ProductList.categories);
-  };
-
-  // Function to update order details when user selects a category or product
-  const handleSelectChange = (e) => {
-    const { name, value } = e.target;
-    setOrderDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
-  };
-
-  // Function to handle form submission (creating a new order)
-  const handleOrderSubmit = async (e) => {
-    e.preventDefault();
-
-    // with functionnal back-end
-    // const response = await createOrderAPI(orderDetails);
-    // setOrderDetails(response.data);
-  };
-
-  // Use useEffect to fetch categories when the component mounts
-  useEffect(() => {
-    fetchCategories();
-  }, []); // The empty dependency array ensures that the effect runs only once when the component mounts
 
   return (
-    <div>
-      <h2>Create a New Order</h2>
-      <form onSubmit={handleOrderSubmit}>
-        {/* Dropdown for selecting category */}
-        <label>
-          Select Category:
+    <div className="order-form-container">
+      <button onClick={() => setOrderFormOpen(true)}>Create New Order</button>
+      <button onClick={toggleOrderList}>See Current Orders</button>
+
+      {isOrderListOpen && (
+        <div className="current-orders">
+          <h2>Current Orders</h2>
+          <ul>
+            {currentOrders.map((order) => (
+              <li key={order.id}>
+                Order ID: {order.id}, Estimated Date: {order.emissionDate}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {isOrderFormOpen && (
+        <div className="order-form-window">
+          {/* Order form content */}
+          <label>ID:</label>
+          <input
+            type="text"
+            value={order.id}
+            onChange={(e) => setOrder({ ...order, id: e.target.value })}
+          />
+
+          <label>Emission Date:</label>
+          <input
+            type="text"
+            value={order.emissionDate}
+            onChange={(e) =>
+              setOrder({ ...order, emissionDate: e.target.value })
+            }
+          />
+
+          <label>Author:</label>
+          <input
+            type="text"
+            value={order.author}
+            onChange={(e) => setOrder({ ...order, author: e.target.value })}
+          />
+
+          {/* Dropdown for selecting category */}
+          <label>Category:</label>
           <select
-            name="category"
-            value={orderDetails.category}
-            onChange={handleSelectChange}
+            value={order.selectedCategory}
+            onChange={(e) =>
+              setOrder({ ...order, selectedCategory: e.target.value })
+            }
           >
-            <option value="">Select Category</option>
+            <option value="">Select a Category</option>
             {categories.map((category) => (
-              <option key={category.categoryName} value={category.categoryName}>
-                {category.categoryName}
+              <option key={category} value={category}>
+                {category}
               </option>
             ))}
           </select>
-        </label>
+          {/* Submit button */}
+          <button onClick={handleOrderSubmit}>Submit Order</button>
 
-        {/* Dropdown for selecting product */}
-        <label>
-          Select Product:
-          <select
-            name="product"
-            value={orderDetails.product}
-            onChange={handleSelectChange}
-          >
-            <option value="">Select Product</option>
-            {orderDetails.category &&
-              flattenCategories(categories)
-                .filter((product) => product.categoryName === orderDetails.category)
-                .map((product) => (
-                  <option key={product.name} value={product.name}>
-                    {product.name}
-                  </option>
-                ))}
-          </select>
-        </label>
-
-        {/* Add input fields for emission date, estimated arrival date, and author */}
-        {/* Use appropriate input types and labels */}
-        {/* Example: */}
-        <label>
-          Emission Date:
-          <input
-            type="text"
-            name="emissionDate"
-            value={orderDetails.emissionDate}
-            onChange={handleSelectChange}
-          />
-        </label>
-
-        {/* Repeat for other input fields */}
-        <button type="submit">Submit Order</button>
-      </form>
+          {/* Close button */}
+          <button onClick={() => setOrderFormOpen(false)}>Close</button>
+        </div>
+      )}
     </div>
   );
 };
