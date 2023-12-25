@@ -3,112 +3,165 @@ import React, { useState } from "react";
 import "./OrderProduct.css";
 
 const OrderProduct = () => {
-  //State to manage current orders
-  const [currentOrders, setCurrentOrders] = useState([
-    { id: "1", emissionDate: "2023-12-25", author: "John Doe", products: [] },
-    { id: "2", emissionDate: "2023-12-26", author: "Jane Smith", products: [] },
-    // Add more orders as needed, and we need to fetch them from backend
+  const [currentView, setCurrentView] = useState("newOrder");
+  const [orders, setOrders] = useState([
+    {
+      id: "1",
+      name: "Order 1",
+      date: "12/25/2023",
+      author: "John Doe",
+      location: "Location 1",
+      amount: 150.0,
+      status: "Accepted",
+    },
+    {
+      id: "2",
+      name: "Order 2",
+      date: "12/26/2023",
+      author: "Jane Smith",
+      location: "Location 2",
+      amount: 200.0,
+      status: "Delivery",
+    },
   ]);
 
-  // State to manage visibility of current orders
-  const [isOrderListOpen, setOrderListOpen] = useState(false);
-
-  // Function to toggle the visibility of current orders
-  const toggleOrderList = () => {
-    setOrderListOpen(!isOrderListOpen);
-  };
-
-  // State to manage new order data
-  const [order, setOrder] = useState({
+  const [newOrder, setNewOrder] = useState({
     id: "",
-    emissionDate: "",
+    name: "",
+    date: "",
     author: "",
-    selectedCategory: "",
-    selectedProduct: "",
+    location: "",
+    amount: "",
+    status: "Accepted",
   });
-
-  // State to manage categories (you might fetch these from a backend)
   const [categories, setCategories] = useState([
     "Category1",
     "Category2",
     "Category3",
   ]);
-
-  // State to manage visibility of the order form window
   const [isOrderFormOpen, setOrderFormOpen] = useState(false);
 
-  // Function to handle order form submission
   const handleOrderSubmit = () => {
-    // Implement logic to handle order submission, e.g., send data to the backend
-    console.log("Order Submitted:", order);
+    console.log("Order Submitted:", newOrder);
+    setOrders((prevOrders) => [
+      ...prevOrders,
+      { ...newOrder, id: String(prevOrders.length + 1) },
+    ]);
   };
 
+  const filterAndSortOrders = (columnName) => {
+    const sortedOrders = [...orders].sort((a, b) => {
+      switch (columnName) {
+        case "Amount":
+          return a.amount - b.amount;
+        case "Date":
+          return new Date(a.date) - new Date(b.date);
+        case "Author":
+          return a.author.localeCompare(b.author);
+        case "Status":
+          return a.status.localeCompare(b.status);
+        default:
+          return 0;
+      }
+    });
+
+    setOrders(sortedOrders);
+  };
+
+  const renderOrderForm = () => (
+    <div className="order-form-window">
+      <label>ID:</label>
+      <input
+        type="text"
+        value={newOrder.id}
+        onChange={(e) => setNewOrder({ ...newOrder, id: e.target.value })}
+      />
+      <label>Emission Date:</label>
+      <input
+        type="text"
+        value={newOrder.date}
+        onChange={(e) => setNewOrder({ ...newOrder, date: e.target.value })}
+      />
+      <label>Author:</label>
+      <input
+        type="text"
+        value={newOrder.author}
+        onChange={(e) => setNewOrder({ ...newOrder, author: e.target.value })}
+      />
+      <label>Category:</label>
+      <select
+        value={newOrder.selectedCategory}
+        onChange={(e) =>
+          setNewOrder({ ...newOrder, selectedCategory: e.target.value })
+        }
+      >
+        <option value="">Select a Category</option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+      <button onClick={handleOrderSubmit}>Submit Order</button>
+      <button onClick={() => setOrderFormOpen(false)}>Close</button>
+    </div>
+  );
+
+  const renderOrderList = () => (
+    <div className="order-list-container">
+      <h2>
+        {currentView === "currentOrders" ? "Current" : "Completed"} Orders
+      </h2>
+      {["Amount", "Date", "Author", "Status"].map((option) => (
+        <button key={option} onClick={() => filterAndSortOrders(option)}>
+          Sort by {option}
+        </button>
+      ))}
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Author</th>
+            <th>Location</th>
+            <th>Amount ($)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map((order) => (
+            <tr key={order.id}>
+              <td>{order.id}</td>
+              <td>{order.name}</td>
+              <td>{order.date}</td>
+              <td>{order.author}</td>
+              <td>{order.location}</td>
+              <td>{order.amount}</td>
+              <td>{order.status}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+
   return (
-    <div className="order-form-container">
-      <button onClick={() => setOrderFormOpen(true)}>Create New Order</button>
-      <button onClick={toggleOrderList}>See Current Orders</button>
-
-      {isOrderListOpen && (
-        <div className="current-orders">
-          <h2>Current Orders</h2>
-          <ul>
-            {currentOrders.map((order) => (
-              <li key={order.id}>
-                Order ID: {order.id}, Estimated Date: {order.emissionDate}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {isOrderFormOpen && (
-        <div className="order-form-window">
-          {/* Order form content */}
-          <label>ID:</label>
-          <input
-            type="text"
-            value={order.id}
-            onChange={(e) => setOrder({ ...order, id: e.target.value })}
-          />
-
-          <label>Emission Date:</label>
-          <input
-            type="text"
-            value={order.emissionDate}
-            onChange={(e) =>
-              setOrder({ ...order, emissionDate: e.target.value })
-            }
-          />
-
-          <label>Author:</label>
-          <input
-            type="text"
-            value={order.author}
-            onChange={(e) => setOrder({ ...order, author: e.target.value })}
-          />
-
-          {/* Dropdown for selecting category */}
-          <label>Category:</label>
-          <select
-            value={order.selectedCategory}
-            onChange={(e) =>
-              setOrder({ ...order, selectedCategory: e.target.value })
-            }
-          >
-            <option value="">Select a Category</option>
-            {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          {/* Submit button */}
-          <button onClick={handleOrderSubmit}>Submit Order</button>
-
-          {/* Close button */}
-          <button onClick={() => setOrderFormOpen(false)}>Close</button>
-        </div>
-      )}
+    <div className="order-dashboard">
+      <div className="left-panel">
+        <button onClick={() => setOrderFormOpen(true)}>New Order</button>
+        <button onClick={() => setCurrentView("currentOrders")}>
+          Current Orders
+        </button>
+        <button onClick={() => setCurrentView("completedOrders")}>
+          Completed Orders
+        </button>
+      </div>
+      <div className="order-form-container">
+        {isOrderFormOpen && renderOrderForm()}
+        {currentView === "currentOrders" && renderOrderList()}
+        {/* Similar logic for completedOrders view */}
+      </div>
     </div>
   );
 };
