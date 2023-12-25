@@ -1,57 +1,61 @@
 /* OrderProduct.css */
 .order-form-container {
-    margin: 20px;
-    text-align: center;
-  }
-  
-  .order-form-window {
-    background: #f8f8f8;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    max-width: 400px;
-    margin: 20px auto;
-  }
-  
-  .order-form-window label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
-  
-  .order-form-window input,
-  .order-form-window select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  .order-form-window button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .order-form-window button:hover {
-    background-color: #45a049;
-  }
-  
-  .order-form-window button:last-child {
-    background-color: #d9534f;
-    margin-left: 10px;
-  }
-  
-  .order-form-window button:last-child:hover {
-    background-color: #c9302c;
-  }
-  
-  /* Add more styles based on your design requirements */
-  
+  margin: 20px;
+  text-align: center;
+}
+
+.order-form-window {
+  background: #fff; /* Changed the background color to white */
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s; /* Added a transform transition for a subtle effect on hover */
+}
+
+.order-form-window:hover {
+  transform: translateY(-5px); /* Move the form slightly upward on hover */
+}
+
+.order-form-window label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.order-form-window input,
+.order-form-window select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.order-form-window button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Added a background color transition for a subtle effect on hover */
+}
+
+.order-form-window button:hover {
+  background-color: #45a049;
+}
+
+.order-form-window button:last-child {
+  background-color: #d9534f;
+  margin-left: 10px;
+}
+
+.order-form-window button:last-child:hover {
+  background-color: #c9302c;
+}
+
+/* Add more styles based on your design requirements */
