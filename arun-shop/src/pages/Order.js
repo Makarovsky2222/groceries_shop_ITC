@@ -1,6 +1,6 @@
 // OrderPage.js
 import React from 'react';
-import OrderProduct from '../components/OrderProduct';
+import OrderProduct from '../components/Orders/OrderProduct';
 
 
 const Order = () => {
