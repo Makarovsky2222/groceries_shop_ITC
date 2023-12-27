@@ -6,7 +6,7 @@ const OrderList = ({ currentView, orders, filterAndSortOrders }) => (
     <h2>
       {currentView === "currentOrders" ? "Current" : "Completed"} Orders
     </h2>
-    {["Amount", "Date", "Author", "Status"].map((option) => (
+    {["Amount", "Date", "Author"].map((option) => (
       <button key={option} onClick={() => filterAndSortOrders(option)}>
         Sort by {option}
       </button>

@@ -103,7 +103,6 @@ const OrderProduct = () => {
       <div className="order-form-container">
         {isOrderFormOpen && renderOrderForm()}
         {currentView === "currentOrders" && renderOrderList()}
-        {/* Similar logic for completedOrders view */}
       </div>
     </div>
   );

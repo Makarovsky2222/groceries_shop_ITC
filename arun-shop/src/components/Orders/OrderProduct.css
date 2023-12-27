@@ -75,7 +75,8 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  background: #4caf50;
+  border-radius: 4px;
+  background: var(--Primary, #DB9E00);
   color: white;
   border: none;
   border-radius: 5px;
@@ -96,17 +97,19 @@
 .order-list-container {
   background: #fff;
   padding: 20px;
+  width: 800px;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
-  text-align: center; /* Center text in the order-list-container */
+  text-align: center;
 }
 
 .order-list-container table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 15px;
+  gap: 15px;
 }
 
 .order-list-container th,
@@ -117,18 +120,20 @@
 }
 
 .order-list-container th {
-  background-color: #4caf50;
+  background-color: #ff7f50; /* Changed to a more orange color */
   color: white;
 }
 
 .order-list-container td {
-  background-color: #f8f8f8;
+  border-radius: 6.449px;
+  background: rgba(229, 229, 229, 0.80);
 }
 
 .order-list-container button {
   margin-top: 10px;
+  margin-right: 10px;
   padding: 10px;
-  background: #4caf50;
+  background: #ff7f50; /* Changed to a more orange color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -137,5 +142,5 @@
 }
 
 .order-list-container button:hover {
-  background-color: #45a049;
+  background-color: #e5673f; /* Darker orange on hover */
 }

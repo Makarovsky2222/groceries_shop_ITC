@@ -1,4 +1,3 @@
-// OrderForm.js
 import React from "react";
 
 const OrderForm = ({
@@ -8,65 +7,88 @@ const OrderForm = ({
   locations,
   handleOrderSubmit,
   setOrderFormOpen,
-}) => (
-  <div className="order-form-window">
-    {/* Order form content */}
-    <label>ID:</label>
-    <input
-      type="text"
-      value={newOrder.id}
-      onChange={(e) => setNewOrder({ ...newOrder, id: e.target.value })}
-    />
+}) => {
+  const isFormValid = () => {
+    // Check if all required fields are filled
+    return (
+      newOrder.id &&
+      newOrder.date &&
+      newOrder.author &&
+      newOrder.location &&
+      newOrder.selectedCategory
+    );
+  };
 
-    <label>Emission Date:</label>
-    <input
-      type="text"
-      value={newOrder.date}
-      onChange={(e) => setNewOrder({ ...newOrder, date: e.target.value })}
-    />
+  const handleSubmit = () => {
+    if (isFormValid()) {
+      // Only submit the order if the form is valid
+      handleOrderSubmit(newOrder);
+    } else {
+      alert("Please fill in all fields before submitting the order.");
+    }
+  };
 
-    <label>Author:</label>
-    <input
-      type="text"
-      value={newOrder.author}
-      onChange={(e) => setNewOrder({ ...newOrder, author: e.target.value })}
-    />
+  return (
+    <div className="order-form-window">
+      {/* Order form content */}
+      <label>ID:</label>
+      <input
+        type="text"
+        value={newOrder.id}
+        onChange={(e) => setNewOrder({ ...newOrder, id: e.target.value })}
+      />
 
-    {/* Dropdown for selecting location */}
-    <label>Location:</label>
-    <select
-      value={newOrder.location}
-      onChange={(e) => setNewOrder({ ...newOrder, location: e.target.value })}
-    ><option value="">Select a Location for delivery</option>
-    {locations.map((location) => (
-      <option key={location} value={location}>
-        {location}
-      </option>
-    ))}
-  </select>
+      <label>Emission Date:</label>
+      <input
+        type="text"
+        value={newOrder.date}
+        onChange={(e) => setNewOrder({ ...newOrder, date: e.target.value })}
+      />
 
-    {/* Dropdown for selecting category */}
-    <label>Category:</label>
-    <select
-      value={newOrder.selectedCategory}
-      onChange={(e) =>
-        setNewOrder({ ...newOrder, selectedCategory: e.target.value })
-      }
-    >
-      <option value="">Select a Category</option>
-      {categories.map((category) => (
-        <option key={category} value={category}>
-          {category}
-        </option>
-      ))}
-    </select>
+      <label>Author:</label>
+      <input
+        type="text"
+        value={newOrder.author}
+        onChange={(e) => setNewOrder({ ...newOrder, author: e.target.value })}
+      />
 
-    {/* Submit button */}
-    <button onClick={() => handleOrderSubmit(newOrder)}>Submit Order</button>
+      {/* Dropdown for selecting location */}
+      <label>Location:</label>
+      <select
+        value={newOrder.location}
+        onChange={(e) => setNewOrder({ ...newOrder, location: e.target.value })}
+      >
+        <option value="">Select a Location for delivery</option>
+        {locations.map((location) => (
+          <option key={location} value={location}>
+            {location}
+          </option>
+        ))}
+      </select>
 
-    {/* Close button */}
-    <button onClick={() => setOrderFormOpen(false)}>Close</button>
-  </div>
-);
+      {/* Dropdown for selecting category */}
+      <label>Category:</label>
+      <select
+        value={newOrder.selectedCategory}
+        onChange={(e) =>
+          setNewOrder({ ...newOrder, selectedCategory: e.target.value })
+        }
+      >
+        <option value="">Select a Category</option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+
+      {/* Submit button */}
+      <button onClick={handleSubmit}>Submit Order</button>
+
+      {/* Close button */}
+      <button onClick={() => setOrderFormOpen(false)}>Close</button>
+    </div>
+  );
+};
 
 export default OrderForm;
