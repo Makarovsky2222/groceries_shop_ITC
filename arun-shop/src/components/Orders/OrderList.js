@@ -21,7 +21,6 @@ const OrderList = ({ currentView, orders, filterAndSortOrders }) => (
           <th>Author</th>
           <th>Location</th>
           <th>Amount ($)</th>
-          <th>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -33,7 +32,6 @@ const OrderList = ({ currentView, orders, filterAndSortOrders }) => (
             <td>{order.author}</td>
             <td>{order.location}</td>
             <td>{order.amount}</td>
-            <td>{order.status}</td>
           </tr>
         ))}
       </tbody>

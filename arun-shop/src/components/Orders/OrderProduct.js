@@ -15,8 +15,7 @@ const OrderProduct = () => {
       author: "John Doe",
       location: "Location 1",
       amount: 150.0,
-      status: "Accepted",
-    },
+      },
     {
       id: "2",
       name: "Order 2",
@@ -24,7 +23,6 @@ const OrderProduct = () => {
       author: "Jane Smith",
       location: "Location 2",
       amount: 200.0,
-      status: "Delivery",
     },
   ]);
 
@@ -35,7 +33,6 @@ const OrderProduct = () => {
     author: "",
     location: "",
     amount: "",
-    status: "Accepted",
   });
 
 
@@ -70,8 +67,6 @@ const OrderProduct = () => {
           return new Date(a.date) - new Date(b.date);
         case "Author":
           return a.author.localeCompare(b.author);
-        case "Status":
-          return a.status.localeCompare(b.status);
         default:
           return 0;
       }

@@ -5,10 +5,7 @@ const LeftPanel = ({ setOrderFormOpen, setCurrentView }) => (
   <div className="left-panel">
     <button onClick={() => setOrderFormOpen(true)}>New Order</button>
     <button onClick={() => setCurrentView("currentOrders")}>
-      Current Orders
-    </button>
-    <button onClick={() => setCurrentView("completedOrders")}>
-      Completed Orders
+      History
     </button>
   </div>
 );
