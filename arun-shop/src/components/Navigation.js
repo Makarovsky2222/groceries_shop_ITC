@@ -15,10 +15,10 @@ const Navigation = () => {
           <Link to="/home">Home</Link>
         </li>
         <li>
-          <Link to="/order">Order</Link>
+          <Link to="/order">Order new product</Link>
         </li>
         <li>
-          <Link to="/history">History</Link>
+          <Link to="/history">Product order history</Link>
         </li>
         <li>
           <Link to="/product">Product categories and list</Link>

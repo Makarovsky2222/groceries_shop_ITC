@@ -4,6 +4,7 @@ const OrderForm = ({
   newOrder,
   setNewOrder,
   categories,
+  locations,
   handleOrderSubmit,
   setOrderFormOpen,
 }) => {
@@ -13,6 +14,7 @@ const OrderForm = ({
       newOrder.id &&
       newOrder.date &&
       newOrder.author &&
+      newOrder.location &&
       newOrder.selectedCategory
     );
   };
@@ -49,6 +51,20 @@ const OrderForm = ({
         value={newOrder.author}
         onChange={(e) => setNewOrder({ ...newOrder, author: e.target.value })}
       />
+
+      {/* Dropdown for selecting location */}
+      <label>Location:</label>
+      <select
+        value={newOrder.location}
+        onChange={(e) => setNewOrder({ ...newOrder, location: e.target.value })}
+      >
+        <option value="">Select a Location for delivery</option>
+        {locations.map((location) => (
+          <option key={location} value={location}>
+            {location}
+          </option>
+        ))}
+      </select>
 
       {/* Dropdown for selecting category */}
       <label>Category:</label>

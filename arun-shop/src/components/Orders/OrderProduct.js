@@ -13,6 +13,7 @@ const OrderProduct = () => {
       name: "Order 1",
       date: "12/25/2023",
       author: "John Doe",
+      location: "Location 1",
       amount: 150.0,
       },
     {
@@ -20,6 +21,7 @@ const OrderProduct = () => {
       name: "Order 2",
       date: "12/26/2023",
       author: "Jane Smith",
+      location: "Location 2",
       amount: 200.0,
     },
   ]);
@@ -29,6 +31,7 @@ const OrderProduct = () => {
     name: "",
     date: "",
     author: "",
+    location: "",
     amount: "",
   });
 
@@ -39,6 +42,11 @@ const OrderProduct = () => {
     "Category3",
   ]);
 
+  const [locations, setLocations] = useState([
+    "Arun Shop Toul Tum Poung",
+    "Arun Shop Daun Penh",
+    "Arun Shop BKK1",
+  ]);
   const [isOrderFormOpen, setOrderFormOpen] = useState(false);
 
   const handleOrderSubmit = () => {
@@ -72,6 +80,7 @@ const OrderProduct = () => {
       newOrder={newOrder}
       setNewOrder={setNewOrder}
       categories={categories}
+      locations={locations}
       handleOrderSubmit={handleOrderSubmit}
       setOrderFormOpen={setOrderFormOpen}
     />
