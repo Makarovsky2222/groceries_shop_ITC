@@ -3,7 +3,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import OrderForm from "./OrderForm";
 import OrderList from "./OrderList";
-import LeftPanel from "./LeftPanel";
+import HistoryPanel from "./HistoryPanel";
 import Category from "../Category";
 import Caddy from "./Caddy";
 import categoriesData from "./categories.json"; // Import the JSON file directly
@@ -39,28 +39,7 @@ const OrderProduct = () => {
     amount: "",
   };
 
-  const initialCategories = categoriesData.categories; /*useMemo(
-    () => [
-      {
-        categoryName: "Fruits",
-        products: [
-          { name: "Apple", price: 1.5 },
-          { name: "Banana", price: 0.75 },
-          { name: "Orange", price: 1.2 },
-        ],
-      },
-      {
-        categoryName: "Vegetables",
-        products: [
-          { name: "Carrot", price: 0.9 },
-          { name: "Broccoli", price: 2.0 },
-          { name: "Tomato", price: 1.0 },
-        ],
-      },
-      // Add more categories as needed
-    ],
-    []
-  );*/
+  const initialCategories = useMemo(() => categoriesData.categories, []);
 
   const initialLocations = [
     "Arun Shop Toul Tum Poung",
@@ -108,7 +87,7 @@ const OrderProduct = () => {
         {initialCategories.map((category) => (
           <Category key={category.categoryName} {...category} />
         ))}
-        <LeftPanel
+        <HistoryPanel
           setOrderFormOpen={setOrderFormOpen}
           setCurrentView={setCurrentView}
         />
