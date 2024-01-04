@@ -1,5 +1,4 @@
-// OrderProduct.js
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import OrderForm from "./OrderForm";
@@ -7,6 +6,7 @@ import OrderList from "./OrderList";
 import LeftPanel from "./LeftPanel";
 import Category from "../Category";
 import Caddy from "./Caddy";
+import categoriesData from "./categories.json"; // Import the JSON file directly
 import "./Styling/OrderProduct.css";
 
 const OrderProduct = () => {
@@ -39,25 +39,28 @@ const OrderProduct = () => {
     amount: "",
   };
 
-  const initialCategories = [
-    {
-      categoryName: "Fruits",
-      products: [
-        { name: "Apple", price: 1.5 },
-        { name: "Banana", price: 0.75 },
-        { name: "Orange", price: 1.2 },
-      ],
-    },
-    {
-      categoryName: "Vegetables",
-      products: [
-        { name: "Carrot", price: 0.9 },
-        { name: "Broccoli", price: 2.0 },
-        { name: "Tomato", price: 1.0 },
-      ],
-    },
-    // Add more categories as needed
-  ];
+  const initialCategories = categoriesData.categories; /*useMemo(
+    () => [
+      {
+        categoryName: "Fruits",
+        products: [
+          { name: "Apple", price: 1.5 },
+          { name: "Banana", price: 0.75 },
+          { name: "Orange", price: 1.2 },
+        ],
+      },
+      {
+        categoryName: "Vegetables",
+        products: [
+          { name: "Carrot", price: 0.9 },
+          { name: "Broccoli", price: 2.0 },
+          { name: "Tomato", price: 1.0 },
+        ],
+      },
+      // Add more categories as needed
+    ],
+    []
+  );*/
 
   const initialLocations = [
     "Arun Shop Toul Tum Poung",
@@ -69,10 +72,10 @@ const OrderProduct = () => {
   const [currentView, setCurrentView] = useState("newOrder");
   const [orders, setOrders] = useState(initialOrders);
   const [newOrder, setNewOrder] = useState(initialNewOrder);
-  const [categories] = useState(initialCategories);
   const [locations] = useState(initialLocations);
   const [isOrderFormOpen, setOrderFormOpen] = useState(false);
 
+  // Functions for handling orders
   const handleOrderSubmit = () => {
     console.log("Order Submitted:", newOrder);
     setOrders((prevOrders) => [
@@ -99,47 +102,37 @@ const OrderProduct = () => {
     setOrders(sortedOrders);
   };
 
-  const renderOrderForm = () => (
-    <OrderForm
-      newOrder={newOrder}
-      setNewOrder={setNewOrder}
-      categories={categories}
-      locations={locations}
-      handleOrderSubmit={handleOrderSubmit}
-      setOrderFormOpen={setOrderFormOpen}
-    />
-  );
-
-  const renderOrderList = () => (
-    <OrderList
-      currentView={currentView}
-      orders={orders}
-      filterAndSortOrders={filterAndSortOrders}
-    />
-  );
-
-  const renderCategories = () => (
-    <>
-      {categories.map((category) => (
-        <Category key={category.categoryName} {...category} />
-      ))}
-    </>
-  );
-
   return (
     <DndProvider backend={HTML5Backend}>
-    <div className="order-dashboard">
-      {renderCategories()}
-      <LeftPanel
-        setOrderFormOpen={setOrderFormOpen}
-        setCurrentView={setCurrentView}
-      />
-      <div className="order-form-container">
-        {isOrderFormOpen && renderOrderForm()}
-        {currentView === "currentOrders" && renderOrderList()}
+      <div className="order-dashboard">
+        {initialCategories.map((category) => (
+          <Category key={category.categoryName} {...category} />
+        ))}
+        <LeftPanel
+          setOrderFormOpen={setOrderFormOpen}
+          setCurrentView={setCurrentView}
+        />
+        <div className="order-form-container">
+          {isOrderFormOpen && (
+            <OrderForm
+              newOrder={newOrder}
+              setNewOrder={setNewOrder}
+              categories={initialCategories}
+              locations={locations}
+              handleOrderSubmit={handleOrderSubmit}
+              setOrderFormOpen={setOrderFormOpen}
+            />
+          )}
+          {currentView === "currentOrders" && (
+            <OrderList
+              currentView={currentView}
+              orders={orders}
+              filterAndSortOrders={filterAndSortOrders}
+            />
+          )}
+        </div>
+        <Caddy />
       </div>
-      <Caddy />
-    </div>
     </DndProvider>
   );
 };

@@ -1,8 +1,5 @@
-/* OrderProduct.css */
-
 .order-dashboard {
-  display: flex;
-  padding: 20px;
+  display: contents;
 }
 
 .left-panel {
@@ -34,11 +31,11 @@
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 40px;
+  margin-left: 220px; /* Adjusted margin to make space for the left panel */
 }
 
 .order-form-container {
-  margin: 20px;
   text-align: center;
 }
 
