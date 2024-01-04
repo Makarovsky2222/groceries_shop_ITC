@@ -1,0 +1,38 @@
+/* Receipt.css */
+.receipt-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+  }
+  
+  .receipt-header {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .receipt-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .receipt-list li {
+    margin-bottom: 5px;
+  }
+  
+  .receipt-subtotal {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .receipt-thank-you {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: #007bff;
+  }
+  
