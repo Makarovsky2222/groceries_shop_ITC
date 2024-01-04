@@ -1,0 +1,45 @@
+{
+    "categories": [
+      {
+        "categoryName": "Fruits",
+        "products": [
+          { "name": "Apple", "price": 1.5 },
+          { "name": "Banana", "price": 0.75 },
+          { "name": "Orange", "price": 1.2 }
+        ]
+      },
+      {
+        "categoryName": "Vegetables",
+        "products": [
+          { "name": "Carrot", "price": 0.9 },
+          { "name": "Broccoli", "price": 2.0 },
+          { "name": "Tomato", "price": 1.0 }
+        ]
+      },
+      {
+        "categoryName": "Dairy",
+        "products": [
+          { "name": "Milk", "price": 2.0 },
+          { "name": "Cheese", "price": 3.5 },
+          { "name": "Yogurt", "price": 1.8 }
+        ]
+      },
+      {
+        "categoryName": "Meat",
+        "products": [
+          { "name": "Chicken", "price": 5.0 },
+          { "name": "Beef", "price": 7.0 },
+          { "name": "Pork", "price": 6.0 }
+        ]
+      },
+      {
+        "categoryName": "Bakery",
+        "products": [
+          { "name": "Bread", "price": 2.5 },
+          { "name": "Croissant", "price": 3.0 },
+          { "name": "Muffin", "price": 1.5 }
+        ]
+      }
+    ]
+  }
+  

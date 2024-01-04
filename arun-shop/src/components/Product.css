@@ -8,7 +8,7 @@
   background-color: #fff; /* Changed the background color to white */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s; /* Added a transform transition for a subtle effect on hover */
+  transition: transform 0.3s ease-in-out; /* Added a transform transition for a subtle effect on hover */
 }
 
 .product:hover {
@@ -18,4 +18,10 @@
 .price {
   color: #27ae60;
   font-weight: bold;
+}
+
+.product.dragging {
+  transform: scale(1.5); /* Scale the product when dragging */
+  opacity: 1; /* Reduce opacity when dragging */
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
