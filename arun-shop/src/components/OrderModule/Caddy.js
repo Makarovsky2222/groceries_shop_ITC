@@ -2,28 +2,37 @@
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { Card } from 'react-bootstrap';
-import './Styling/Caddy.css'
+import Product from '../Product'; // Import the updated Product component
+import './Styling/Caddy.css';
+
 const Caddy = () => {
   const [droppedProducts, setDroppedProducts] = useState([]);
 
   const [, drop] = useDrop({
     accept: 'PRODUCT',
     drop: (item) => {
-      // Handle drop events here
       setDroppedProducts((prevProducts) => [...prevProducts, item.product]);
     },
   });
+
+  // Calculate subtotal of prices
+  const subtotal = droppedProducts.reduce(
+    (total, product) => total + product.price,
+    0
+  );
 
   return (
     <div ref={drop} className="caddy">
       <Card>
         <Card.Body>
           <Card.Title>Caddy</Card.Title>
-          <Card.Text>Total Products: {droppedProducts.length}</Card.Text>
-          {/* Display the dropped products or any other information */}
-          {droppedProducts.map((product, index) => (
-            <div key={index}>{product.name}</div>
-          ))}
+          <div className="product-list">
+            {droppedProducts.map((product, index) => (
+              <Product key={index} {...product} /> // Use the updated Product component
+            ))}
+          </div>
+          <hr />
+          <div className="subtotal">Subtotal: ${subtotal.toFixed(2)}</div>
         </Card.Body>
       </Card>
     </div>

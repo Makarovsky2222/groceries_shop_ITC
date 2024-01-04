@@ -5,7 +5,6 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import OrderForm from "./OrderForm";
 import OrderList from "./OrderList";
 import LeftPanel from "./LeftPanel";
-import AddProduct from "../AddProduct";
 import Category from "../Category";
 import Caddy from "./Caddy";
 import "./Styling/OrderProduct.css";
@@ -131,7 +130,6 @@ const OrderProduct = () => {
     <DndProvider backend={HTML5Backend}>
     <div className="order-dashboard">
       {renderCategories()}
-      <AddProduct />
       <LeftPanel
         setOrderFormOpen={setOrderFormOpen}
         setCurrentView={setCurrentView}

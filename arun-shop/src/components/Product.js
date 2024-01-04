@@ -1,31 +1,23 @@
 // Product.js
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import { useDrop } from 'react-dnd';
 import { Card } from 'react-bootstrap';
 import './Product.css';
 
 const Product = (props) => {
   const [{ isDragging }, drag] = useDrag({
     type: 'PRODUCT',
-    item: { product: props },
+    item: { type: 'PRODUCT', product: props }, // Provide a type and product data
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
   });
 
-  const [, drop] = useDrop({
-    accept: 'PRODUCT',
-    hover: () => {
-      // Handle hover events here, you can add some styles or effects
-      console.log('Card is being hovered!');
-    },
-  });
-
   return (
     <div
-      ref={(node) => drag(drop(node))}
+      ref={drag}
       className={`product ${isDragging ? 'dragging' : ''}`}
+      style={{ opacity: isDragging ? 0.5 : 1, cursor: 'move' }}
     >
       <Card>
         <Card.Body>
