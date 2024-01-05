@@ -6,19 +6,26 @@ import { getAuth,
   setPersistence,
   browserSessionPersistence,
   onAuthStateChanged,
+  updatePassword,
 } from "firebase/auth";
-import app from "./firebase/FirebaseConfig"
+import app from "../Configuration/FirebaseConfig"
+import { addUser } from "./UserServices";
 
 const auth = getAuth();
 
-export const signup = async (email, password) => {
+export const signup = async (user) => {
   try {
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, user.email, user.password)
     .then ( (userCredential) => {
       saveUser(userCredential)
+      console.log("userCreditial.id: ", userCredential.user.uid)
+      addUser(userCredential.user.uid, user)
+
+      return true
     })
   } catch (error) {
     console.log(error);
+    return false
   }
 };
 
@@ -26,7 +33,6 @@ export const login = async (email, password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    console.log("userCredential: ", userCredential)
 
     const credential = EmailAuthProvider.credential(email, password)
     saveUserFirebase(credential)
@@ -48,13 +54,14 @@ export const logout = async () => {
   }
 };
 
-export const getMe = async () => {
+export const getUserID = () => {
   try {
     const user = auth.currentUser
-    console.log("Me: ", user)
-    return user
+    console.log("uid: ", user.uid)
+    return user.uid
 
   } catch (error) {
+    return null
     console.log(error)
   }
 }
@@ -93,11 +100,16 @@ export const checkingUserSign = () => {
 
 }
 
-export const verifyUserToken = () => {
-  const token = localStorage.getItem("token")
 
-  getAuth().verifyIdToken(token).then((decodedToken) => {
-    console.log("decodedToken: ", decodedToken)
-    // return decodedToken.user
+// HAVE NOT TEST
+export const updateUserPassword = (newPassword) => {
+  updatePassword(auth, newPassword).then(() => {
+    // Password updated successfully
+    console.log("Password updated!");
   })
+  .catch((error) => {
+    // Handle any errors
+    console.error("Error updating password:", error);
+  });
+
 }
