@@ -1,13 +1,12 @@
 //Draft.js
 import React, { useState } from 'react';
-import { addCategory, deleteById, getAllCategory, getByID, updateByID } from "../services/Category";
+import { addCategory, deleteById, getAllCategory, getByID, updateByID, updateCateImage } from "../services/Category";
 
 const Draft = () => {
 
     const [formData, setFormData] = useState({
         name: '',
         color: '',
-        image_url: '',
     })
 
     const handleChange = (e) => {
@@ -18,7 +17,13 @@ const Draft = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const cate_id = addCategory(formData)
+        
+        const fileInput = document.getElementById('image');
+    
+        // Get the selected file
+        const file = fileInput.files[0];
+
+        const cate_id = addCategory(formData, file)
     
         console.log("Category: ", cate_id)
     }
@@ -32,20 +37,26 @@ const Draft = () => {
     }
     
     const getCateByID = () => {
-        const cate = getByID("gAdMfAM4Woe2dW6rKZTl")
+        const cate = getByID("97GKZWLZtFsunbG5wfEt")
         console.log("cate: ", cate)
     }
 
     const updateCate = () => {
-        updateByID("gAdMfAM4Woe2dW6rKZTl", {
+        updateByID("97GKZWLZtFsunbG5wfEt", {
             name: "Update Cate",
-            color: "#cecece",
-            image_url: "dafsa"
         })
     }
     
     const deleteCate = () => {
-        deleteById("gAdMfAM4Woe2dW6rKZTl")
+        deleteById("97GKZWLZtFsunbG5wfEt")
+    }
+
+    function updateImg() {
+        
+        const fileInput = document.getElementById('newImage');
+        const file = fileInput.files[0];
+
+        updateCateImage("ELW2eTrmzoEJ9Bq77fT4", file)
     }
 
     return (
@@ -68,6 +79,13 @@ const Draft = () => {
             <button onClick={updateCate}>updateCate</button>
             <button onClick={deleteCate}>deleteCate</button>
             
+            <br/><br/><br/><br/>
+            <div>
+                <input type="file" id="newImage" name="newImage" onChange={handleChange}/><br/>
+                <button onClick={updateImg}>newImage</button>
+
+
+            </div>
         </div>
     );
 };

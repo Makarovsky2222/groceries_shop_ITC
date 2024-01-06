@@ -1,15 +1,20 @@
 import { collection, getDocs, getDoc, setDoc, doc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./../Configuration/FirebaseConfig"
+import { updateCatgotyImage, uploadCategoryImage } from "./Storage";
 
 const docName = 'category'
 
-export const addCategory = async (category) => {
+export const addCategory = async (category, file) => {
     try {
+
+        const cateImage = await uploadCategoryImage(file)
+
         const docRef = doc(collection(db, docName))
         await setDoc(docRef , {
             name: category.name,
             color: category.color,
-            image_url: category.image_url
+            image_url: cateImage.url,
+            filePath: cateImage.path
         });
 
         console.log("docRef: ", docRef)
@@ -57,8 +62,6 @@ export const updateByID = async (cate_id, newCate) => {
         const docRef = doc(db, docName, cate_id)
         await updateDoc(docRef , {
             name: newCate.name,
-            color: newCate.color,
-            image_url: newCate.image_url
         });
 
         return true
@@ -66,6 +69,26 @@ export const updateByID = async (cate_id, newCate) => {
     } catch (error) {
         console.log(error)
         return null
+    }
+}
+
+export const updateCateImage = async (cate_id, newFile) => {
+    try {
+        const docRef = doc(db, docName, cate_id)
+        const cate = await getByID(cate_id)
+
+        const newCateImg = await updateCatgotyImage(cate.image_url, newFile)
+
+        console.log("newCateImage", newCateImg)
+
+        updateDoc(docRef , {
+            image_url: newCateImg.url,
+            filePath: newCateImg.path
+        });
+
+        return newCateImg.url
+    } catch (error) {
+        console.log(error)
     }
 }
 
