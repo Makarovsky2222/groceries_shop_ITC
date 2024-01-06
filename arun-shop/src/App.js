@@ -8,6 +8,8 @@ import ProductList from './pages/ProductList';
 import Order from './pages/Order';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
+import About from './pages/About';
+import Draft from './pages/Draft'
 
 const App = () => {
   return (
@@ -22,8 +24,10 @@ const App = () => {
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/order" element={<Order />} />
             <Route exact path="/history" element={<History />} />
-
             <Route exact path="/product" element={<ProductList />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/draft" element={<Draft />} />
+
           </Routes>
         </main>
       </div>
