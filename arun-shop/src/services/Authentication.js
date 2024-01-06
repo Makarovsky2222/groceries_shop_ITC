@@ -36,9 +36,7 @@ export const login = async (email, password) => {
 
     const credential = EmailAuthProvider.credential(email, password)
     saveUserFirebase(credential)
-
-    // saveUserIDToken(auth.currentUser.getIdToken)
-
+    
     return user
   } catch (error) {
     console.log(error);
