@@ -1,3 +1,4 @@
+// OrderProduct.js
 import React, { useMemo, useState } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -7,7 +8,8 @@ import Caddy from "./Caddy";
 import SearchBar from "./SearchBar";
 import categoriesData from "./categories.json";
 import "./Styling/OrderProduct.css";
-import "./Styling/OrderProductCategory.css"
+import "./Styling/OrderProductCategory.css";
+import "./Styling/SearchBar.css";
 
 const OrderProduct = () => {
   const initialCategories = useMemo(() => categoriesData.categories, []);
@@ -25,11 +27,15 @@ const OrderProduct = () => {
     setSelectedCategory(null); // Reset selected category when searching
   };
 
-  const handleCategoryClick = (categoryName) => {
-    const clickedCategory = initialCategories.find((category) => category.categoryName === categoryName);
-    if (clickedCategory) {
-      setFilteredCategories([clickedCategory]);
-      setSelectedCategory(clickedCategory.categoryName);
+  const handleCategoryFilter = (category) => {
+    if (category === "") {
+      setFilteredCategories(initialCategories);
+    } else {
+      const filtered = initialCategories.filter(
+        (cat) => cat.categoryName === category
+      );
+      setFilteredCategories(filtered);
+      setSelectedCategory(category);
     }
   };
 
@@ -37,14 +43,18 @@ const OrderProduct = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="order-dashboard">
         <div className="search-bar-wrapper">
-          <SearchBar onSearch={handleSearch} />
+          <SearchBar
+            onSearch={handleSearch}
+            categories={initialCategories.map((cat) => cat.categoryName)}
+            onCategoryFilter={handleCategoryFilter}
+          />
         </div>
         <div className="category-wrapper">
           {initialCategories.map((category) => (
             <div
               key={category.categoryName}
               className={`category-card ${selectedCategory === category.categoryName ? "selected" : ""}`}
-              onClick={() => handleCategoryClick(category.categoryName)}
+              onClick={() => handleCategoryFilter(category.categoryName)}
             >
               {category.categoryName}
             </div>
