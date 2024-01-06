@@ -1,13 +1,16 @@
+// Caddy.js
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { Card, Button, Modal } from 'react-bootstrap';
-import Product from '../Product'; // Import the updated Product component
+import Product from '../Product';
+import Receipt from './Receipt';
+import PaymentWindow from './PaymentWindow';
 import './Styling/Caddy.css';
-import Receipt from './Receipt'; // Import the new Receipt component
 
 const Caddy = () => {
   const [droppedProducts, setDroppedProducts] = useState([]);
   const [showReceipt, setShowReceipt] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
 
   const [, drop] = useDrop({
     accept: 'PRODUCT',
@@ -22,11 +25,20 @@ const Caddy = () => {
   );
 
   const handleOrderSubmit = () => {
-    setShowReceipt(true);
+    setShowPayment(true);
   };
 
   const handleCloseReceipt = () => {
     setShowReceipt(false);
+  };
+
+  const handlePaymentComplete = () => {
+    setShowPayment(false);
+    setShowReceipt(true);
+  };
+
+  const handleClosePayment = () => {
+    setShowPayment(false);
   };
 
   return (
@@ -43,10 +55,19 @@ const Caddy = () => {
           <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
           <div className="subtotal">Subtotal: {subtotal.toFixed(2) * 4100} Riel</div>
           <Button variant="primary" onClick={handleOrderSubmit}>
-            Submit Order
+            Proceed to Payment
           </Button>
         </Card.Body>
       </Card>
+
+      {/* Payment Window */}
+      {showPayment && (
+        <PaymentWindow
+          payableAmount={subtotal}
+          onClose={handleClosePayment}
+          onComplete={handlePaymentComplete}
+        />
+      )}
 
       {/* Receipt Modal */}
       <Modal show={showReceipt} onHide={handleCloseReceipt}>
