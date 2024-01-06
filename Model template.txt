@@ -1,0 +1,62 @@
+product: {
+    id: string,
+    name: string,
+    price: float,
+    amount: float,
+    tax: float,
+    description: string,
+    category_id: string,
+    image_url: string
+}
+
+category: {
+    id: string,
+    name: string,
+    color: string,
+    image_url: string,
+}
+
+stock: {
+    id: string,
+    dateTime: string,
+    total_price: string,
+    product_in_stock: [{
+        product_id: string,
+        amount: string,
+        incomePrice: float,
+        tax: float
+    }]
+}
+
+order: {
+    id: string,
+    dateTime: string,
+    cashierID: string,
+    product_in_order: [{
+        product_id: string,
+        amount: float,
+        tax: float,
+        total: float
+    }],
+    payment_method: string,
+    total: float,
+    recige: float,
+    change: float,
+}
+
+user: {
+    uid: string,
+    username: string,
+    firstname: string,
+    lastname: string,
+    email: string,
+    password: string,
+    phonenumber: string,
+    registerdate: string,
+}
+
+payment_method: {
+    id: string,
+    name: string,
+    color: string,
+}
