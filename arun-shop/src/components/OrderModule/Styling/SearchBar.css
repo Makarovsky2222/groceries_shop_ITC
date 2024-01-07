@@ -1,13 +1,81 @@
+/* SearchBar.css */
 .search-bar {
-    margin-bottom: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #f90; /* Orange border color */
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none; /* Remove input outline on focus */
+}
+
+.filter-category {
+  position: relative;
+  margin-left: 10px;
+}
+
+.filter-btn {
+  background-color: #f90; /* Orange background color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(169, 169, 169, 0.7); /* Grey transparent background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: none;
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown li:hover {
+  background-color: #e17000; /* Darker orange hover color */
+}
+
+.filter-category:hover .dropdown {
+  display: block;
+}
+
+/* Add a subtle animation to the dropdown */
+.dropdown {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.filter-category:hover .dropdown {
+  display: block;
+  opacity: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
+
   .search-bar input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
+    margin-bottom: 10px;
   }
-  
+}

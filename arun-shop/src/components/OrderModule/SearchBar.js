@@ -1,8 +1,9 @@
 // SearchBar.js
 import React, { useState } from "react";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, categories, onCategoryFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -10,13 +11,33 @@ const SearchBar = ({ onSearch }) => {
     onSearch(value);
   };
 
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    onCategoryFilter(category);
+  };
+
   return (
-    <input
-      type="text"
-      placeholder="Search products..."
-      value={searchTerm}
-      onChange={handleInputChange}
-    />
+    <div className="search-bar">
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={searchTerm}
+        onChange={handleInputChange}
+      />
+      <div className="filter-category">
+        <button className="filter-btn">Filter by Category</button>
+        <div className="dropdown">
+          <ul>
+            <li onClick={() => handleCategoryChange("")}>All Categories</li>
+            {categories.map((category) => (
+              <li key={category} onClick={() => handleCategoryChange(category)}>
+                {category}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 

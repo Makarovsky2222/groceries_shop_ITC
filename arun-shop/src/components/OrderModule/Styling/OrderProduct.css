@@ -1,9 +1,14 @@
+/* OrderProduct.css */
+
 .order-dashboard {
   display: contents;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
 }
 
-.main-content {
-  flex: 1;
-  padding: 40px;
-  margin-left: 220px; /* Adjusted margin to make space for the left panel */
+.category-wrapper {
+  display: contents;
+  flex-direction: row;
+  /* Add styles if necessary */
 }
