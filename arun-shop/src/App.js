@@ -9,7 +9,9 @@ import Order from './pages/Order';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
 import About from './pages/About';
-import Draft from './pages/Draft'
+// testing route
+import CateTest from './pages/BackendTest/CateTest'
+import ProdTest from './pages/BackendTest/ProdTest';
 
 const App = () => {
   return (
@@ -26,7 +28,9 @@ const App = () => {
             <Route exact path="/history" element={<History />} />
             <Route exact path="/product" element={<ProductList />} />
             <Route exact path="/about" element={<About />} />
-            <Route exact path="/draft" element={<Draft />} />
+
+            <Route exact path="/cateTest" element={<CateTest />} />
+            <Route exact path="/prodTest" element={<ProdTest />} />
 
           </Routes>
         </main>
