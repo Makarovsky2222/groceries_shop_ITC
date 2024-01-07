@@ -1,8 +1,8 @@
-//Draft.js
+//CateTest.js
 import React, { useState } from 'react';
-import { addCategory, deleteById, getAllCategory, getByID, updateByID, updateCateImage } from "../services/Category";
+import { addCategory, deleteById, getAllCategory, getByID, updateByID, updateCateImage } from "../../services/Category";
 
-const Draft = () => {
+const CateTest = () => {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -31,9 +31,8 @@ const Draft = () => {
     const allCate = () => {
         const cat = getAllCategory()
 
-        for (let i = 0; i < 3; i++) {
-            console.log("data: ", cat[i])
-          }
+        console.log("data: ", cat)
+          
     }
     
     const getCateByID = () => {
@@ -90,4 +89,4 @@ const Draft = () => {
     );
 };
 
-export default Draft;
+export default CateTest;
