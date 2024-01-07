@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import './Styling/Loginpage.css'
+import './Styling/Login.css'
+import '../LoginModule/Loginpage.css'
 import { login } from '../../services/Authentication';
+
+import { CgProfile } from "react-icons/cg";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 
 const Login = () => {
@@ -29,32 +33,24 @@ const Login = () => {
     }
 
     return (
-        <div className="App">
-        <h1>Login Form</h1>
-        <form onSubmit={handleSubmit}>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-          <br />
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          <br />
-          <button type="submit">Login</button>
-        </form>
-      </div>
+        <div className='wrapper'>
+          <form action=''>
+            <h1> LOGIN</h1>
+            <div className='input-box'>
+                <input type='email' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required/>
+            </div>
+            <div className='input-box'>
+                <input type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} required/>
+            </div>
+            <div className='forgot'>
+              <a href='#'>Forgot password?</a>
+            </div>
+            <button type='submit'>Login</button>
+            <div className='register'>
+              <p> Don't have an account? <a href="#">Register</a></p>
+            </div>
+          </form>
+        </div>
     );
 }
 
