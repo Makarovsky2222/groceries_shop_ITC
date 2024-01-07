@@ -83,3 +83,24 @@ export async function updateProductCategory(productId, newCategory_id) {
     }
   }
   
+
+export async function getProductsByCategoryId(categoryId) {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'products'), {
+        where: {
+          categoryId: categoryId
+        }
+      });
+  
+      const products = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+  
+      return products;
+    } catch (error) {
+      console.error('Error retrieving products:', error);
+      throw error; // Re-throw the error for proper handling
+    }
+  }
+  
