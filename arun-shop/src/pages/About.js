@@ -2,6 +2,7 @@
 import React from "react";
 import { localUserChecking, logout } from "../services/Authentication";
 
+
 const About = () => {
 
     localUserChecking().then((user) => {
@@ -16,6 +17,9 @@ const About = () => {
     return (
         <div>
             <button onClick={logout()}>Sign Out</button>
+
+            
+
         </div>
     )
 };
