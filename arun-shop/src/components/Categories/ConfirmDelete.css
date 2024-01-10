@@ -1,0 +1,85 @@
+
+.delete-product-container {
+    width: 380px;
+    height: 220px;
+    border-radius: 12px;
+    border: 2px solid #E5E5E5;
+    /* display: flex;
+    flex-direction: column; */
+
+    margin: 50px;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: black;
+    border-radius: 12px 12px 0 0;
+    color: #DB9E00;
+    font-size: 26px;
+    font-size: bold;
+    
+
+
+}
+
+.confirm-text {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 40px;
+    
+}
+
+.choices-button {
+    width: 95%;
+    margin-left: 10px;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#cancel-button {
+    height: 50px;
+    width: 175px;
+    border: 1px solid #636363;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #636363;
+
+    &:hover {
+        color: #000000;
+        font-weight: 500;
+        border: 1px solid #000000;
+    }
+    
+}
+
+#delete-button {
+    height: 50px;
+    width: 175px;
+    background-color: #000000;
+    color: #DB9E00;
+
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:hover {
+        color: #846b2b;
+        font-weight: 500;
+   
+    }
+    
+
+}
+
+
+

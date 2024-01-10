@@ -2,6 +2,7 @@
 import React from "react";
 import { checkingUserSign, getMe, logout } from "../services/Authentication";
 import AllProductList from '../components/Categories/CategoryProducts';
+import DeleteProduct from "../components/Categories/ConfirmDelete";
 
 const Home = () => {
 
@@ -10,6 +11,7 @@ const Home = () => {
         <div>
             Home
             <AllProductList />
+            <DeleteProduct />
         </div>
     )
 };
