@@ -32,25 +32,36 @@ const Login = () => {
         
     }
 
-    return (
+    return ( 
+    <form action='login'>
         <div className='wrapper'>
-          <form action=''>
-            <h1> LOGIN</h1>
-            <div className='input-box'>
-                <input type='email' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required/>
+            <div className='login'>
+               <h1>LOGIN</h1>
             </div>
-            <div className='input-box'>
-                <input type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} required/>
+            <div className='bottom'>
+                <div className='left'>
+                    <img src={require('../../img/image 1.png')}></img>
+                </div>
+                <div className='right'>
+                    <div className='input-box'>
+                        <input type='email' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required/>
+                    </div>
+                    <div className='input-box'>
+                        <input type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} required/>
+                    </div>
+                     <div className='forgot'>
+                        <a href='#'>Forgot password?</a>
+                     </div>
+                    <div className='register'>
+                        <p> Don't have an account?<a href="#">Register</a></p>
+                        <button type='submit'>Login</button>
+                    </div>
+                </div>
             </div>
-            <div className='forgot'>
-              <a href='#'>Forgot password?</a>
-            </div>
-            <button type='submit'>Login</button>
-            <div className='register'>
-              <p> Don't have an account? <a href="#">Register</a></p>
-            </div>
-          </form>
-        </div>
+            
+        </div>  
+    </form>
+
     );
 }
 
