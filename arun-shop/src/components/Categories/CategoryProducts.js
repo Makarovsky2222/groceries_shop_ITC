@@ -1,5 +1,6 @@
 import React from "react";
 import './CategoryProducts.css'
+import EditDeleteAction from './ActionButtons'
 
 
 function AllProductList() {
@@ -31,14 +32,7 @@ function AllProductList() {
                     
                 </div>
 
-                <div className="edit-delete">
-                    <button id="edit-button" type="button" >
-                        <img id="edit-img" src="../../Resources/icons/edit.svg" />
-                    </button>
-                    <button id="dlt-button" type="button" >
-                        <img id="dlt-img" src="../../Resources/icons/delete.svg" />
-                    </button>
-                </div>
+                <EditDeleteAction />
 
             </div>
 
