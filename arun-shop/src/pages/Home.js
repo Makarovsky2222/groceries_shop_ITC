@@ -1,17 +1,38 @@
 //Home.js
 import React from "react";
-import { checkingUserSign, getMe, logout } from "../services/Authentication";
-import AllProductList from '../components/Categories/CategoryProducts';
-import DeleteProduct from "../components/Categories/ConfirmDelete";
+import { getUserID, logout } from "../services/Authentication";
+import { getMe, updateUser } from "../services/UserServices";
 
 const Home = () => {
+    const profile = async () => {
+        const uid = getUserID()
 
-    
+        getMe(uid).then( (doc) => {
+            console.log("Me: ", doc)
+        })
+
+    }
+
+    async function editUser() {
+        const uid = getUserID()
+
+        await updateUser(uid, {
+            username: 'power bank',
+            firstname: 'dsfasf',
+            lastname: 'ddddddddd',
+            email: 'testing35@gmail.com',
+            phone_number: '12343213423',
+            image_url: '',
+            register_date: 'dsafasfassa',
+        })
+    }
+
+
     return (
         <div>
             Home
-            <AllProductList />
-            <DeleteProduct />
+            <button onClick={profile}>getMe</button>
+            <button onClick={editUser}>Update User</button>
         </div>
     )
 };
