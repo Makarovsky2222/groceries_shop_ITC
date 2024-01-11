@@ -39,15 +39,26 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-block: 5px;
   align-items: center;
+}
+
+.logo img{
+  border-radius: 10px;
+  background: rgba(219, 158, 0, 0.5); /* Darker and more transparent background */
+  padding: 10px; /* Adjusted padding */
+  width: 40px; /* Set your desired fixed width */
+  height: 40px; /* Set your desired fixed height */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.logo img:hover{
+  background-color: #555;
 }
 
 li {
   margin-bottom: 8px;
-  border-radius: 10px;
-  background: rgba(219, 158, 0, 0.5); /* Darker and more transparent background */
-  padding: 10px; /* Adjusted padding */
-  margin-block: 5px;
+  margin-block: 30px;
   max-width: 70%;
   display: grid;
   justify-content: center;
@@ -65,11 +76,6 @@ a {
   justify-content: center;
 }
 
-li:hover {
-  background-color: #555;
-}
-
-
 .toggle-btn {
   cursor: pointer;
   text-align: center;
@@ -78,6 +84,14 @@ li:hover {
   padding: 8px;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
+.textlogo {
+  margin-left:15px;
 }
 
 main {

@@ -9,6 +9,7 @@ import Order from './pages/Order';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
 import About from './pages/About';
+
 // testing route
 import CateTest from './pages/BackendTest/CateTest'
 import ProdTest from './pages/BackendTest/ProdTest';
@@ -27,7 +28,7 @@ const App = () => {
             <Route exact path="/order" element={<Order />} />
             <Route exact path="/history" element={<History />} />
             <Route exact path="/product" element={<ProductList />} />
-            <Route exact path="/about" element={<About />} />
+            <Route exact path="/about" element={<SignUp />} />
 
             <Route exact path="/cateTest" element={<CateTest />} />
             <Route exact path="/prodTest" element={<ProdTest />} />

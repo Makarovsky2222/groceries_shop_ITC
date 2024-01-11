@@ -18,59 +18,67 @@ const Navigation = () => {
       <div className="top-logo">
         <img src={toplogo} alt="Top Logo" />
       </div>
-      <ul>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {isReduced ? (
-          <li>
-            <Link to="/order">
-            <div className="logo">
-              <img src={orderlogo} alt="Order Logo" />
-            </div>
-            </Link>
-          </li>
-        ) : (
-          <li>
-            <img src={orderlogo} alt="Order Logo" />
-            <Link to="/order">
-              <span>Order</span>
-              </Link>
-          </li>
-        )}
-        {isReduced ? (
-          <li>
-            <Link to="/history">
-              <img src={historylogo} alt="History Logo" />
-            </Link>
-          </li>
-        ) : (
-          <li>
-            <img src={historylogo} alt="History Logo" />
-            <Link to="/history">History</Link>
-          </li>
-        )}
-        {isReduced ? (
-          <li>
-            <Link to="/product">
-              <img src={stocklogo} alt="Stock Logo" />
-            </Link>
-          </li>
-        ) : (
-          <li>
-            <img src={stocklogo} alt="Stock Logo" />
-            <Link to="/product">Stock</Link>
-          </li>
-        )}
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+      <div className="category-pages">
+        <ul>
+          <div className="logo">
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            {isReduced ? (
+              <li>
+                <Link to="/order">
+                  <img src={orderlogo} alt="Order Logo" />
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/order">
+                  <img src={orderlogo} alt="Order Logo" />
+                  <div className="textlogo">
+                    <span>Order</span>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {isReduced ? (
+              <li>
+                <Link to="/history">
+                  <img src={historylogo} alt="History Logo" />
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/history">
+                  <img src={historylogo} alt="History Logo" />
+                  <div className="textlogo">History</div>
+                </Link>
+              </li>
+            )}
+            {isReduced ? (
+              <li>
+                <Link to="/product">
+                  <img src={stocklogo} alt="Stock Logo" />
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/product">
+                  <img src={stocklogo} alt="Stock Logo" />
+                  <div className="textlogo">Stock</div>
+                </Link>
+              </li>
+            )}
+            <li>
+              <Link to="/signup">SignUp</Link>
+            </li>
+          </div>
+        </ul>
+      </div>
       <div className="toggle-btn" onClick={toggleNavbar}>
-        {isReduced ? '→' : '←'}
+        {isReduced ? "→" : "←"}
       </div>
     </nav>
   );
