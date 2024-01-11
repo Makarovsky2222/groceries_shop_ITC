@@ -13,7 +13,7 @@ const Receipt = ({ products, subtotal }) => {
           <li key={index}>
             {product.name} - ${product.price.toFixed(2)}
           </li>
-        ))}
+        ))} 
       </ul>
       <div className="receipt-subtotal">
         Subtotal: ${subtotal.toFixed(2)}
