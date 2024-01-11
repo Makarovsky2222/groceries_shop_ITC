@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { signup, getUserID, logout } from '../services/Authentication.js'
 import { addUser } from '../services/UserServices.js';
+import './Styles/SignUp.css'
 
 const SignUp = () => {
   const [formData, setFormData] = useState({

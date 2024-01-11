@@ -10,6 +10,8 @@ import categoriesData from "./categories.json";
 import "./Styling/OrderProduct.css";
 import "./Styling/OrderProductCategory.css";
 import "./Styling/SearchBar.css";
+import CateTest from "../../pages/BackendTest/CateTest";
+
 
 const OrderProduct = () => {
   const initialCategories = useMemo(() => categoriesData.categories, []);
@@ -40,6 +42,7 @@ const OrderProduct = () => {
   };
 
   return (
+    
     <DndProvider backend={HTML5Backend}>
       <div className="order-dashboard">
         <div className="search-bar-wrapper">
@@ -64,6 +67,7 @@ const OrderProduct = () => {
           <Category key={category.categoryName} {...category} />
         ))}
         <Caddy />
+        <CateTest /> 
       </div>
     </DndProvider>
   );
