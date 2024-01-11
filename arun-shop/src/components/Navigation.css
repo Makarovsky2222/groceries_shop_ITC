@@ -1,4 +1,3 @@
-/* Navigation.css */
 nav {
   border-radius: 0px 14px 14px 0px;
   background: #000;
@@ -41,8 +40,9 @@ a:hover {
   background-color: #555;
 }
 
-/* Add some margin to create space for the content */
+/* Adjusted the margin to create space for the left panel */
 main {
-  margin-left: 300px; /* Adjust the margin based on your sidebar width */
-  padding: 20px; /* Optional: Add padding for a cleaner look */
+  margin-top: 2%;
+  margin-left: 240px;
+  padding: 30px;
 }

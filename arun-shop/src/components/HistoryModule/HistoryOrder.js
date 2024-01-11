@@ -1,13 +1,13 @@
-// OrderProduct.js
 import React, { useState } from "react";
-import OrderForm from "./OrderForm";
 import OrderList from "./OrderList";
-import LeftPanel from "./LeftPanel";
-import "./OrderProduct.css";
+import OrderForm from "./OrderForm";
+import HistoryPanel from "./HistoryPanel"
+import './Styling/HistoryOrder.css'
 
-const OrderProduct = () => {
-  const [currentView, setCurrentView] = useState("newOrder");
-  const [orders, setOrders] = useState([
+const HistoryOrder = () => {
+
+    // Initial data
+  const initialOrders = [
     {
       id: "1",
       name: "Order 1",
@@ -15,7 +15,7 @@ const OrderProduct = () => {
       author: "John Doe",
       location: "Location 1",
       amount: 150.0,
-      },
+    },
     {
       id: "2",
       name: "Order 2",
@@ -24,38 +24,38 @@ const OrderProduct = () => {
       location: "Location 2",
       amount: 200.0,
     },
-  ]);
+  ];
 
-  const [newOrder, setNewOrder] = useState({
+  const initialNewOrder = {
     id: "",
     name: "",
     date: "",
     author: "",
     location: "",
     amount: "",
-  });
+  };
 
-
-  const [categories, setCategories] = useState([
-    "Category1",
-    "Category2",
-    "Category3",
-  ]);
-
-  const [locations, setLocations] = useState([
+  const initialLocations = [
     "Arun Shop Toul Tum Poung",
     "Arun Shop Daun Penh",
     "Arun Shop BKK1",
-  ]);
+  ];
+
+  // State variables
+  const [currentView, setCurrentView] = useState("newOrder");
+  const [orders, setOrders] = useState(initialOrders);
+  const [newOrder, setNewOrder] = useState(initialNewOrder);
+  const [locations] = useState(initialLocations);
   const [isOrderFormOpen, setOrderFormOpen] = useState(false);
 
+  // Functions for handling orders
   const handleOrderSubmit = () => {
     console.log("Order Submitted:", newOrder);
     setOrders((prevOrders) => [
       ...prevOrders,
       { ...newOrder, id: String(prevOrders.length + 1) },
     ]);
-    setOrderFormOpen(false); // Close the order form after submission
+    setOrderFormOpen(false);
   };
 
   const filterAndSortOrders = (columnName) => {
@@ -75,37 +75,32 @@ const OrderProduct = () => {
     setOrders(sortedOrders);
   };
 
-  const renderOrderForm = () => (
-    <OrderForm
-      newOrder={newOrder}
-      setNewOrder={setNewOrder}
-      categories={categories}
-      locations={locations}
-      handleOrderSubmit={handleOrderSubmit}
-      setOrderFormOpen={setOrderFormOpen}
-    />
-  );
-
-  const renderOrderList = () => (
-    <OrderList
-      currentView={currentView}
-      orders={orders}
-      filterAndSortOrders={filterAndSortOrders}
-    />
-  );
-
   return (
     <div className="order-dashboard">
-      <LeftPanel
+    <HistoryPanel
+    setOrderFormOpen={setOrderFormOpen}
+    setCurrentView={setCurrentView}
+  />
+    <div className="order-form-container">
+    {isOrderFormOpen && (
+      <OrderForm
+        newOrder={newOrder}
+        setNewOrder={setNewOrder}
+        locations={locations}
+        handleOrderSubmit={handleOrderSubmit}
         setOrderFormOpen={setOrderFormOpen}
-        setCurrentView={setCurrentView}
       />
-      <div className="order-form-container">
-        {isOrderFormOpen && renderOrderForm()}
-        {currentView === "currentOrders" && renderOrderList()}
-      </div>
-    </div>
-  );
-};
+    )}
+    {currentView === "currentOrders" && (
+      <OrderList
+        currentView={currentView}
+        orders={orders}
+        filterAndSortOrders={filterAndSortOrders}
+      />
+    )}
+  </div>
+  </div>
+  )
+}
 
-export default OrderProduct;
+export default HistoryOrder;

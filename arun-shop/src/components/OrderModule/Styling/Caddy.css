@@ -1,0 +1,31 @@
+/* Caddy.css */
+
+.caddy {
+  display: flex;
+  flex-direction: column; /* Adjust as needed */
+  width: 300px;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: #f8f8f8;
+}
+
+.product-list {
+  margin-top: 10px;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.product-name {
+  flex: 1;
+}
+
+.subtotal {
+  margin-top: 20px;
+  font-weight: bold;
+}

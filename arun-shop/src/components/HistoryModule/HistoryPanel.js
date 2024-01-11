@@ -1,8 +1,8 @@
-// LeftPanel.js
+// HistoryPanel.js
 import React from "react";
 
-const LeftPanel = ({ setOrderFormOpen, setCurrentView }) => (
-  <div className="left-panel">
+const HistoryPanel = ({ setOrderFormOpen, setCurrentView }) => (
+  <div className="history-panel">
     <button onClick={() => setOrderFormOpen(true)}>New Order</button>
     <button onClick={() => setCurrentView("currentOrders")}>
       History
@@ -10,4 +10,4 @@ const LeftPanel = ({ setOrderFormOpen, setCurrentView }) => (
   </div>
 );
 
-export default LeftPanel;
+export default HistoryPanel;
