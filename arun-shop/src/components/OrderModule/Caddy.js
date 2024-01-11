@@ -1,11 +1,11 @@
 // Caddy.js
-import React, { useState } from 'react';
-import { useDrop } from 'react-dnd';
-import { Card, Button, Modal } from 'react-bootstrap';
-import Product from '../Product';
-import Receipt from './Receipt';
-import PaymentWindow from './PaymentWindow';
-import './Styling/Caddy.css';
+import React, { useState } from "react";
+import { useDrop } from "react-dnd";
+import { Card, Button, Modal } from "react-bootstrap";
+import Product from "../Product";
+import Receipt from "./Receipt";
+import PaymentWindow from "./PaymentWindow";
+import "./Styling/Caddy.css";
 
 const Caddy = () => {
   const [droppedProducts, setDroppedProducts] = useState([]);
@@ -13,7 +13,7 @@ const Caddy = () => {
   const [showPayment, setShowPayment] = useState(false);
 
   const [, drop] = useDrop({
-    accept: 'PRODUCT',
+    accept: "PRODUCT",
     drop: (item) => {
       setDroppedProducts((prevProducts) => [...prevProducts, item.product]);
     },
@@ -25,10 +25,16 @@ const Caddy = () => {
   );
 
   const handleOrderSubmit = () => {
-    setShowPayment(true);
+    if (droppedProducts.length > 0) {
+      setShowPayment(true);
+    } else {
+      // Display a message or notification indicating that the caddy is empty
+      console.log("Caddy is empty. Add products to proceed.");
+    }
   };
 
   const handleCloseReceipt = () => {
+    setDroppedProducts([]); // Reset the caddy
     setShowReceipt(false);
   };
 
@@ -53,8 +59,14 @@ const Caddy = () => {
           </div>
           <hr />
           <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
-          <div className="subtotal">Subtotal: {subtotal.toFixed(2) * 4100} Riel</div>
-          <Button variant="primary" onClick={handleOrderSubmit}>
+          <div className="subtotal">
+            Subtotal: {subtotal.toFixed(2) * 4100} Riel
+          </div>
+          <Button
+            disabled={droppedProducts.length === 0}
+            variant="primary"
+            onClick={handleOrderSubmit}
+          >
             Proceed to Payment
           </Button>
         </Card.Body>
@@ -75,7 +87,11 @@ const Caddy = () => {
           <Modal.Title>Receipt</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Receipt products={droppedProducts} subtotal={subtotal} />
+          <Receipt
+            products={droppedProducts}
+            subtotal={subtotal}
+            onClose={handleCloseReceipt}
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseReceipt}>

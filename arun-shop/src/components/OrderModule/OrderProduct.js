@@ -67,7 +67,6 @@ const OrderProduct = () => {
           <Category key={category.categoryName} {...category} />
         ))}
         <Caddy />
-        <CateTest /> 
       </div>
     </DndProvider>
   );

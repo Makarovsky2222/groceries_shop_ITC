@@ -53,6 +53,7 @@ ul {
 }
 
 .logo img:hover{
+  transform: translateY(-5px); /* Move the card slightly upward on hover */
   background-color: #555;
 }
 
