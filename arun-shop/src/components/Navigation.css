@@ -1,4 +1,5 @@
-nav {
+/* Navigation.css */
+.navbar {
   border-radius: 0px 14px 14px 0px;
   background: #000;
   padding: 10px;
@@ -8,6 +9,28 @@ nav {
   left: 0;
   top: 0;
   overflow-y: auto;
+  transition: width 0.3s ease;
+}
+
+.navbar.reduced {
+  width: 100px; /* Set your desired reduced width */
+}
+
+.top-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-logo img {
+  max-width: 100%; /* Ensure the logo doesn't exceed its container width */
+  height: auto; /* Maintain aspect ratio */
+  transition: max-width 0.3s ease; /* Added transition for logo size */
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  transition: max-width 0.3s ease; /* Added transition for logo size */
 }
 
 ul {
@@ -15,32 +38,48 @@ ul {
   padding: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 li {
-  margin-bottom: 10px;
-  border-radius: 15px;
-  background: rgba(219, 158, 0, 0.75);
-  padding: 15px 15.142px 15px 14.858px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: rgba(219, 158, 0, 0.5); /* Darker and more transparent background */
+  padding: 10px; /* Adjusted padding */
+  margin-block: 5px;
+  max-width: 70%;
+  display: grid;
   justify-content: center;
-  align-items: center;
 }
 
 a {
   text-decoration: none;
   color: white;
-  font-size: 16px;
-  padding: 10px;
+  font-size: 12px; /* Smaller font size */
+  padding: 8px;
   border-radius: 5px;
   transition: background-color 0.3s;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-a:hover {
+li:hover {
   background-color: #555;
 }
 
-/* Adjusted the margin to create space for the left panel */
+
+.toggle-btn {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  background-color: #333;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 main {
   margin-top: 2%;
   margin-left: 240px;
