@@ -3,7 +3,7 @@ import React from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import './Searchbar.css';
 
-const DropdownFilter = () => {
+const SearchBar = () => {
   const categories = [
     'Vegetables',
     'Fruits',
@@ -45,4 +45,4 @@ const DropdownFilter = () => {
   );
 };
 
-export default DropdownFilter;
+export default SearchBar;
