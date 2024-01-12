@@ -2,7 +2,7 @@
 .navbar {
   border-radius: 0px 14px 14px 0px;
   background: #000;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   height: 100vh;
   position: fixed;
@@ -93,6 +93,7 @@ a {
 
 .textlogo {
   margin-left:15px;
+  font-weight: bold;
 }
 
 main {

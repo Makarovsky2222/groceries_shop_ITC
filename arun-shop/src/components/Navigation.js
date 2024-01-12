@@ -6,6 +6,7 @@ import toplogo from "../Resources/logo/logo.svg";
 import orderlogo from "../Resources/icons/order.svg";
 import stocklogo from "../Resources/icons/stock.svg";
 import historylogo from "../Resources/icons/history.svg";
+import categorylogo from "../Resources/icons/categories.svg";
 
 const Navigation = () => {
   const [isReduced, setReduced] = useState(false);
@@ -22,10 +23,7 @@ const Navigation = () => {
         <ul>
           <div className="logo">
             <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/">Home</Link>
+              <Link to="/login">LOGIN</Link>
             </li>
             {isReduced ? (
               <li>
@@ -38,7 +36,23 @@ const Navigation = () => {
                 <Link to="/order">
                   <img src={orderlogo} alt="Order Logo" />
                   <div className="textlogo">
-                    <span>Order</span>
+                    <span>ORDER</span>
+                  </div>
+                </Link>
+              </li>
+            )}
+            {isReduced ? (
+              <li>
+                <Link to="/categories">
+                  <img src={categorylogo} alt="Category Logo" />
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/categories">
+                  <img src={categorylogo} alt="Category Logo" />
+                  <div className="textlogo">
+                    <span>CATEGORIES</span>
                   </div>
                 </Link>
               </li>
@@ -53,7 +67,7 @@ const Navigation = () => {
               <li>
                 <Link to="/history">
                   <img src={historylogo} alt="History Logo" />
-                  <div className="textlogo">History</div>
+                  <div className="textlogo">HISTORY</div>
                 </Link>
               </li>
             )}
@@ -67,7 +81,7 @@ const Navigation = () => {
               <li>
                 <Link to="/product">
                   <img src={stocklogo} alt="Stock Logo" />
-                  <div className="textlogo">Stock</div>
+                  <div className="textlogo">STOCK</div>
                 </Link>
               </li>
             )}

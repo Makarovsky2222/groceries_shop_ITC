@@ -8,7 +8,8 @@ import ProductList from './pages/ProductList';
 import Order from './pages/Order';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
-import About from './pages/About';
+import Categories from './pages/Categories';
+
 
 // testing route
 import CateTest from './pages/BackendTest/CateTest'
@@ -26,6 +27,7 @@ const App = () => {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/order" element={<Order />} />
+            <Route exact path="/categories" element={<Categories />} />
             <Route exact path="/history" element={<History />} />
             <Route exact path="/product" element={<ProductList />} />
             <Route exact path="/about" element={<SignUp />} />
