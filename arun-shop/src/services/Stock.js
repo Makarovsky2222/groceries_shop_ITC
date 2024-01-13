@@ -55,3 +55,13 @@ export async function getStockByID(stock_id) {
 }
 
 
+export async function updateStockByID(stock_id, newData) {
+    try {
+        const docRef = await doc(db, docName, stock_id)
+        await updateDoc(docRef, updatedData)
+
+        console.log("update successfully!")
+    } catch (error) {
+        console.log(error)
+    }
+}

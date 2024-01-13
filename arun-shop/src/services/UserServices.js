@@ -11,7 +11,6 @@ export const addUser = async (uid, user) => {
             lastname: user.lastname,
             email: user.email,
             phone_number: user.phone_number,
-            password: user.password,
             image_url: user.image_url || null,
             register_date: user.register_date
         });
