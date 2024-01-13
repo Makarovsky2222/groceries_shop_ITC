@@ -14,6 +14,7 @@ import Categories from './pages/Categories';
 // testing route
 import CateTest from './pages/BackendTest/CateTest'
 import ProdTest from './pages/BackendTest/ProdTest';
+import OrderTest from './pages/BackendTest/OrderTest';
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
 
             <Route exact path="/cateTest" element={<CateTest />} />
             <Route exact path="/prodTest" element={<ProdTest />} />
+            <Route exact path="/orderTest" element={<OrderTest />} />
 
           </Routes>
         </main>
