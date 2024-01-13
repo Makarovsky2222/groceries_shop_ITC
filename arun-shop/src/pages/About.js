@@ -1,14 +1,16 @@
 //About.js
 import React from "react";
-import { localUserChecking, logout } from "../services/Authentication";
-
+import ProductInfo from "../components/Categories/ProductDetail";
 
 const About = () => {
 
     
     return (
         <div>
-            <button onClick={logout}>Sign Out</button>
+            
+
+            <ProductInfo />
+
         </div>
     )
 };
