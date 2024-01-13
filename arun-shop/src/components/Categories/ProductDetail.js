@@ -3,6 +3,9 @@ import './Styling/ProductDetail.css'
 import imageCancel from '../../Resources/icons/cancel.svg'
 import EditDeleteAction from './ActionButtons';
 import UploadAndDisplayImage from './UploadImage';
+import FilterCategory from '../General/FilterCategory'
+import BasicExample from '../General/DefultDropdown';
+
 
 function ProductInfo() {
 
@@ -22,28 +25,13 @@ function ProductInfo() {
                 <UploadAndDisplayImage />
             </div>
 
+
             <div className='input-info'>
                 <input id='product-name' type="text" placeholder="Name"></input>
-
-                <div>
-                    
-                </div>
-
             </div>
 
-
-
-
-
-
-
+            <FilterCategory className="ddd" />
             
-
-
-
-             
-
-
         </div>
     )
 

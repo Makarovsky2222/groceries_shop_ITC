@@ -57,7 +57,7 @@
 .input-info {
     position: relative;
     width: 90%;
-    height: 45px;
+    height: auto;
     border-bottom: 1px solid #6C6C6C;
     transition: all 0.3s ease;
     margin-top: 50px;
@@ -65,8 +65,9 @@
     align-items: center;
    }
    
-   .input-info input {
+   .input-info #product-name {
     position: absolute;
+    height: 45px;
     top: 0;
     left: 0;
     width: 100%;
@@ -82,3 +83,15 @@
     border-left: 1px solid #6C6C6C;
     border-right: 1px solid #6C6C6C;
    }
+
+
+.ddd {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+
+
+    width: 100px;
+    height: 100px;
+
+}

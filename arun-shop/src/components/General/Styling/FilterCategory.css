@@ -1,0 +1,46 @@
+.filter-container {
+    width: 28%;
+    height: 100%;
+    cursor: pointer;
+    background-color: #DB9E00;
+    border-radius: 15px 0 0 15px;
+}
+
+#dropdown-basic {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background-color: #DB9E00;
+    border-radius: 15px 0 0 15px;
+    border: 1px solid #C4C4C4;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#dropdown-menu {
+    width: 11%;
+    height: auto;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #C4C4C4;
+}
+.filter-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    
+    
+    color: #000000;
+}
+
+.dropdown-item {
+    font-weight: 600px;
+    color: #000000;
+
+    &:hover {
+        background-color: #DB9E00;
+        color: white;
+      }
+}

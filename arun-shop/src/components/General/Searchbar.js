@@ -24,7 +24,7 @@ const DropdownFilter = () => {
 
         <Dropdown.Menu id="dropdown-menu">
           {categories.map((category, index) => (
-            <Dropdown.Item href="#/action-1"> {category} </Dropdown.Item>
+            <Dropdown.Item href="#/action-1" key={index}> {category} </Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
