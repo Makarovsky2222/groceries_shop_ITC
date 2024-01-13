@@ -78,18 +78,26 @@ a {
 }
 
 .toggle-btn {
+  width: 30%;
+  height: 50%;
+  margin-left:80px;
   cursor: pointer;
   text-align: center;
   color: white;
-  background-color: #333;
-  padding: 8px;
-  border-radius: 5px;
+  background-color: #3498db; /* Modern blue color, feel free to adjust */
+  padding: 12px 16px; /* Increased padding for a more substantial feel */
+  border-radius: 10px; /* Rounder corners for a modern look */
   margin-top: 10px;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  border: none; /* Removing border for a cleaner look */
+  font-size: 16px; /* Adjust font size for better readability */
+  font-weight: bold; /* Make the text bold for emphasis */
 }
 
 .toggle-btn:hover {
-  background-color: #555;
+  background-color: #2980b9; /* Darker blue on hover for a subtle effect */
 }
+
 
 .textlogo {
   margin-left:15px;

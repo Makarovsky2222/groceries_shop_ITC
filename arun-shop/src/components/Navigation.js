@@ -22,6 +22,9 @@ const Navigation = () => {
       <div className="category-pages">
         <ul>
           <div className="logo">
+            <div className="toggle-btn" onClick={toggleNavbar}>
+              {isReduced ? "+" : "-"}
+            </div>
             <li>
               <Link to="/login">LOGIN</Link>
             </li>
@@ -85,14 +88,8 @@ const Navigation = () => {
                 </Link>
               </li>
             )}
-            <li>
-              <Link to="/signup">SignUp</Link>
-            </li>
           </div>
         </ul>
-      </div>
-      <div className="toggle-btn" onClick={toggleNavbar}>
-        {isReduced ? "→" : "←"}
       </div>
     </nav>
   );
