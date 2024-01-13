@@ -86,7 +86,7 @@ export async function updateProductCategory(productId, newCategory_id) {
 
 export async function getProductsByCategoryId(categoryId) {
     try {
-      const querySnapshot = await getDocs(collection(db, 'products'), {
+      const querySnapshot = await getDocs(collection(db, docName), {
         where: {
           categoryId: categoryId
         }
@@ -104,3 +104,16 @@ export async function getProductsByCategoryId(categoryId) {
     }
   }
   
+
+export async function addAmountProduct(prod_id, addAmount) {
+    try {
+      const product = getProductById(prod_id)
+      const newAmount = product.amount + addAmount
+      
+      await updateDoc(doc(db, docName, prod_id), {
+        amount: newAmount
+      });
+    } catch (error) {
+      
+    }
+}
