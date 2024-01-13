@@ -30,11 +30,11 @@ export async function getOrders() {
 
 export async function getOrderById(orderId) {
   try {
-    const docSnap = await getDoc(doc(db, docName, orderId));
+    const docSnap = await getDoc(doc(db, docName, orderId))
     if (docSnap.exists()) {
       const orderData = docSnap.data();
       return {
-        id: orderData.id,
+        id: docSnap.id,
         ...orderData
       };
     } else {
