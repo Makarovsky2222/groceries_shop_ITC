@@ -1,11 +1,12 @@
-import { collection, getFirestore } from "firebase/firestore"
+import { collection, getFirestore, addDoc, getDocs, getDoc, updateDoc, doc,  } from "firebase/firestore"
 
 const db = getFirestore()
-const docName = "orders"
+const docName = 'orders'
 
-export async function createOrder(orderData) {
+
+export async function createOrder(order) {
     try {
-        const res = await addDoc(collection(db, docName), orderData);
+        const res = await addDoc(collection(db, docName), order);
         return res
     } catch(error) {
         return null
@@ -26,23 +27,16 @@ export async function getOrders() {
   }
 }
 
-export async function updateOrderTotal(orderId, newTotal) {
-  const updatedData = {
-    totalPrice: newTotal
-  };
-  await updateOrder(orderId, updatedData);
-}
-
-export async function updateOrder(orderId, updatedData) {
-  await updateDoc(doc(db, docName, orderId), updatedData);
-}
 
 export async function getOrderById(orderId) {
   try {
     const docSnap = await getDoc(doc(db, docName, orderId));
     if (docSnap.exists()) {
       const orderData = docSnap.data();
-      return orderData;
+      return {
+        id: orderData.id,
+        ...orderData
+      };
     } else {
       throw new Error(`Order with ID '${orderId}' not found`);
     }
