@@ -1,45 +1,59 @@
 {
-    "categories": [
-      {
-        "categoryName": "Fruits",
-        "products": [
-          { "name": "Apple", "price": 1.5 },
-          { "name": "Banana", "price": 0.75 },
-          { "name": "Orange", "price": 1.2 }
-        ]
-      },
-      {
-        "categoryName": "Vegetables",
-        "products": [
-          { "name": "Carrot", "price": 0.9 },
-          { "name": "Broccoli", "price": 2.0 },
-          { "name": "Tomato", "price": 1.0 }
-        ]
-      },
-      {
-        "categoryName": "Dairy",
-        "products": [
-          { "name": "Milk", "price": 2.0 },
-          { "name": "Cheese", "price": 3.5 },
-          { "name": "Yogurt", "price": 1.8 }
-        ]
-      },
-      {
-        "categoryName": "Meat",
-        "products": [
-          { "name": "Chicken", "price": 5.0 },
-          { "name": "Beef", "price": 7.0 },
-          { "name": "Pork", "price": 6.0 }
-        ]
-      },
-      {
-        "categoryName": "Bakery",
-        "products": [
-          { "name": "Bread", "price": 2.5 },
-          { "name": "Croissant", "price": 3.0 },
-          { "name": "Muffin", "price": 1.5 }
-        ]
-      }
-    ]
-  }
-  
+  "categories": [
+    {
+      "id": "1",
+      "categoryName": "Fruits",
+      "color": "orange",
+      "image_url": "fruits.jpg",
+      "products": [
+        { "id": "101", "name": "Apple", "price": 1.5 },
+        { "id": "102", "name": "Banana", "price": 0.75 },
+        { "id": "103", "name": "Orange", "price": 1.2 }
+      ]
+    },
+    {
+      "id": "2",
+      "categoryName": "Vegetables",
+      "color": "green",
+      "image_url": "vegetables.jpg",
+      "products": [
+        { "id": "104", "name": "Carrot", "price": 0.9 },
+        { "id": "105", "name": "Broccoli", "price": 2.0 },
+        { "id": "106", "name": "Tomato", "price": 1.0 }
+      ]
+    },
+    {
+      "id": "3",
+      "categoryName": "Dairy",
+      "color": "yellow",
+      "image_url": "dairy.jpg",
+      "products": [
+        { "id": "107", "name": "Milk", "price": 2.0 },
+        { "id": "108", "name": "Cheese", "price": 3.5 },
+        { "id": "109", "name": "Yogurt", "price": 1.8 }
+      ]
+    },
+    {
+      "id": "4",
+      "categoryName": "Meat",
+      "color": "brown",
+      "image_url": "meat.jpg",
+      "products": [
+        { "id": "110", "name": "Chicken", "price": 5.0 },
+        { "id": "111", "name": "Beef", "price": 7.0 },
+        { "id": "112", "name": "Pork", "price": 6.0 }
+      ]
+    },
+    {
+      "id": "5",
+      "categoryName": "Bakery",
+      "color": "pink",
+      "image_url": "bakery.jpg",
+      "products": [
+        { "id": "113", "name": "Bread", "price": 2.5 },
+        { "id": "114", "name": "Croissant", "price": 3.0 },
+        { "id": "115", "name": "Muffin", "price": 1.5 }
+      ]
+    }
+  ]
+}

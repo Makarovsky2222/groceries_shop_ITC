@@ -1,8 +1,30 @@
 import { collection, getDocs, getDoc, setDoc, doc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./../Configuration/FirebaseConfig"
 import { updateCatgotyImage, uploadCategoryImage } from "./Storage";
+import categories from "../components/OrderModule/categories.json"
 
 const docName = 'category'
+
+export const addCategoriesFromJson = async () => {
+  try {
+    const data = categories;
+
+    if (data && data.categories) {
+      const categories = data.categories;
+
+      for (const category of categories) {
+        await addCategory(category, "../something.jpg"); 
+      }
+
+      console.log('Categories added successfully.');
+    } else {
+      console.error('Invalid JSON format or missing categories.');
+    }
+  } catch (error) {
+    console.error('Error adding categories:', error);
+  }
+};
+
 
 export const addCategory = async (category, file) => {
     try {

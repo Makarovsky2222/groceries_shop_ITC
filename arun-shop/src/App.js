@@ -9,7 +9,7 @@ import Order from './pages/Order';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
 import Categories from './pages/Categories';
-
+import DateTime from './components/DateModule/DateTime';
 
 // testing route
 import CateTest from './pages/BackendTest/CateTest'
@@ -22,6 +22,7 @@ const App = () => {
       <div>
         <Navigation />
         <main>
+        <DateTime />
           <Routes>
             <Route exact path="/" element={<SignUp />} />
             <Route exact path="/signup" element={<SignUp />} />

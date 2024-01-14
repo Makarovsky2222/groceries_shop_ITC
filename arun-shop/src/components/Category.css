@@ -7,6 +7,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
   transition: transform 0.3s; /* Added a transform transition for a subtle effect on hover */
   position: relative; /* Enable relative positioning */
+  margin-top:60px;
 }
 
 .category:hover {
@@ -14,17 +15,18 @@
 }
 
 .category h2 {
-  margin: 0;
+  margin-bottom:10px;
   padding: 10px; /* Adjusted padding for a smaller "band" */
-  font-size: 1.5em; /* Adjust the font size */
-  color: #343a40; /* Dark text   color */
-  background-color: #007bff; /* Background color for the category name */
   border-radius: 8px; /* Rounded corners */
   text-align: center; /* Center the text */
   position: absolute; /* Position the title absolutely within the category */
   left: 50%; /* Move to the middle horizontally */
   transform: translateX(-50%); /* Adjust to center the title */
   bottom: 100%; /* Move the title above the products */
+  color: black;
+  font-size: 18.37px;
+  font-weight: 400;
+  word-wrap: break-word 
 }
 
 .products-container {
