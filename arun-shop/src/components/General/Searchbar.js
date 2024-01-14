@@ -7,8 +7,6 @@ const DropdownFilter = () => {
   const categories = [
     'Vegetables',
     'Fruits',
-    'Ingredients',
-    'Meats',
     'Drinks',
   ];
 

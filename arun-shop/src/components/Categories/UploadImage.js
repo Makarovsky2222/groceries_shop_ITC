@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import './Styling/UploadImage.css'
+
 
 const UploadAndDisplayImage = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const fileInputRef = useRef(null);
+
+  const handleClick = () => {
+    fileInputRef.current.click();
+  };
 
   return (
     <div>
@@ -14,24 +21,34 @@ const UploadAndDisplayImage = () => {
           <img
             alt="not found"
             width={"250px"}
+            onClick={handleClick}
             src={URL.createObjectURL(selectedImage)}
-          />
-          {/* <button onClick={() => setSelectedImage(null)}>Remove</button> */}
+          /> 
         </div>
-      )}
+      )} 
+    
 
       <br />
       <br />
       
+      <div>
+      <label htmlFor="upload-button">
+        <button onClick={handleClick}>uPLOAD iMAGE</button>
+      </label>
+
       <input
         type="file"
-        name="myImage" 
+        id="upload-button"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
         onChange={(event) => {
-          console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-          
+            console.log(event.target.files[0]);
+            console.log(URL.createObjectURL(event.target.files[0]))
+            setSelectedImage(event.target.files[0]);
         }}
       />
+    </div>
+
     </div>
   );
 };

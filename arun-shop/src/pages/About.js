@@ -2,6 +2,7 @@
 import React from "react";
 import ProductInfo from "../components/Categories/ProductDetail";
 
+
 const About = () => {
 
     

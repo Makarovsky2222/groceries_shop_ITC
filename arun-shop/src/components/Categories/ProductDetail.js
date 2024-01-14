@@ -5,12 +5,12 @@ import EditDeleteAction from './ActionButtons';
 import UploadAndDisplayImage from './UploadImage';
 import FilterCategory from '../General/FilterCategory'
 import BasicExample from '../General/DefultDropdown';
-
+import TestingUploadImage from './TestingUploadImage';
+import { UploadImage } from './UploadImageTesting';
 
 function ProductInfo() {
 
     return (
-
         <div className="control-section">
 
             <div className="header">
@@ -21,8 +21,10 @@ function ProductInfo() {
                 <EditDeleteAction />      
             </div>
 
-            <div className='image-container'>
-                <UploadAndDisplayImage />
+            <div className='image-container' >
+
+                <UploadImage  />
+
             </div>
 
 
@@ -31,6 +33,19 @@ function ProductInfo() {
             </div>
 
             <FilterCategory className="ddd" />
+
+            <div className='priceAndtax'>
+                <input id='pricetax' type="number" placeholder="Price                                           ($)"></input>
+                <input id='pricetax' type="number" placeholder="Tax                                            (%)"></input>
+            </div>
+
+            <textarea className='description-container' placeholder=' Description' rows="5" cols="50">
+                
+            </textarea>
+
+            <button id='saveinfo-button'>
+                SAVE
+            </button>
             
         </div>
     )

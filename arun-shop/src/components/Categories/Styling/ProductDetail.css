@@ -1,6 +1,6 @@
 .control-section {
-    width: 690px;
-    height: 1119px;
+    width: 600px;
+    height: auto;
     border-radius: 19px 0px 0px 19px;
     border: 1px solid #E5E5E5;
     
@@ -23,11 +23,11 @@
 }
 
 .image-container {
-    background-color: blueviolet;
-    width: 250px;
-    height: 230px;
-    
-    
+    /* background-color: blueviolet; */
+    width: 200px;
+    height: 180px;
+    margin-top: 20px;
+    margin-left: 210px;
     
 }
 
@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 
 }
 
@@ -56,32 +57,40 @@
 
 .input-info {
     position: relative;
-    width: 90%;
-    height: auto;
-    border-bottom: 1px solid #6C6C6C;
+    width: 70%;
+    height: 45px;
+    /* border-bottom: 1px solid #6C6C6C; */
     transition: all 0.3s ease;
     margin-top: 50px;
+    margin-left: 100px;
     display: flex;
     align-items: center;
+
    }
    
    .input-info #product-name {
     position: absolute;
     height: 45px;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     width: 100%;
     height: 100%;
     padding: 5px;
     box-sizing: border-box;
-    border: none;
+    /* border: 1px solid #6C6C6C; */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #6C6C6C;
     outline: none;
    }
    
    .input-info:focus-within {
-    border-top: 1px solid #6C6C6C;
-    border-left: 1px solid #6C6C6C;
-    border-right: 1px solid #6C6C6C;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #000000;
+    font-weight: bold;
    }
 
 
@@ -93,5 +102,75 @@
 
     width: 100px;
     height: 100px;
+
+}
+
+.priceAndtax{
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    width: 70%;
+    height: 45px;
+    /* border-bottom: 1px solid #6C6C6C; */
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+
+}
+
+#pricetax {
+    width: 48%;
+    height: auto;
+    padding: 5px;
+    box-sizing: border-box;
+    /* border: 1px solid #6C6C6C; */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #6C6C6C;
+    outline: none;
+}
+
+#pricetax:focus-within {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #000000;
+    font-weight: bold;
+   }
+
+
+
+
+.description-container {
+    resize: none;
+    position: relative;
+    width: 70%;
+    height: auto;
+    /* border-bottom: 1px solid #6C6C6C; */
+    transition: all 0.3s ease;
+    margin-top: 50px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+}
+
+
+#saveinfo-button {
+    width: 38%;
+    height: 45px;
+    border-radius: 12px;
+    border-style: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 800px;
+    background: var(--green, #1D9322);
+    
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-bottom: 20px;
 
 }
