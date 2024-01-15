@@ -2,7 +2,7 @@
   "categories": [
     {
       "id": "1",
-      "categoryName": "Fruits",
+      "name": "Fruits",
       "color": "orange",
       "image_url": "fruits.jpg",
       "products": [
@@ -13,7 +13,7 @@
     },
     {
       "id": "2",
-      "categoryName": "Vegetables",
+      "name": "Vegetables",
       "color": "green",
       "image_url": "vegetables.jpg",
       "products": [
@@ -24,7 +24,7 @@
     },
     {
       "id": "3",
-      "categoryName": "Dairy",
+      "name": "Dairy",
       "color": "yellow",
       "image_url": "dairy.jpg",
       "products": [
@@ -35,7 +35,7 @@
     },
     {
       "id": "4",
-      "categoryName": "Meat",
+      "name": "Meat",
       "color": "brown",
       "image_url": "meat.jpg",
       "products": [
@@ -46,7 +46,7 @@
     },
     {
       "id": "5",
-      "categoryName": "Bakery",
+      "name": "Bakery",
       "color": "pink",
       "image_url": "bakery.jpg",
       "products": [

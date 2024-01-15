@@ -13,7 +13,7 @@ export const addCategoriesFromJson = async () => {
       const categories = data.categories;
 
       for (const category of categories) {
-        await addCategory(category, "../something.jpg"); 
+        await addCategory(category, null); 
       }
 
       console.log('Categories added successfully.');

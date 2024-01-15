@@ -52,7 +52,7 @@
         setFilteredCategories(initialCategories);
       } else {
         const filtered = initialCategories.filter(
-          (cat) => cat.categoryName === category
+          (cat) => cat.name === category
         );
         setFilteredCategories(filtered);
         setSelectedCategory(category);
@@ -69,23 +69,23 @@
           <div className="search-bar-wrapper">
             <SearchBar
               onSearch={handleSearch}
-              categories={initialCategories.map((cat) => cat.categoryName)}
+              categories={initialCategories.map((cat) => cat.name)}
               onCategoryFilter={handleCategoryFilter}
             />
           </div>
           <div className="category-wrapper">
             {initialCategories.map((category) => (
               <div
-                key={category.categoryName}
-                className={`category-card ${selectedCategory === category.categoryName ? "selected" : ""}`}
-                onClick={() => handleCategoryFilter(category.categoryName)}
+                key={category.name}
+                className={`category-card ${selectedCategory === category.name ? "selected" : ""}`}
+                onClick={() => handleCategoryFilter(category.name)}
               >
-                {category.categoryName}
+                {category.name}
               </div>
             ))}
           </div>
           {filteredCategories.map((category) => (
-            <Category key={category.categoryName} {...category} />
+            <Category key={category.name} {...category} />
           ))}
           <Caddy />
         </div>
