@@ -1,7 +1,7 @@
 .wrapper{
     width: 700px;
     border: 2px solid black;
-    color: white; 
+    color: rgb(0, 0, 0); 
     background: white;
     padding: 30px 40px;
     border-radius: 20px;
@@ -63,7 +63,7 @@
     font-size: 14px;
     text-align: center;
 }
-.wrapper .register a{
+.wrapper .login a{
     color: black;
 }
 .register p a:hover{
@@ -103,6 +103,7 @@
     justify-content: space-between;
 }
 .wrapper .bottom .right .register a{
+    color: black;
     font-weight: bold;
 
 }

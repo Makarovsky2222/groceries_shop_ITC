@@ -1,25 +1,17 @@
 //Searchbar.js
 import React from "react";
-import Dropdown from 'react-bootstrap/Dropdown';
-import './Searchbar.css';
+import Dropdown from "react-bootstrap/Dropdown";
+import "./Searchbar.css";
 
 const SearchBar = () => {
-  const categories = [
-    'Vegetables',
-    'Fruits',
-    'Ingredients',
-    'Meats',
-    'Drinks',
-  ];
+  const categories = ["Vegetables", "Fruits", "Ingredients", "Meats", "Drinks"];
 
   return (
     <div className="filterWithSearchbar">
-
       {/* Filter categories */}
       <Dropdown className="filter-container">
         <Dropdown.Toggle variant="success" id="dropdown-basic">
-          FILTER CATEGORY 
-          
+          FILTER CATEGORY
         </Dropdown.Toggle>
 
         <Dropdown.Menu id="dropdown-menu">
@@ -28,19 +20,18 @@ const SearchBar = () => {
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      
 
       {/* Search */}
       <form className="search-container" action=" ">
-        <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search here" /> 
+        <input
+          type="text"
+          id="searchInput"
+          onkeyup="searchFunction()"
+          placeholder="Search here"
+        />
 
         <input type="submit" id="submitSearch" />
-
-        
       </form>
-
-
-      
     </div>
   );
 };

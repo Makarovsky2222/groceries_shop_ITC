@@ -1,11 +1,14 @@
 // OrderPage.js
-import React from 'react';
-import Loginpage from '../components/LoginModule/Loginpage';
+import React from "react";
+import Loginpage from "../components/LoginModule/Loginpage";
 
-const Login = () => {
+const Login = ({ isAuthenticated, setAuthenticated }) => {
   return (
     <div>
-      <Loginpage />
+      <Loginpage
+        isAuthenticated={isAuthenticated}
+        setAuthenticated={setAuthenticated}
+      />
     </div>
   );
 };

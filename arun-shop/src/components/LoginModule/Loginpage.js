@@ -1,13 +1,15 @@
+// Login.js
 import React, { useState, useEffect } from "react";
 import "./Styling/Login.css";
-import "../LoginModule/Loginpage.css";
 import { login } from "../../services/Authentication";
 import { Link, useLocation } from "react-router-dom";
-import backgroundlogo from "../../Resources/login-img/Login.png"
-import loginimage from "../../Resources/login-img/image 1.png"
+import backgroundlogo from "../../Resources/login-img/Login.png";
+import loginimage from "../../Resources/login-img/image 1.png";
 
-const Login = () => {
+const Login = ({ isAuthenticated, setAuthenticated }) => {
   const location = useLocation();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,35 +21,45 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleSuccessClose = () => {
+    setShowSuccess(false);
+  };
+
+  const handleErrorClose = () => {
+    setShowError(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    login(formData.email, formData.password).then(async (user) => {
-      if (user) {
-        console.log("User: ", user);
-      }
-    });
+    login(formData.email, formData.password)
+      .then(async (user) => {
+        if (user) {
+          console.log("User: ", user);
+          setAuthenticated(true);
+          setShowSuccess(true);
+        }
+      })
+      .catch((error) => {
+        console.error("Login Error: ", error);
+        setShowError(true);
+      });
 
     console.log("Login Data: ", formData);
   };
 
   useEffect(() => {
-    // Apply background image style to body only when on the login page
-    if (location.pathname === "/login") {
-      console.log("True")
+    if (location.pathname === "/login" || "/  ") {
       document.body.style.backgroundImage = `url(${backgroundlogo})`;
       document.body.style.backgroundPosition = "center";
       document.body.style.backgroundSize = "cover";
       document.body.style.minHeight = "100vh";
       document.body.style.marginRight = "230px";
     } else {
-      // Reset styles when leaving the login page
       document.body.style.background = "none";
       document.body.style.minHeight = "auto";
       document.body.style.marginRight = "0";
     }
-
-    // Clean up the styles when the component unmounts
     return () => {
       document.body.style.background = "none";
       document.body.style.minHeight = "auto";
@@ -91,11 +103,10 @@ const Login = () => {
             </div>
             <div className="register">
               <p>
-                {" "}
                 Don't have an account?
                 <a href="#">
                   <li>
-                    <Link to="/signup">SignUp</Link>
+                    <Link to="/signup">Register</Link>
                   </li>
                 </a>
               </p>
@@ -106,6 +117,42 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      {showSuccess && (
+        <div
+          className="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Login successful!
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={handleSuccessClose}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      )}
+
+      {showError && (
+        <div
+          className="alert alert-danger alert-dismissible fade show"
+          role="alert"
+        >
+          Login failed. Please check your credentials.
+          <button
+            type="button"
+            className="close"
+            data-dismiss="alert"
+            aria-label="Close"
+            onClick={handleErrorClose}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      )}
     </form>
   );
 };

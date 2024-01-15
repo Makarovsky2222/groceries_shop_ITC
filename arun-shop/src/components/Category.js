@@ -5,11 +5,11 @@ import { Card } from 'react-bootstrap';
 import './Category.css';
 
 const Category = (props) => {
-  const { id, categoryName, color, products } = props;
+  const { id, name, color, products } = props;
 
   return (
     <Card className="category">
-      <Card.Header as="h2" style={{ backgroundColor : color}}>{categoryName}</Card.Header>
+      <Card.Header as="h2" style={{ backgroundColor : color}}>{name}</Card.Header>
       <Card.Body>
         <div className="products-container">
           {products.map((product, index) => (
