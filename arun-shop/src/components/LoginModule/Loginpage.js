@@ -103,7 +103,6 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
             </div>
             <div className="register">
               <p>
-                {" "}
                 Don't have an account?
                 <a href="#">
                   <li>

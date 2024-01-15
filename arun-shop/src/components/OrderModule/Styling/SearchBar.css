@@ -1,4 +1,5 @@
 /* SearchBar.css */
+
 .search-bar {
   margin-bottom: 20px;
   display: flex;
@@ -8,11 +9,12 @@
 .search-bar input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #f90; /* Orange border color */
+  border: 1px solid #f90;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 14px;
-  outline: none; /* Remove input outline on focus */
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .filter-category {
@@ -21,46 +23,51 @@
 }
 
 .filter-btn {
-  background-color: #f90; /* Orange background color */
+  background-color: #f90;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+  background-color: #e17000;
 }
 
 .dropdown {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: rgba(169, 169, 169, 0.7); /* Grey transparent background */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(237, 206, 206, 0.9);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   display: none;
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .dropdown ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-block: 5px;
+  align-items: center;
 }
 
 .dropdown li {
   padding: 10px;
   cursor: pointer;
+  z-index: 10;
   transition: background-color 0.3s;
 }
 
 .dropdown li:hover {
-  background-color: #e17000; /* Darker orange hover color */
-}
-
-.filter-category:hover .dropdown {
-  display: block;
-}
-
-/* Add a subtle animation to the dropdown */
-.dropdown {
-  transition: opacity 0.3s ease-in-out;
+  background-color: #e17000;
 }
 
 .filter-category:hover .dropdown {
