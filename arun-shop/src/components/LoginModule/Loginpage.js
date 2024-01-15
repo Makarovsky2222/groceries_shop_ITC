@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import "./Styling/Login.css";
 import { login } from "../../services/Authentication";
+import LoginCSS from '../LoginModule/Loginpage.module.css'
+
 import { Link, useLocation } from "react-router-dom";
 import backgroundlogo from "../../Resources/login-img/Login.png";
 import loginimage from "../../Resources/login-img/image 1.png";
@@ -69,54 +71,32 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
 
   return (
     <form action="login">
-      <div className="wrapper">
-        <div className="login">
-          <h1>LOGIN</h1>
-        </div>
-        <div className="bottom">
-          <div className="left">
-            <img src={loginimage} alt="Login Background" />
-          </div>
-          <div className="right">
-            <div className="input-box">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+     <div className={LoginCSS.wrapper}>
+            <div className={LoginCSS.login}>
+               <h1>LOGIN</h1>
             </div>
-            <div className="input-box">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
+            <div className={LoginCSS.bottom}>
+                <div className={LoginCSS.left}>
+                    <img src={require('../../img/1.png')}></img>
+                </div>
+                <div className={LoginCSS.right}>
+                    <div className={LoginCSS.inputbox}>
+                        <input className={LoginCSS.input} type='email' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required/>
+                    </div>
+                    <div className={LoginCSS.inputbox}>
+                        <input type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} required/>
+                    </div>
+                     <div className={LoginCSS.forgot}>
+                        <a href='#'>Forgot password?</a>
+                     </div>
+                    <div className={LoginCSS.register}>
+                        <p> Don't have an account?<a href="/signup">Register</a></p>
+                        <button type='submit'>Login</button>
+                    </div>
+                </div>
             </div>
-            <div className="forgot">
-              <a href="#">Forgot password?</a>
-            </div>
-            <div className="register">
-              <p>
-                Don't have an account?
-                <a href="#">
-                  <li>
-                    <Link to="/signup">Register</Link>
-                  </li>
-                </a>
-              </p>
-              <button type="submit" onClick={handleSubmit}>
-                Login
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+            
+        </div>  
 
       {showSuccess && (
         <div

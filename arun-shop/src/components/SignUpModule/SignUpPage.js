@@ -36,6 +36,26 @@ const SignUp = () => {
       console.log('Form submitted:', formData);
     }
   };
+
+  useEffect(() => {
+    if (location.pathname === "/signup") {
+      document.body.style.backgroundImage = `url(${backgroundlogo})`;
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.minHeight = "100vh";
+      document.body.style.marginRight = "230px";
+    } else {
+      document.body.style.background = "none";
+      document.body.style.minHeight = "auto";
+      document.body.style.marginRight = "0";
+    }
+    return () => {
+      document.body.style.background = "none";
+      document.body.style.minHeight = "auto";
+      document.body.style.marginRight = "0";
+    };
+  }, [location.pathname]);
+
   return (
     <form action='login'>
          <div className={SignUpCSS.wrapper}>

@@ -10,7 +10,6 @@ body {
     align-items: center;
     min-height: 100vh;
     margin-right: 230px;
-    background-image: url(../../img/Login.png);
     background-position: center;
     background-size: cover;
 }
