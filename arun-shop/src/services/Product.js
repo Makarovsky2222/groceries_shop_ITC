@@ -58,10 +58,11 @@ export async function getProductById(productId) {
     try {
       const docSnap = await getDoc(doc(db, docName, productId));
       if (docSnap.exists()) {
-        var productData = docSnap.data();
-        productData.id = docSnap.id
-
-        return productData;
+        const productData = docSnap.data();
+        return {
+          id: docSnap.id,
+          ...productData
+        };
       } else {
         throw new Error('Product not found');
       }
