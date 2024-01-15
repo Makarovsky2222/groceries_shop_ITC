@@ -1,5 +1,5 @@
 import React from "react";
-import './ActionButtons.css'
+import './Styling/ActionButtons.css'
 import imageEdit from '../../Resources/icons/edit.svg'
 import imageDlt from '../../Resources/icons/delete.svg'
 

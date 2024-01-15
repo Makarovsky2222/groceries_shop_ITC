@@ -1,56 +1,41 @@
 import React, { useState, useRef } from "react";
-import './Styling/UploadImage.css'
 
 
-const UploadAndDisplayImage = () => {
+export const UploadImage = () => {
 
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const fileInputRef = useRef(null);
-
-  const handleClick = () => {
-    fileInputRef.current.click();
-  };
-
-  return (
-    <div>
-      {/* <h1>Upload and Display Image usign React Hook's</h1> */}
-
-      {selectedImage && (
-        <div>
-          <img
-            alt="not found"
-            width={"250px"}
-            onClick={handleClick}
-            src={URL.createObjectURL(selectedImage)}
-          /> 
-        </div>
-      )} 
+    const selectedImage = "https://www.shutterstock.com/image-vector/camera-upload-icon-260nw-1054194089.jpg"
     
+    const fileInputRef = useRef(null);
 
-      <br />
-      <br />
-      
-      <div>
-      <label htmlFor="upload-button">
-        <button onClick={handleClick}>uPLOAD iMAGE</button>
-      </label>
+    const handleClick = () => {
+        fileInputRef.current.click();
+    };
 
-      <input
-        type="file"
-        id="upload-button"
-        ref={fileInputRef}
-        style={{ display: 'none' }}
-        onChange={(event) => {
-            console.log(event.target.files[0]);
-            console.log(URL.createObjectURL(event.target.files[0]))
-            setSelectedImage(event.target.files[0]);
-        }}
-      />
-    </div>
+    return (
+        <div>
 
-    </div>
-  );
-};
+            <input
+                type="file"
+                id="upload-button"
+                ref={fileInputRef}
+                style={{ display: 'none' }}
+                onChange={(event) => {
+                    console.log(event.target.files[0]);
+                    document.getElementById('img').src =  URL.createObjectURL(event.target.files[0]);
+                }} />
 
-export default UploadAndDisplayImage;
+                { selectedImage && (
+                    <img
+                    id="img"
+                    alt="not found"
+                    width={"200px"}
+                    height={"180px"}
+                    onClick={handleClick}
+                    src={selectedImage}
+                />
+                )}
+
+
+        </div>
+    )
+}

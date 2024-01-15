@@ -173,4 +173,11 @@
     margin-left: 200px;
     margin-bottom: 20px;
 
+    &:hover {
+        font-size: 20px;
+        font-weight: 800px;
+        color: rgb(0, 0, 0);
+        background: var(--green, #1D9322);
+    }
+
 }

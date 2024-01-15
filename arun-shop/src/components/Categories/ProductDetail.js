@@ -2,11 +2,8 @@ import React from 'react';
 import './Styling/ProductDetail.css'
 import imageCancel from '../../Resources/icons/cancel.svg'
 import EditDeleteAction from './ActionButtons';
-import UploadAndDisplayImage from './UploadImage';
 import FilterCategory from '../General/FilterCategory'
-import BasicExample from '../General/DefultDropdown';
-import TestingUploadImage from './TestingUploadImage';
-import { UploadImage } from './UploadImageTesting';
+import { UploadImage } from './UploadImage';
 
 function ProductInfo() {
 

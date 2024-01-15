@@ -1,5 +1,5 @@
 import React from "react";
-import './CategoryProducts.css'
+import './Styling/CategoryProducts.css'
 import EditDeleteAction from './ActionButtons'
 
 

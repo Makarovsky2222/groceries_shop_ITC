@@ -1,5 +1,5 @@
 import React from "react";
-import './ConfirmDelete.css'
+import './Styling/ConfirmDelete.css'
 
 function DeleteProduct() {
     return (
