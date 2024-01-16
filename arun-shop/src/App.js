@@ -1,6 +1,6 @@
 // App.js
-import React from "react";
-import { useState } from "react";
+import React, { useInsertionEffect } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
@@ -16,14 +16,26 @@ import DateTime from "./components/DateModule/DateTime";
 import CateTest from "./pages/BackendTest/CateTest";
 import ProdTest from "./pages/BackendTest/ProdTest";
 import OrderTest from "./pages/BackendTest/OrderTest";
+import { getMe } from "./services/UserServices";
+import { getUserID } from "./services/Authentication";
 
 const App = () => {
-  const [isAuthenticated, setAuthenticated] = useState(false);
+  const [isAuthenticated, setAuthenticated] = useState(
+    localStorage.getItem("isAuthenticated") === "true"
+  );
+
+  useEffect(() => {
+    // When isAuthenticated changes, update localStorage
+    localStorage.setItem("isAuthenticated", isAuthenticated);
+  }, [isAuthenticated]);
 
   return (
     <Router>
       <div>
-        <Navigation isAuthenticated={isAuthenticated} />
+        <Navigation
+          isAuthenticated={isAuthenticated}
+          setAuthenticated={setAuthenticated}
+        />
         <main>
           <DateTime />
           <Routes>

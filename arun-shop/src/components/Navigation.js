@@ -1,15 +1,17 @@
 // Navigation.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../services/Authentication";
 import "./Navigation.css";
 import toplogo from "../Resources/logo/logo.svg";
 import orderlogo from "../Resources/icons/order.svg";
 import stocklogo from "../Resources/icons/stock.svg";
 import historylogo from "../Resources/icons/history.svg";
 import categorylogo from "../Resources/icons/categories.svg";
+import logoutlogo from "../Resources/icons/logout.svg"
 
-const Navigation = ({ isAuthenticated }) => {
+const Navigation = ({  isAuthenticated, setAuthenticated  }) => {
   const [isReduced, setReduced] = useState(false);
   const navigate = useNavigate();
 
@@ -22,6 +24,14 @@ const Navigation = ({ isAuthenticated }) => {
 
   const toggleNavbar = () => {
     setReduced(!isReduced);
+  };
+
+  const handleLogout = () => {
+    // Call the logout function and clear the authentication status
+    logout();
+    setAuthenticated(false);
+    navigate("/login")
+    window.location.reload();
   };
 
   if (!isAuthenticated) {
@@ -98,6 +108,14 @@ const Navigation = ({ isAuthenticated }) => {
                   <div className="textlogo">STOCK</div>
                 </Link>
               </li>
+            )}
+            {isAuthenticated && (
+              <img className="logo"
+              src={logoutlogo} // Replace with the actual path to your image
+              alt="Logout"
+              onClick={handleLogout}
+              style={{ cursor: 'pointer' }}
+            />
             )}
           </div>
         </ul>
