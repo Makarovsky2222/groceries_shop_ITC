@@ -77,9 +77,6 @@ const OrderProduct = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <button onClick={loadCategories}>GetCate</button>
-      <button onClick={addCategoriesFromJson}>AddCate</button>
-
       <div className="order-dashboard">
         <div className="search-bar-wrapper">
           <SearchBar
@@ -106,7 +103,11 @@ const OrderProduct = () => {
         ))}
         <Caddy />
       </div>
+      <button onClick={loadCategories}>GetCate</button>
+      <button onClick={addCategoriesFromJson}>AddCate</button>
+
     </DndProvider>
+    
   );
 };
 

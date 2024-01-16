@@ -1,4 +1,3 @@
-// PaymentWindow.js
 import React, { useState } from "react";
 import "./Styling/PaymentWindow.css";
 
@@ -10,18 +9,17 @@ const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
     if ((method === 'mastercard' || method === 'visa') && payableAmount < 10) {
       alert('MasterCard and Visa are not available for payments under $10.');
     } else {
-    setSelectedPaymentMethod(method);
+      setSelectedPaymentMethod(method);
     }
   };
 
   const handleSubmitOrder = () => {
     if (paymentAmount && parseFloat(paymentAmount) >= payableAmount) {
-      onComplete(); 
+      onComplete();
     } else {
-      console.log('Invalid payment amount. Please enter a valid amount.');
+      console.error('Invalid payment amount. Please enter a valid amount.');
     }
   };
-  
 
   return (
     <div className="payment-window">
@@ -31,32 +29,17 @@ const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
       </div>
       <div className="payment-content">
         <div className="payment-methods">
-          <button
-            className={`payment-method ${
-              selectedPaymentMethod === "visa" ? "selected" : ""
-            }`}
-            onClick={() => handlePaymentMethodChange("visa")}
-          >
-            <img src="/visa-logo.png" alt="VISA" />
-          </button>
-
-          <button
-            className={`payment-method ${
-              selectedPaymentMethod === "mastercard" ? "selected" : ""
-            }`}
-            onClick={() => handlePaymentMethodChange("mastercard")}
-          >
-            <img src="/mastercard-logo.png" alt="MasterCard" />
-          </button>
-
-          <button
-            className={`payment-method ${
-              selectedPaymentMethod === "cash" ? "selected" : ""
-            }`}
-            onClick={() => handlePaymentMethodChange("cash")}
-          >
-            <img src="/mastercard-logo.png" alt="Cash" />
-          </button>
+          {["visa", "mastercard", "cash"].map((method) => (
+            <button
+              key={method}
+              className={`payment-method ${
+                selectedPaymentMethod === method ? "selected" : ""
+              }`}
+              onClick={() => handlePaymentMethodChange(method)}
+            >
+              <img src={`/${method}-logo.png`} alt={method} />
+            </button>
+          ))}
           {/* Add similar buttons for other payment methods */}
         </div>
         <div className="payment-input">

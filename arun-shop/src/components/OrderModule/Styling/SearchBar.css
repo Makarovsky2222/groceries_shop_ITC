@@ -4,6 +4,8 @@
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  position: relative;
+  right: 250px;
 }
 
 .search-bar input {
@@ -24,11 +26,15 @@
 
 .filter-btn {
   background-color: #f90;
+  position: relative;
+  font-size: 14px;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
+  box-sizing: border-box;
   cursor: pointer;
   transition: background-color 0.3s;
+  bottom: 15px;
 }
 
 .filter-btn:hover {

@@ -6,6 +6,7 @@ import Product from "../Product";
 import Receipt from "./Receipt";
 import PaymentWindow from "./PaymentWindow";
 import "./Styling/Caddy.css";
+import "./Styling/PaymentWindow.css";
 
 const Caddy = () => {
   const [droppedProducts, setDroppedProducts] = useState([]);
@@ -28,7 +29,6 @@ const Caddy = () => {
     if (droppedProducts.length > 0) {
       setShowPayment(true);
     } else {
-      // Display a message or notification indicating that the caddy is empty
       console.log("Caddy is empty. Add products to proceed.");
     }
   };
@@ -52,23 +52,35 @@ const Caddy = () => {
       <Card>
         <Card.Body>
           <Card.Title>Caddy</Card.Title>
-          <div className="product-list">
-            {droppedProducts.map((product, index) => (
-              <Product key={index} {...product} />
-            ))}
+          {droppedProducts.length === 0 ? (
+            <div className="empty-caddy-message">
+            <p>
+              🛒 Your caddy is hungry! Drag and drop products here to feed
+              it. 🍔
+            </p>
           </div>
-          <hr />
-          <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
-          <div className="subtotal">
-            Subtotal: {subtotal.toFixed(2) * 4100} Riel
-          </div>
-          <Button
-            disabled={droppedProducts.length === 0}
-            variant="primary"
-            onClick={handleOrderSubmit}
-          >
-            Proceed to Payment
-          </Button>
+          ) : (
+            <div>
+              <div className="product-list">
+                {droppedProducts.map((product, index) => (
+                  <Product key={index} {...product} />
+                ))}
+              </div>
+              <hr />
+              <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
+              <div className="subtotal">
+                Subtotal: {subtotal.toFixed(2) * 4100} Riel
+              </div>
+              <Button
+                className="caddy-button"
+                disabled={droppedProducts.length === 0}
+                variant="primary"
+                onClick={handleOrderSubmit}
+              >
+                Proceed to Payment
+              </Button>
+            </div>
+          )}
         </Card.Body>
       </Card>
 
@@ -82,23 +94,20 @@ const Caddy = () => {
       )}
 
       {/* Receipt Modal */}
-      <Modal show={showReceipt} onHide={handleCloseReceipt}>
-        <Modal.Header closeButton>
-          <Modal.Title>Receipt</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Receipt
-            products={droppedProducts}
-            subtotal={subtotal}
-            onClose={handleCloseReceipt}
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseReceipt}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {showReceipt && (
+        <Modal show={showReceipt} onHide={handleCloseReceipt}>
+          <Modal.Header>
+            <Modal.Title>Receipt</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Receipt
+              products={droppedProducts}
+              subtotal={subtotal}
+              onClose={handleCloseReceipt}
+            />
+          </Modal.Body>
+        </Modal>
+      )}
     </div>
   );
 };

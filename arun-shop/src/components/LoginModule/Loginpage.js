@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from "react";
 import "./Styling/Login.css";
 import { login } from "../../services/Authentication";
-import LoginCSS from '../LoginModule/Loginpage.module.css'
+import LoginCSS from "../LoginModule/Loginpage.module.css";
 
-import { Link, useLocation } from "react-router-dom";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+
+import { useLocation } from "react-router-dom";
 import backgroundlogo from "../../Resources/login-img/Login.png";
-import loginimage from "../../Resources/login-img/image 1.png";
 
 const Login = ({ isAuthenticated, setAuthenticated }) => {
   const location = useLocation();
@@ -71,68 +73,51 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
 
   return (
     <form action="login">
-     <div className={LoginCSS.wrapper}>
-            <div className={LoginCSS.login}>
-               <h1>LOGIN</h1>
-            </div>
-            <div className={LoginCSS.bottom}>
-                <div className={LoginCSS.left}>
-                    <img src={require('../../img/1.png')}></img>
-                </div>
-                <div className={LoginCSS.right}>
-                    <div className={LoginCSS.inputbox}>
-                        <input className={LoginCSS.input} type='email' name='email' placeholder='Email' value={formData.email} onChange={handleChange} required/>
-                    </div>
-                    <div className={LoginCSS.inputbox}>
-                        <input type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} required/>
-                    </div>
-                     <div className={LoginCSS.forgot}>
-                        <a href='#'>Forgot password?</a>
-                     </div>
-                    <div className={LoginCSS.register}>
-                        <p> Don't have an account?<a href="/signup">Register</a></p>
-                        <button type='submit' onClick={handleSubmit}>Login</button>
-                    </div>
-                </div>
-            </div>
-            
-        </div>  
-
-      {showSuccess && (
-        <div
-          className="alert alert-success"
-          role="alert"
-        >
-          Login successful!
-          <button
-            type="button"
-            className="close"
-            data-dismiss="alert"
-            aria-label="Close"
-            onClick={handleSuccessClose}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
+      <div className={LoginCSS.wrapper}>
+        <div className={LoginCSS.login}>
+          <h1>LOGIN</h1>
         </div>
-      )}
-
-      {showError && (
-        <div
-          className="alert alert-danger alert-dismissible fade show"
-          role="alert"
-        >
-          Login failed. Please check your credentials.
-          <button
-            type="button"
-            className="close"
-            data-dismiss="alert"
-            aria-label="Close"
-            onClick={handleErrorClose}
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div className={LoginCSS.bottom}>
+          <div className={LoginCSS.left}>
+            <img src={require("../../img/1.png")}></img>
+          </div>
+          <div className={LoginCSS.right}>
+            <div className={LoginCSS.inputbox}>
+              <input
+                className={LoginCSS.input}
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className={LoginCSS.inputbox}>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className={LoginCSS.forgot}>
+              <a href="#">Forgot password?</a>
+            </div>
+            <div className={LoginCSS.register}>
+              <p>
+                {" "}
+                Don't have an account?<a href="/signup">Register</a>
+              </p>
+              <button type="submit" onClick={handleSubmit}>
+                Login
+              </button>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </form>
   );
 };

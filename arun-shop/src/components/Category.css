@@ -8,6 +8,7 @@
   transition: transform 0.3s; /* Added a transform transition for a subtle effect on hover */
   position: relative; /* Enable relative positioning */
   margin-top:60px;
+  right:30%
 }
 
 .category:hover {

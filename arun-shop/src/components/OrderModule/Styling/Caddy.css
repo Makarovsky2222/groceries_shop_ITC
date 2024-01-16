@@ -5,14 +5,26 @@
   border: 2px solid #ddd;
   border-radius: 10px;
   display: flex;
+  position: absolute;
   flex-direction: column;
   margin-top: 20px;
   padding: 20px;
-  width: 300px; /* Consider using a consistent unit like px for width */
+  width: 400px;
+  top: 100px;
+  left: 1000px;
+}
+
+.empty-caddy-message {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  color: #007bff;
 }
 
 .product-list {
   margin-top: 10px;
+  display: grid;
+  justify-content: center;
 }
 
 .product-item {
@@ -31,8 +43,7 @@
   font-weight: bold;
 }
 
-/* Optional: Apply a consistent style to buttons */
-.caddy button {
+.caddy-button {
   margin-top: 10px;
   padding: 8px 16px;
   margin-right: 6px;
@@ -46,4 +57,10 @@
 
 .caddy button:hover {
   background-color: #0056b3;
+}
+
+.modal {
+  position: absolute;
+  top: 200 px;
+  right: 200px;
 }
