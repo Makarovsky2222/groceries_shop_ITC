@@ -8,7 +8,6 @@ import History from "./pages/History";
 import ProductList from "./pages/ProductList";
 import Order from "./pages/Order";
 import Navigation from "./components/Navigation";
-import { Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import DateTime from "./components/DateModule/DateTime";

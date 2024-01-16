@@ -52,33 +52,37 @@ const Caddy = () => {
       <Card>
         <Card.Body>
           <Card.Title>Caddy</Card.Title>
-          {droppedProducts.length === 0 ? (
-            <div className="empty-caddy-message">
-            <p>
-              🛒 Your caddy is hungry! Drag and drop products here to feed
-              it. 🍔
-            </p>
-          </div>
-          ) : (
+          {!showReceipt && (
             <div>
-              <div className="product-list">
-                {droppedProducts.map((product, index) => (
-                  <Product key={index} {...product} />
-                ))}
-              </div>
-              <hr />
-              <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
-              <div className="subtotal">
-                Subtotal: {subtotal.toFixed(2) * 4100} Riel
-              </div>
-              <Button
-                className="caddy-button"
-                disabled={droppedProducts.length === 0}
-                variant="primary"
-                onClick={handleOrderSubmit}
-              >
-                Proceed to Payment
-              </Button>
+              {droppedProducts.length === 0 ? (
+                <div className="empty-caddy-message">
+                  <p>
+                    🛒 Your caddy is hungry! Drag and drop products here to feed
+                    it. 🍔
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <div className="product-list">
+                    {droppedProducts.map((product, index) => (
+                      <Product key={index} {...product} />
+                    ))}
+                  </div>
+                  <hr />
+                  <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
+                  <div className="subtotal">
+                    Subtotal: {subtotal.toFixed(2) * 4100} Riel
+                  </div>
+                  <Button
+                    className="caddy-button"
+                    disabled={droppedProducts.length === 0}
+                    variant="primary"
+                    onClick={handleOrderSubmit}
+                  >
+                    Proceed to Payment
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </Card.Body>
