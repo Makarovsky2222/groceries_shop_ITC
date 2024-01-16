@@ -91,7 +91,7 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
                      </div>
                     <div className={LoginCSS.register}>
                         <p> Don't have an account?<a href="/signup">Register</a></p>
-                        <button type='submit'>Login</button>
+                        <button type='submit' onClick={handleSubmit}>Login</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
 
       {showSuccess && (
         <div
-          className="alert alert-success alert-dismissible fade show"
+          className="alert alert-success"
           role="alert"
         >
           Login successful!
