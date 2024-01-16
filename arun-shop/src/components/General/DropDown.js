@@ -1,16 +1,36 @@
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
+import React, { useState } from "react";
+import './Styling/DropDown.css';
 
-function FilterCategory() {
+function DropDown() {
+  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [filterCategory, setFilterCategory] = useState('');
+  
+  const toggleDropdown = (category) => {
+    setIsDropdownOpen(!isDropdownOpen);
+    setFilterCategory(category);
+ };
+
   return (
-    <DropdownButton id="dropdown-basic-button" title="FILTER CATEGORY">
-      <Dropdown.Item href="#/action-1">Vegetables</Dropdown.Item>
-      <Dropdown.Item href="#/action-2">Fruits</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Ingredients</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Meats</Dropdown.Item>
-      <Dropdown.Item href="#/action-3">Drinks</Dropdown.Item>
-    </DropdownButton>
+    <div className="dropdown">
+      <button className="dropdown-button" onClick={() => toggleDropdown('')} >  
+        FILTER CATEGORY
+
+      </button>
+      
+      {isDropdownOpen && (
+        <div className="dropdown-menu">
+          <a id="dropdown-item" href="#" onClick={() => toggleDropdown('Vegetables')}>Vegetables</a>
+          <a id="dropdown-item" href="#" onClick={() => toggleDropdown('Fruits')}>Fruits</a>
+          <a id="dropdown-item" href="#" onClick={() => toggleDropdown('Ingredients')}>Ingredients</a>
+          <a id="dropdown-item" href="#" onClick={() => toggleDropdown('Meats')}>Meats</a>
+          <a id="dropdown-item" href="#" onClick={() => toggleDropdown('Drinks')}>Drinks</a>
+        </div>
+      )}
+      {/* <p>{filterCategory}</p> */}
+
+    </div>
   );
 }
 
-export default FilterCategory;
+export default DropDown;

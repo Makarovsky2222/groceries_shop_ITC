@@ -1,7 +1,7 @@
 //Searchbar.js
 import React from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
-import './Searchbar.css';
+import './Styling/Searchbar.css';
 
 const DropdownFilter = () => {
   const categories = [
