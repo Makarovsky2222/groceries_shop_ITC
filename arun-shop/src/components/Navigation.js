@@ -1,5 +1,5 @@
 // Navigation.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLocation } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../services/Authentication";
@@ -14,10 +14,9 @@ import logoutlogo from "../Resources/icons/logout.svg"
 const Navigation = ({  isAuthenticated, setAuthenticated  }) => {
   const [isReduced, setReduced] = useState(false);
   const navigate = useNavigate();
-
   useEffect(() => {
     // Check if user is authenticated and navigate to /order
-    if (isAuthenticated) {
+    if (isAuthenticated && window.location.pathname === "/login") {
       navigate("/order");
     }
   }, [isAuthenticated, navigate]);
