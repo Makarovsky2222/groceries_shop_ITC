@@ -10,21 +10,19 @@ import categoriesData from "./categories.json";
 import "./Styling/OrderProduct.css";
 import "./Styling/OrderProductCategory.css";
 import "./Styling/SearchBar.css";
-import CateTest from "../../pages/BackendTest/CateTest";
 import {
-  addCategory,
   getAllCategory,
   addCategoriesFromJson,
 } from "../../services/Category";
+import handleGetProducts from "../../pages/BackendTest/ProdTest"
 
 const OrderProduct = () => {
+  
   const initialCategories = useMemo(() => categoriesData.categories, []);
   const [filteredCategories, setFilteredCategories] =
     useState(initialCategories);
   const [selectedCategory, setSelectedCategory] = useState(null);
-
   useEffect(() => {
-    // Load categories on component mount
     loadCategories();
   }, []);
 
@@ -105,9 +103,8 @@ const OrderProduct = () => {
       </div>
       <button onClick={loadCategories}>GetCate</button>
       <button onClick={addCategoriesFromJson}>AddCate</button>
-
+      <button onClick={handleGetProducts}>Get Products</button>
     </DndProvider>
-    
   );
 };
 

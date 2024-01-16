@@ -28,7 +28,7 @@ const ProdTest = () => {
   // Example usage of getProducts
   const handleGetProducts = async () => {
     const products = await getProducts();
-    console.log(products);
+    console.log("Products :", products);
   };
 
   // Example usage of updateProduct

@@ -1,19 +1,13 @@
-// Login.js
 import React, { useState, useEffect } from "react";
 import "./Styling/Login.css";
 import { login } from "../../services/Authentication";
 import LoginCSS from "../LoginModule/Loginpage.module.css";
-
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
-
-import { useLocation } from "react-router-dom";
 import backgroundlogo from "../../Resources/login-img/Login.png";
+import { useLocation } from "react-router-dom";
+import img1 from "../../img/1.png";
 
 const Login = ({ isAuthenticated, setAuthenticated }) => {
   const location = useLocation();
-  const [showSuccess, setShowSuccess] = useState(false);
-  const [showError, setShowError] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -25,45 +19,43 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSuccessClose = () => {
-    setShowSuccess(false);
-  };
-
-  const handleErrorClose = () => {
-    setShowError(false);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    login(formData.email, formData.password)
-      .then(async (user) => {
-        if (user) {
-          console.log("User: ", user);
-          setAuthenticated(true);
-          setShowSuccess(true);
-        }
-      })
-      .catch((error) => {
-        console.error("Login Error: ", error);
-        setShowError(true);
-      });
+    if (formData.email && formData.password) {
+      login(formData.email, formData.password)
+        .then(async (user) => {
+          if (user) {
+            console.log("User: ", user);
+            setAuthenticated(true);
+          }
+        })
+        .catch((error) => {
+          console.error("Login Error: ", error);
+        });
+    } else {
+      console.error("Please enter both email and password.");
+    }
+  };
 
-    console.log("Login Data: ", formData);
+  const applyBackgroundStyles = () => {
+    const bodyStyle = document.body.style;
+
+    if (location.pathname === "/login" || location.pathname === "/") {
+      bodyStyle.backgroundImage = `url(${backgroundlogo})`;
+      bodyStyle.backgroundPosition = "center";
+      bodyStyle.backgroundSize = "cover";
+      bodyStyle.minHeight = "100vh";
+      bodyStyle.marginRight = "230px";
+    } else {
+      bodyStyle.background = "none";
+      bodyStyle.minHeight = "auto";
+      bodyStyle.marginRight = "0";
+    }
   };
 
   useEffect(() => {
-    if (location.pathname === "/login" || "/  ") {
-      document.body.style.backgroundImage = `url(${backgroundlogo})`;
-      document.body.style.backgroundPosition = "center";
-      document.body.style.backgroundSize = "cover";
-      document.body.style.minHeight = "100vh";
-      document.body.style.marginRight = "230px";
-    } else {
-      document.body.style.background = "none";
-      document.body.style.minHeight = "auto";
-      document.body.style.marginRight = "0";
-    }
+    applyBackgroundStyles();
     return () => {
       document.body.style.background = "none";
       document.body.style.minHeight = "auto";
@@ -79,7 +71,7 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
         </div>
         <div className={LoginCSS.bottom}>
           <div className={LoginCSS.left}>
-            <img src={require("../../img/1.png")}></img>
+            <img src={img1} alt="Image 1" />
           </div>
           <div className={LoginCSS.right}>
             <div className={LoginCSS.inputbox}>
@@ -108,8 +100,7 @@ const Login = ({ isAuthenticated, setAuthenticated }) => {
             </div>
             <div className={LoginCSS.register}>
               <p>
-                {" "}
-                Don't have an account?<a href="/signup">Register</a>
+                Don't have an account? <a href="/signup">Register</a>
               </p>
               <button type="submit" onClick={handleSubmit}>
                 Login

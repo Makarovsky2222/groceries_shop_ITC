@@ -12,10 +12,25 @@ const Caddy = () => {
   const [droppedProducts, setDroppedProducts] = useState([]);
   const [showReceipt, setShowReceipt] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
+  const [orderId, setOrderId] = useState("");
+
+  const generateRandomOrderId = () => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const orderIdLength = 8; // Adjust the length as needed
+    let orderId = "";
+
+    for (let i = 0; i < orderIdLength; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      orderId += characters[randomIndex];
+    }
+
+    return orderId;
+  };
 
   const [, drop] = useDrop({
     accept: "PRODUCT",
     drop: (item) => {
+      generateRandomOrderId()
       setDroppedProducts((prevProducts) => [...prevProducts, item.product]);
     },
   });
@@ -27,6 +42,8 @@ const Caddy = () => {
 
   const handleOrderSubmit = () => {
     if (droppedProducts.length > 0) {
+      const newOrderId = generateRandomOrderId();
+      setOrderId(newOrderId);
       setShowPayment(true);
     } else {
       console.log("Caddy is empty. Add products to proceed.");
@@ -63,13 +80,16 @@ const Caddy = () => {
                 </div>
               ) : (
                 <div>
+                  <div className="order-id">Order ID: {orderId}</div>
                   <div className="product-list">
                     {droppedProducts.map((product, index) => (
                       <Product key={index} {...product} />
                     ))}
                   </div>
                   <hr />
-                  <div className="subtotal">Subtotal: {subtotal.toFixed(2)} $</div>
+                  <div className="subtotal">
+                    Subtotal: {subtotal.toFixed(2)} $
+                  </div>
                   <div className="subtotal">
                     Subtotal: {subtotal.toFixed(2) * 4100} Riel
                   </div>
@@ -91,6 +111,7 @@ const Caddy = () => {
       {/* Payment Window */}
       {showPayment && (
         <PaymentWindow
+          orderId={orderId}
           payableAmount={subtotal}
           onClose={handleClosePayment}
           onComplete={handlePaymentComplete}
@@ -108,6 +129,7 @@ const Caddy = () => {
               products={droppedProducts}
               subtotal={subtotal}
               onClose={handleCloseReceipt}
+              orderId={orderId}
             />
           </Modal.Body>
         </Modal>

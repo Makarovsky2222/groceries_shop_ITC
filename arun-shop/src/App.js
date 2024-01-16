@@ -1,11 +1,9 @@
 // App.js
-import React, { useInsertionEffect } from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import History from "./pages/History";
-import ProductList from "./pages/ProductList";
 import Order from "./pages/Order";
 import Navigation from "./components/Navigation";
 import Login from "./pages/Login";
@@ -16,17 +14,16 @@ import DateTime from "./components/DateModule/DateTime";
 import CateTest from "./pages/BackendTest/CateTest";
 import ProdTest from "./pages/BackendTest/ProdTest";
 import OrderTest from "./pages/BackendTest/OrderTest";
-import { getMe } from "./services/UserServices";
-import { getUserID } from "./services/Authentication";
+
 
 const App = () => {
   const [isAuthenticated, setAuthenticated] = useState(
-    localStorage.getItem("isAuthenticated") === "true"
+    JSON.parse(localStorage.getItem("isAuthenticated")) || false
   );
 
   useEffect(() => {
     // When isAuthenticated changes, update localStorage
-    localStorage.setItem("isAuthenticated", isAuthenticated);
+    localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
   }, [isAuthenticated]);
 
   return (
@@ -64,7 +61,6 @@ const App = () => {
             <Route exact path="/order" element={<Order />} />
             <Route exact path="/categories" element={<Categories />} />
             <Route exact path="/history" element={<History />} />
-            <Route exact path="/product" element={<ProductList />} />
             <Route exact path="/about" element={<SignUp />} />
 
             <Route exact path="/cateTest" element={<CateTest />} />
