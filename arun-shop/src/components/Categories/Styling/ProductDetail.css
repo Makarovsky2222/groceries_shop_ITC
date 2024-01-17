@@ -175,7 +175,7 @@
 
     &:hover {
         font-size: 20px;
-        font-weight: 800px;
+        font-weight: 600;
         color: rgb(0, 0, 0);
         background: var(--green, #1D9322);
     }
