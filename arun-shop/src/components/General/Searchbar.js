@@ -1,13 +1,12 @@
 //Searchbar.js
 import React from "react";
-import './Searchbar.css';
+import './Styling/Searchbar.css';
 import DropDown from "./DropDown";
 
 const Searchbar = () => {
   
   return (
     <div className="filterWithSearchbar">
-
       {/* Filter categories */}
       <DropDown className="filter-container"/>
       
