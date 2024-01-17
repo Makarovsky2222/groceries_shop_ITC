@@ -4,8 +4,9 @@
     justify-content: center;
     align-items: center;
 
-    width: 600px;
+    width: 520px;
     height: 45px;
+    margin-left: -70px;
 
 }
 
@@ -89,9 +90,9 @@
     width: 50px;
     height: 98%;
     position: absolute;
-    top: 0;
+    top: -1px;
     bottom: 0;
-    left: 382px;
+    left: 340px;
 
     background-image: url("../../Asset/searchIcon.svg");
     background-size: contain;

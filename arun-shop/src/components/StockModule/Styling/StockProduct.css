@@ -1,0 +1,52 @@
+.content-full {
+  background-color: white;
+  width: 900px;
+  height: 600px;
+  margin-left: 68px;
+}
+.cancel-button {
+  width: 40px;
+  border: none;
+  background-color: white;
+  box-shadow: none;
+}
+.code {
+  float: left;
+}
+.total {
+  float: right;
+}
+.total-product .date {
+  font-size: 10px;
+  font-weight: 100;
+}
+.date {
+  float: left;
+}
+.date-total {
+  float: right;
+}
+.h2 {
+  padding: 70px 0px 0px 0px;
+}
+.select_product-btn {
+  height: 49px;
+  width: 158px;
+  background-color: #db9e00;
+  border: none;
+  .select_product-btn:hover{
+    cursor: pointer;
+  }
+}
+.new_stock_product{
+  float: left;
+  padding: 60px 0px 10px 0px;
+  margin-top: 24px;
+  margin-left: -170px;
+}
+.btn_product{
+  float: right;
+  margin-top: 44px;
+  margin-right: -40px;
+
+}

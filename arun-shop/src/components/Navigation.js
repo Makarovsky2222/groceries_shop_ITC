@@ -73,13 +73,13 @@ const Navigation = () => {
             )}
             {isReduced ? (
               <li>
-                <Link to="/product">
+                <Link to="/stock">
                   <img src={stocklogo} alt="Stock Logo" />
                 </Link>
               </li>
             ) : (
               <li>
-                <Link to="/product">
+                <Link to="/stock">
                   <img src={stocklogo} alt="Stock Logo" />
                   <div className="textlogo">STOCK</div>
                 </Link>

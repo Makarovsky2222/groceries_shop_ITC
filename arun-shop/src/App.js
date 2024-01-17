@@ -9,6 +9,7 @@ import Order from './pages/Order';
 import Navigation from './components/Navigation';
 import Login from './pages/Login';
 import Categories from './pages/Categories';
+import Stock from './pages/Stock';
 
 
 // testing route
@@ -31,6 +32,7 @@ const App = () => {
             <Route exact path="/history" element={<History />} />
             <Route exact path="/product" element={<ProductList />} />
             <Route exact path="/about" element={<SignUp />} />
+            <Route exact path="/stock"  element={<Stock />} />
 
             <Route exact path="/cateTest" element={<CateTest />} />
             <Route exact path="/prodTest" element={<ProdTest />} />
