@@ -13,15 +13,15 @@ const Searchbar = () => {
 
       {/* Search */}
       <form className="search-container" action=" ">
-        <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search here" /> 
+        <input
+          type="text"
+          id="searchInput"
+          onkeyup="searchFunction()"
+          placeholder="Search here"
+        />
 
         <input type="submit" id="submitSearch" />
-
-        
       </form>
-
-
-      
     </div>
   );
 };
