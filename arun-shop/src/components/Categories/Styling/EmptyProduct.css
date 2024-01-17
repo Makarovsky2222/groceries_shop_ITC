@@ -1,0 +1,26 @@
+
+.emptyList {
+    width: 136px;
+    height: 130 px;
+    /* background-color: brown; */
+    display: block;
+    justify-content: center;
+}
+
+#emptyImg {
+    width: 70px;
+    height: 70px;
+    margin-left: 30px;
+}
+
+#text {
+    color: black;
+    text-align: center;
+    font-family: Quicksand;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
