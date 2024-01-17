@@ -1,45 +1,64 @@
 {
-    "categories": [
-      {
-        "categoryName": "Fruits",
-        "products": [
-          { "name": "Apple", "price": 1.5 },
-          { "name": "Banana", "price": 0.75 },
-          { "name": "Orange", "price": 1.2 }
-        ]
-      },
-      {
-        "categoryName": "Vegetables",
-        "products": [
-          { "name": "Carrot", "price": 0.9 },
-          { "name": "Broccoli", "price": 2.0 },
-          { "name": "Tomato", "price": 1.0 }
-        ]
-      },
-      {
-        "categoryName": "Dairy",
-        "products": [
-          { "name": "Milk", "price": 2.0 },
-          { "name": "Cheese", "price": 3.5 },
-          { "name": "Yogurt", "price": 1.8 }
-        ]
-      },
-      {
-        "categoryName": "Meat",
-        "products": [
-          { "name": "Chicken", "price": 5.0 },
-          { "name": "Beef", "price": 7.0 },
-          { "name": "Pork", "price": 6.0 }
-        ]
-      },
-      {
-        "categoryName": "Bakery",
-        "products": [
-          { "name": "Bread", "price": 2.5 },
-          { "name": "Croissant", "price": 3.0 },
-          { "name": "Muffin", "price": 1.5 }
-        ]
-      }
-    ]
-  }
-  
+  "categories": [
+    {
+      "id": "1",
+      "name": "Fruits",
+      "color": "orange",
+      "image_url": "fruits.jpg",
+      "products": [
+        { "name": "Apple", "price": 1.5, "amount": 150, "tax": 0.1, "description": "Sweet and crunchy", "image_url": "", "category_id": "1" },
+        { "name": "Banana", "price": 0.75, "amount": 120, "tax": 0.1, "description": "Rich in potassium", "image_url": "", "category_id": "1" },
+        { "name": "Orange", "price": 1.2, "amount": 100, "tax": 0.1, "description": "Citrusy and refreshing", "image_url": "", "category_id": "1" },
+        { "name": "Grapes", "price": 2.0, "amount": 200, "tax": 0.1, "description": "Small and juicy", "image_url": "", "category_id": "1" }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Vegetables",
+      "color": "green",
+      "image_url": "vegetables.jpg",
+      "products": [
+        { "name": "Carrot", "price": 0.9, "amount": 80, "tax": 0.1, "description": "Crunchy and nutritious", "image_url": "", "category_id": "2" },
+        { "name": "Broccoli", "price": 2.0, "amount": 120, "tax": 0.1, "description": "Rich in vitamins", "image_url": "", "category_id": "2" },
+        { "name": "Tomato", "price": 1.0, "amount": 100, "tax": 0.1, "description": "Versatile for cooking", "image_url": "", "category_id": "2" },
+        { "name": "Spinach", "price": 1.5, "amount": 150, "tax": 0.1, "description": "Leafy and iron-rich", "image_url": "", "category_id": "2" }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Dairy",
+      "color": "yellow",
+      "image_url": "dairy.jpg",
+      "products": [
+        { "name": "Milk", "price": 2.0, "amount": 1000, "tax": 0.1, "description": "Rich in calcium", "image_url": "", "category_id": "3" },
+        { "name": "Cheese", "price": 3.5, "amount": 250, "tax": 0.1, "description": "Assorted cheese blend", "image_url": "", "category_id": "3" },
+        { "name": "Yogurt", "price": 1.8, "amount": 500, "tax": 0.1, "description": "Creamy and probiotic", "image_url": "", "category_id": "3" },
+        { "name": "Butter", "price": 2.5, "amount": 200, "tax": 0.1, "description": "Smooth and spreadable", "image_url": "", "category_id": "3" }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Meat",
+      "color": "brown",
+      "image_url": "meat.jpg",
+      "products": [
+        { "name": "Chicken", "price": 5.0, "amount": 800, "tax": 0.1, "description": "Lean and versatile", "image_url": "", "category_id": "4" },
+        { "name": "Beef", "price": 7.0, "amount": 600, "tax": 0.1, "description": "Grass-fed and tender", "image_url": "", "category_id": "4" },
+        { "name": "Pork", "price": 6.0, "amount": 700, "tax": 0.1, "description": "Juicy and flavorful", "image_url": "", "category_id": "4" },
+        { "name": "Fish", "price": 8.0, "amount": 400, "tax": 0.1, "description": "Fresh and omega-3 rich", "image_url": "", "category_id": "4" }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Bakery",
+      "color": "pink",
+      "image_url": "bakery.jpg",
+      "products": [
+        { "name": "Bread", "price": 2.5, "amount": 200, "tax": 0.1, "description": "Best for breakfast", "image_url": "", "category_id": "5" },
+        { "name": "Croissant", "price": 3.0, "amount": 150, "tax": 0.1, "description": "Flaky and buttery", "image_url": "", "category_id": "5" },
+        { "name": "Muffin", "price": 1.5, "amount": 180, "tax": 0.1, "description": "Assorted flavors", "image_url": "", "category_id": "5" },
+        { "name": "Baguette", "price": 2.8, "amount": 250, "tax": 0.1, "description": "Crusty and delightful", "image_url": "", "category_id": "5" }
+      ]
+    }
+  ]
+}

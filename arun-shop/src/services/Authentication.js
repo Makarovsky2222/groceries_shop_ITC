@@ -8,7 +8,6 @@ import { getAuth,
   onAuthStateChanged,
   updatePassword,
 } from "firebase/auth";
-import app from "../Configuration/FirebaseConfig"
 import { addUser } from "./UserServices";
 
 const auth = getAuth();
@@ -59,8 +58,8 @@ export const getUserID = () => {
     return user.uid
 
   } catch (error) {
-    return null
     console.log(error)
+    return null
   }
 }
 
