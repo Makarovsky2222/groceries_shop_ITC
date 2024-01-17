@@ -1,6 +1,7 @@
 //About.js
 import React from "react";
 import { localUserChecking, logout } from "../services/Authentication";
+import DisplayProfile from "../components/General/Profile";
 
 const About = () => {
 
@@ -16,6 +17,8 @@ const About = () => {
     return (
         <div>
             <button onClick={logout()}>Sign Out</button>
+
+            <DisplayProfile />
         </div>
     )
 };
