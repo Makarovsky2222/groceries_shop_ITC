@@ -1,6 +1,6 @@
 import React from 'react';
 import AllStockIn from '../components/StockModule/AllStockIn';
-import Liststock from '../components/StockModule/Liststock';
+import ListStock from '../components/StockModule/ListStock';
 import StockProduct from '../components/StockModule/StockProduct';
 import NewStockProduct from '../components/StockModule/NewStockProduct';
 import SelectProduct from '../components/StockModule/SelectProduct';
@@ -10,8 +10,8 @@ const   Stock =() => {
   return (
     <div>
     <Searchbar/>
+    <ListStock/>
     <AllStockIn/>
-    <Liststock/>
     {/* <StockProduct/> */}
     {/* <NewStockProduct/> */}
     {/* <SelectProduct/> */}
