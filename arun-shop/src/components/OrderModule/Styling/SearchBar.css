@@ -19,6 +19,25 @@
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+.search-bar-order {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  right: 1000px;
+  bottom:600px;}
+
+.search-bar-order input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #f90;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
 .filter-category {
   position: relative;
   margin-left: 10px;

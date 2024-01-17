@@ -73,10 +73,10 @@ const Caddy = () => {
             <div>
               {droppedProducts.length === 0 ? (
                 <div className="empty-caddy-message">
-                  <p>
+                  <span role="img">
                     🛒 Your caddy is hungry! Drag and drop products here to feed
                     it. 🍔
-                  </p>
+                  </span>
                 </div>
               ) : (
                 <div>

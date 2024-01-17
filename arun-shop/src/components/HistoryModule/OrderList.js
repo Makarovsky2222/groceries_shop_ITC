@@ -5,11 +5,6 @@ const OrderList = ({ orders, onOrderClick, onSort }) => {
   return (
     <div className="order-list">
       <h2>Order List</h2>
-      <button onClick={() => onSort("date")}>Sort by Date</button>
-      <button onClick={() => onSort("amount")}>Sort by Amount</button>
-      <button onClick={() => onSort("paymentMethod")}>
-        Sort by Payment Method
-      </button>
       <table>
         <thead>
           <tr>

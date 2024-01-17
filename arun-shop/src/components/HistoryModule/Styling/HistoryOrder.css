@@ -8,17 +8,24 @@ body {
   }
   
   .history-order {
-    max-width: 800px;
+    max-width: 90%; /* Adjusted to 80% for better responsiveness */
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex; /* Changed from absolute positioning */
+    justify-content: space-between; /* Adjusted to space between OrderList and OrderDetails */
+    gap:50px;
+    position: absolute;
+    left:15%;
+    top:15%;
   }
   
   .order-management {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Adjusted width for better spacing */
   }
   
   .order-list {
@@ -51,12 +58,22 @@ body {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    width: 100%; /* Adjusted width for better spacing */
   }
   
+  .order-details-panel {
+    position: relative;
+    left:20px;
+  }
   @media screen and (max-width: 600px) {
     .history-order {
+      flex-direction: column; /* Adjusted to column layout for smaller screens */
       padding: 10px;
+    }
+  
+    .order-management,
+    .order-details {
+      width: 100%; /* Full width for smaller screens */
     }
   
     table {
@@ -65,6 +82,7 @@ body {
   
     .order-details {
       padding: 10px;
+      margin-top: 20px;
     }
   }
   

@@ -14,12 +14,14 @@ import logoutlogo from "../Resources/icons/logout.svg"
 const Navigation = ({  isAuthenticated, setAuthenticated  }) => {
   const [isReduced, setReduced] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     // Check if user is authenticated and navigate to /order
     if (isAuthenticated && window.location.pathname === "/login") {
+      console.log("test")
       navigate("/order");
     }
-  }, [isAuthenticated, navigate]);
+  }, isAuthenticated [navigate]);
 
   const toggleNavbar = () => {
     setReduced(!isReduced);
