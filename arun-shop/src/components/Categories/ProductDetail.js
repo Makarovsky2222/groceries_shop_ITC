@@ -2,8 +2,9 @@ import React from 'react';
 import './Styling/ProductDetail.css'
 import imageCancel from '../../Resources/icons/cancel.svg'
 import EditDeleteAction from './ActionButtons';
-import FilterCategory from '../General/FilterCategory'
 import { UploadImage } from './UploadImage';
+import { FilterCategory2 } from './FilterCategory2';
+
 
 function ProductInfo() {
 
@@ -29,7 +30,10 @@ function ProductInfo() {
                 <input id='product-name' type="text" placeholder="Name"></input>
             </div>
 
-            <FilterCategory className="ddd" />
+            <div className='categoryAndAmount'>
+                <FilterCategory2 />
+                <input id='pricetax' type="number" placeholder="Amount"></input>
+            </div>
 
             <div className='priceAndtax'>
                 <input id='pricetax' type="number" placeholder="Price                                           ($)"></input>
@@ -39,6 +43,7 @@ function ProductInfo() {
             <textarea className='description-container' placeholder=' Description' rows="5" cols="50">
                 
             </textarea>
+
 
             <button id='saveinfo-button'>
                 SAVE

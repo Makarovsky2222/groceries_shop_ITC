@@ -181,3 +181,23 @@
     }
 
 }
+
+.categoryAndAmount {
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    width: 70%;
+    height: auto;
+    /* border-bottom: 1px solid #6C6C6C; */
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    margin-left: 100px;
+    align-items: center;
+}
+
+.filter {
+    display: block;
+    position: absolute;
+}
+
