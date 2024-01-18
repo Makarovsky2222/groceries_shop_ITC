@@ -10,7 +10,7 @@
   position: relative; /* Enable relative positioning */
   margin-top: 60px;
   right: 30%;
-  width:110%;
+  width:100%;
 }
 
 .category:hover {
