@@ -7,6 +7,9 @@ import Receipt from "./Receipt";
 import PaymentWindow from "./PaymentWindow";
 import "./Styling/Caddy.css";
 import "./Styling/PaymentWindow.css";
+import { Timestamp } from "firebase/firestore";
+import { getMe } from "../../services/UserServices";
+import { getUserID } from "../../services/Authentication";
 
 const Caddy = () => {
   const [droppedProducts, setDroppedProducts] = useState([]);
@@ -63,6 +66,8 @@ const Caddy = () => {
   const handleClosePayment = () => {
     setShowPayment(false);
   };
+
+
 
   return (
     <div ref={drop} className="caddy">

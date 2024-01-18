@@ -1,16 +1,20 @@
-import { collection, getFirestore, addDoc, getDocs, getDoc, updateDoc, doc,  } from "firebase/firestore"
+import { collection, getFirestore, setDoc, getDocs, getDoc, updateDoc, doc,  } from "firebase/firestore"
 
 const db = getFirestore()
 const docName = 'orders'
 
 
-export async function createOrder(order) {
-    try {
-        const res = await addDoc(collection(db, docName), order);
-        return res
-    } catch(error) {
-        return null
-    }
+export const createOrder = async (orderID, order) => {
+  try {
+      const docRef = doc(db, docName, orderID)
+      await setDoc(docRef, order);
+
+      console.log("docRef: ", docRef)
+      return true
+  } catch (error) {
+      console.log(error)
+      return false
+  }
 }
 
 export async function getOrders() {

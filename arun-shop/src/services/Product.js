@@ -1,10 +1,37 @@
-import { collection, doc, addDoc, getDocs, getDoc, updateDoc, getFirestore, deleteDoc } from "firebase/firestore"; 
+import { collection, doc, addDoc, getDocs, setDoc, getDoc, updateDoc, getFirestore, deleteDoc } from "firebase/firestore"; 
 import { getStorage,  ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
+import Products from "./Product.json"
 
 const db = getFirestore();
 const storage = getStorage();
 const docName = 'products'
+
+async function addProductFromJson() {
+  try {
+    const data = Products;
+
+    if (data && data.products) {
+      const products = data.products;
+
+      for (const product of products) {
+        try {
+          const docRef = doc(collection(db, docName));
+          await setDoc(docRef, product);
+
+          console.log("docRef: ", docRef);
+        } catch (error) {
+          console.log(error);
+          return null;
+        }
+      }
+
+      console.log("Products added successfully.");
+    }
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
 
 export async function createProduct(productData, imageFile) {
     try {
@@ -89,19 +116,22 @@ export async function getProductsByCategoryId(categoryId) {
     try {
       const querySnapshot = await getDocs(collection(db, docName), {
         where: {
-          categoryId: categoryId
+          category_id: categoryId
         }
       });
   
       const products = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
-      }));
-  
+      })).filter((product) => {
+        return product.category_id == categoryId
+      });
+      
+      console.log("data: ", products)
       return products;
     } catch (error) {
       console.error('Error retrieving products:', error);
-      throw error; // Re-throw the error for proper handling
+      throw error; 
     }
   }
   

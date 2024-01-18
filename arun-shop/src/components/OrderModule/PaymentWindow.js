@@ -21,6 +21,11 @@ const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
     }
   };
 
+  const createOrder = () => {
+    const orderid = ""
+
+  }
+
   return (
     <div className="payment-window">
       <div className="payment-header">

@@ -58,6 +58,7 @@ const CateTest = () => {
         updateCateImage("ELW2eTrmzoEJ9Bq77fT4", file)
     }
 
+
     return (
         <div>
             <form onSubmit={handleSubmit}>

@@ -9,13 +9,14 @@ import {
 } from "firebase/firestore";
 import { db } from "./../Configuration/FirebaseConfig";
 import { updateCatgotyImage, uploadCategoryImage } from "./Storage";
-import categories from "../components/OrderModule/categories.json";
+// import categories from "../components/OrderModule/categories.json";
+import Category from "./Category.json"
 
 const docName = "category";
 
-export const addCategoriesFromJson = async () => {
+const addCategoriesFromJson = async () => {
   try {
-    const data = categories;
+    const data = Category;
 
     if (data && data.categories) {
       const categories = data.categories;
@@ -66,16 +67,12 @@ export const addCategory = async (category, file) => {
 
 export const getAllCategory = async () => {
   try {
-    var allCategory = [];
-    const querySnapshot = await getDocs(collection(db, docName));
-
-    querySnapshot.forEach((doc) => {
-      var cate = doc.data();
-      cate.id = doc.id;
-      allCategory.push(cate);
-    });
-
-    return allCategory;
+    const snapshot = await getDocs(collection(db, docName));
+    const categories = snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return categories;
   } catch (error) {
     console.log(error);
     return null;
@@ -138,3 +135,4 @@ export const deleteById = async (cate_id) => {
 //     color: string,
 //     image_url: string,
 // }
+

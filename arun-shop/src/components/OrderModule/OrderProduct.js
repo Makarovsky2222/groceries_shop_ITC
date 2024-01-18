@@ -10,18 +10,17 @@ import categoriesData from "./categories.json";
 import "./Styling/OrderProduct.css";
 import "./Styling/OrderProductCategory.css";
 import "./Styling/SearchBar.css";
-import {
-  getAllCategory,
-  addCategoriesFromJson,
-} from "../../services/Category";
+import { getAllCategory } from "../../services/Category";
 import handleGetProducts from "../../pages/BackendTest/ProdTest"
+import { getProductsByCategoryId } from "../../services/Product";
 
 const OrderProduct = () => {
   
-  const initialCategories = useMemo(() => categoriesData.categories, []);
+  // const initialCategories = useMemo(() => getAllCategory(), []);
   const [filteredCategories, setFilteredCategories] =
-    useState(initialCategories);
+    useState();
   const [selectedCategory, setSelectedCategory] = useState(null);
+
   useEffect(() => {
     loadCategories();
   }, []);
@@ -31,18 +30,17 @@ const OrderProduct = () => {
       const allCategories = await getAllCategory();
 
       if (allCategories) {
-        console.log(allCategories);
 
         const formattedCategories = allCategories.map((category) => {
           // Customize the format based on your requirements
           return {
+            id: category.id,
             name: category.name,
             color: category.color,
-            filePath: category.filePath,
             image_url: category.image_url,
           };
         });
-        //setFilteredCategories(formattedCategories);
+        setFilteredCategories(formattedCategories);
       } else {
         // Handle error loading categories
       }
@@ -53,7 +51,7 @@ const OrderProduct = () => {
   };
 
   const handleSearch = (searchTerm) => {
-    const filtered = initialCategories.filter((category) => {
+    const filtered = filteredCategories.filter((category) => {
       const lowerCaseSearch = searchTerm.toLowerCase();
       return category.products.some((product) =>
         product.name.toLowerCase().includes(lowerCaseSearch)
@@ -65,26 +63,27 @@ const OrderProduct = () => {
 
   const handleCategoryFilter = (category) => {
     if (category === "") {
-      setFilteredCategories(initialCategories);
+      setFilteredCategories(filteredCategories);
     } else {
-      const filtered = initialCategories.filter((cat) => cat.name === category);
+      const filtered = filteredCategories.filter((cat) => cat.name === category);
       setFilteredCategories(filtered);
       setSelectedCategory(category);
     }
   };
 
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="order-dashboard">
-        <div className="search-bar-wrapper">
+        {/* <div className="search-bar-wrapper">
           <SearchBar
             onSearch={handleSearch}
-            categories={initialCategories.map((cat) => cat.name)}
+            categories={filteredCategories?.map((cat) => cat.name)}
             onCategoryFilter={handleCategoryFilter}
           />
-        </div>
+        </div> */}
         <div className="category-wrapper">
-          {initialCategories.map((category) => (
+          {filteredCategories?.map((category) => (
             <div
               key={category.name}
               className={`category-card ${
@@ -96,13 +95,14 @@ const OrderProduct = () => {
             </div>
           ))}
         </div>
-        {filteredCategories.map((category) => (
-          <Category key={category.name} {...category} />
+        {filteredCategories?.map((category) => (
+          <Category id={category.id}
+          name={category.name} 
+          color={category.color} />
         ))}
+
         <Caddy />
       </div>
-      <button onClick={loadCategories}>GetCate</button>
-      <button onClick={addCategoriesFromJson}>AddCate</button>
       <button onClick={handleGetProducts}>Get Products</button>
     </DndProvider>
   );
