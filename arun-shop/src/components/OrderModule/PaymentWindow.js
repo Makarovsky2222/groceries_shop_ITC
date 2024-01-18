@@ -1,19 +1,24 @@
-// PaymentWindow.js
-import React, { useState } from 'react';
-import './Styling/PaymentWindow.css';
+import React, { useState } from "react";
+import "./Styling/PaymentWindow.css";
 
 const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('visa');
-  const [paymentAmount, setPaymentAmount] = useState('');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("cash");
+  const [paymentAmount, setPaymentAmount] = useState("");
 
   const handlePaymentMethodChange = (method) => {
-    setSelectedPaymentMethod(method);
+    if ((method === 'mastercard' || method === 'visa') && payableAmount < 10) {
+      alert('MasterCard and Visa are not available for payments under $10.');
+    } else {
+      setSelectedPaymentMethod(method);
+    }
   };
 
   const handleSubmitOrder = () => {
-    // Perform any order submission logic here
-    // You can also include validation before completing the payment
-    onComplete(); // Close the payment window and show the receipt
+    if (paymentAmount && parseFloat(paymentAmount) >= payableAmount) {
+      onComplete();
+    } else {
+      console.error('Invalid payment amount. Please enter a valid amount.');
+    }
   };
 
   return (
@@ -24,12 +29,17 @@ const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
       </div>
       <div className="payment-content">
         <div className="payment-methods">
-          <button
-            className={`payment-method ${selectedPaymentMethod === 'visa' ? 'selected' : ''}`}
-            onClick={() => handlePaymentMethodChange('visa')}
-          >
-            <img src="/visa-logo.png" alt="VISA" />
-          </button>
+          {["visa", "mastercard", "cash"].map((method) => (
+            <button
+              key={method}
+              className={`payment-method ${
+                selectedPaymentMethod === method ? "selected" : ""
+              }`}
+              onClick={() => handlePaymentMethodChange(method)}
+            >
+              <img src={`/${method}-logo.png`} alt={method} />
+            </button>
+          ))}
           {/* Add similar buttons for other payment methods */}
         </div>
         <div className="payment-input">

@@ -1,42 +1,38 @@
 // OrderList.js
 import React from "react";
 
-const OrderList = ({ currentView, orders, filterAndSortOrders }) => (
-  <div className="order-list-container">
-    <h2>
-      {currentView === "currentOrders" ? "Current" : "Completed"} Orders
-    </h2>
-    {["Amount", "Date", "Author"].map((option) => (
-      <button key={option} onClick={() => filterAndSortOrders(option)}>
-        Sort by {option}
-      </button>
-    ))}
-    {/* Order list table */}
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Author</th>
-          <th>Location</th>
-          <th>Amount ($)</th>
-        </tr>
-      </thead>
-      <tbody>
-        {orders.map((order) => (
-          <tr key={order.id}>
-            <td>{order.id}</td>
-            <td>{order.name}</td>
-            <td>{order.date}</td>
-            <td>{order.author}</td>
-            <td>{order.location}</td>
-            <td>{order.amount}</td>
+const OrderList = ({ orders, onOrderClick, onSort }) => {
+  return (
+    <div className="order-list">
+      <h2>Order List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Cash (USD)</th>
+            <th>Cash (Riel)</th>
+            <th>Payment Method</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </thead>
+        <tbody>
+          {orders.map((order) => (
+            <tr key={order.id} onClick={() => onOrderClick(order)}>
+              <td>{order.id}</td>
+              <td>{order.date}</td>
+              <td>${order.amount.toFixed(2)}</td>
+              <td>{(order.amount * 4100).toFixed(0)}៛</td>
+              <td>{order.paymentMethod}</td>
+              <td>
+                <button>See Details</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default OrderList;

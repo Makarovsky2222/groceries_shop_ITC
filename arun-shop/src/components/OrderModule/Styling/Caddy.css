@@ -1,18 +1,30 @@
 /* Caddy.css */
 
 .caddy {
-  display: flex;
-  flex-direction: column; /* Adjust as needed */
-  width: 300px;
-  padding: 20px;
+  background-color: #f8f8f8;
   border: 2px solid #ddd;
   border-radius: 10px;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
   margin-top: 20px;
-  background-color: #f8f8f8;
+  padding: 20px;
+  width: 400px;
+  top: 100px;
+  left: 1100px;
+}
+
+.empty-caddy-message {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  color: #007bff;
 }
 
 .product-list {
   margin-top: 10px;
+  display: grid;
+  justify-content: center;
 }
 
 .product-item {
@@ -21,11 +33,34 @@
   margin-bottom: 5px;
 }
 
-.product-name {
+/* Flex properties for responsive design */
+.product-item > * {
   flex: 1;
 }
 
 .subtotal {
   margin-top: 20px;
   font-weight: bold;
+}
+
+.caddy-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #007bff;
+  transition: background-color 0.3s;
+}
+
+.caddy button:hover {
+  background-color: #0056b3;
+}
+
+.modal {
+  position: absolute;
+  top: 200px;
+  right: 200px;
 }

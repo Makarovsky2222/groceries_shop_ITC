@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const SearchBar = ({ onSearch, categories, onCategoryFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [, setSelectedCategory] = useState("");
 
   const handleInputChange = (e) => {
     const value = e.target.value;

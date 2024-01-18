@@ -1,0 +1,60 @@
+.delete {
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  #dlt-button {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #EA736D;
+    border-radius: 10px;
+  
+    &:hover {
+      border: 1px solid #FA0000;
+      transform: translateY(-2px);
+      box-shadow: 5px 5px 5px rgba(33, 33, 33, 0.2);
+    }
+  }
+  
+  .content-pop-up {
+    background-color: white;
+    width: 400px;
+    height: 500px;
+    margin-left: 350px;
+    display: flex;
+    padding: 20px; /* Added padding for better spacing */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Added a subtle box shadow */
+  }
+  
+  .cancel-button {
+    width: 40px;
+    border: none;
+    background-color: white;
+    box-shadow: none;
+    padding: 0px 0px 34px 0px;
+  }
+  
+  .cancel {
+    float: left;
+  }
+  
+  .select {
+    float: right;
+    padding: 12px 240px 0px 0px;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px double black;
+    color: #333;
+    overflow: visible;
+    height: 5px;
+  }
+  
+  .hr {
+    padding: 60px 0px 0px 0px;
+  }
+  

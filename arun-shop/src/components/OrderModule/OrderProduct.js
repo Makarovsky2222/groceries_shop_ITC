@@ -1,5 +1,5 @@
 // OrderProduct.js
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -10,11 +10,47 @@ import categoriesData from "./categories.json";
 import "./Styling/OrderProduct.css";
 import "./Styling/OrderProductCategory.css";
 import "./Styling/SearchBar.css";
+import {
+  getAllCategory,
+  addCategoriesFromJson,
+} from "../../services/Category";
+import handleGetProducts from "../../pages/BackendTest/ProdTest"
 
 const OrderProduct = () => {
+  
   const initialCategories = useMemo(() => categoriesData.categories, []);
-  const [filteredCategories, setFilteredCategories] = useState(initialCategories);
+  const [filteredCategories, setFilteredCategories] =
+    useState(initialCategories);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  useEffect(() => {
+    loadCategories();
+  }, []);
+
+  const loadCategories = async () => {
+    try {
+      const allCategories = await getAllCategory();
+
+      if (allCategories) {
+        console.log(allCategories);
+
+        const formattedCategories = allCategories.map((category) => {
+          // Customize the format based on your requirements
+          return {
+            name: category.name,
+            color: category.color,
+            filePath: category.filePath,
+            image_url: category.image_url,
+          };
+        });
+        //setFilteredCategories(formattedCategories);
+      } else {
+        // Handle error loading categories
+      }
+    } catch (error) {
+      console.error("Error loading categories:", error);
+      // Handle the error appropriately
+    }
+  };
 
   const handleSearch = (searchTerm) => {
     const filtered = initialCategories.filter((category) => {
@@ -31,9 +67,7 @@ const OrderProduct = () => {
     if (category === "") {
       setFilteredCategories(initialCategories);
     } else {
-      const filtered = initialCategories.filter(
-        (cat) => cat.categoryName === category
-      );
+      const filtered = initialCategories.filter((cat) => cat.name === category);
       setFilteredCategories(filtered);
       setSelectedCategory(category);
     }
@@ -45,26 +79,31 @@ const OrderProduct = () => {
         <div className="search-bar-wrapper">
           <SearchBar
             onSearch={handleSearch}
-            categories={initialCategories.map((cat) => cat.categoryName)}
+            categories={initialCategories.map((cat) => cat.name)}
             onCategoryFilter={handleCategoryFilter}
           />
         </div>
         <div className="category-wrapper">
           {initialCategories.map((category) => (
             <div
-              key={category.categoryName}
-              className={`category-card ${selectedCategory === category.categoryName ? "selected" : ""}`}
-              onClick={() => handleCategoryFilter(category.categoryName)}
+              key={category.name}
+              className={`category-card ${
+                selectedCategory === category.name ? "selected" : ""
+              }`}
+              onClick={() => handleCategoryFilter(category.name)}
             >
-              {category.categoryName}
+              {category.name}
             </div>
           ))}
         </div>
         {filteredCategories.map((category) => (
-          <Category key={category.categoryName} {...category} />
+          <Category key={category.name} {...category} />
         ))}
         <Caddy />
       </div>
+      <button onClick={loadCategories}>GetCate</button>
+      <button onClick={addCategoriesFromJson}>AddCate</button>
+      <button onClick={handleGetProducts}>Get Products</button>
     </DndProvider>
   );
 };

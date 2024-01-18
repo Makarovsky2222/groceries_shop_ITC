@@ -5,6 +5,8 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
+  position: relative;
+  left:300px;
 }
 
 .category-wrapper {

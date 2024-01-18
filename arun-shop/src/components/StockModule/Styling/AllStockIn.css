@@ -1,0 +1,19 @@
+.btn{
+    background-color: #DB9E00;
+    width: 200px;
+}
+.btn-create{
+    float: right;
+    padding: 0px 0px 20px 0px;
+
+}
+.h1{
+    font-size: 35px;
+    border-bottom: none;
+    text-align: left;
+    padding:25px 0px 0px 15px;
+    color: black;
+}
+.name-list{
+    float: left;
+}
