@@ -1,0 +1,113 @@
+.categories-section {
+    display: flex;
+    justify-content: flex-start;
+    /* flex-direction: row;
+    overflow: auto; */
+    /* width: 1000px; */
+}
+
+.each-block {
+    width: 170px;
+    height: 68px;
+    background-color: black;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 5px 5px rgba(33,33,33,.2); 
+    }
+}
+
+#img {
+    margin-left: 45px;
+    margin-top: -40px;
+    width: 72px;
+    height: 72px;
+}
+
+#text {
+    color: #DB9E00;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.veg-block {
+    width: 170px;
+    height: 68px;
+    background: rgba(29, 147, 34, 0.60);
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 5px 5px rgba(33,33,33,.2); 
+    }
+}
+
+#veg-text {
+    color: #000000;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.fruit-block {
+    width: 170px;
+    height: 68px;
+    background: rgba(250, 0, 0, 0.15);
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 5px 5px rgba(33,33,33,.2); 
+    }
+}
+
+.ingre-block {
+    width: 170px;
+    height: 68px;
+    background: rgba(245, 250, 0, 0.15);
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 5px 5px rgba(33,33,33,.2); 
+    }
+}
+
+.meat-block {
+    width: 170px;
+    height: 68px;
+    background: rgba(250, 0, 210, 0.15);
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 5px 5px rgba(33,33,33,.2); 
+    }
+}
+
+
+.new-block {
+    width: 170px;
+    height: 68px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 100px;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 5px 5px 5px rgba(33,33,33,.2); 
+    }
+}
+
+
