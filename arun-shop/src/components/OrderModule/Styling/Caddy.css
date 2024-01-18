@@ -64,3 +64,14 @@
   top: 200px;
   right: 200px;
 }
+
+#quantity-modal{
+  color:blue;
+}
+
+.modal-content{
+  position: absolute;
+  top:50px;
+  left:-220px;
+  width: 300px;
+}
