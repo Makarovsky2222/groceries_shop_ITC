@@ -1,27 +1,18 @@
-import React from 'react';
-import AllStockIn from '../components/StockModule/AllStockIn';
-import StockProduct from '../components/StockModule/StockProduct';
-import NewStockProduct from '../components/StockModule/NewStockProduct';
-import SelectProduct from '../components/StockModule/SelectProduct';
-import Searchbar from'../components/General/Searchbar';
-import EditStock from '../components/StockModule/EditStock';
-import ListStock from '../components/StockModule/ListStock';
+import React from "react";
+import AllStockIn from "../components/StockModule/AllStockIn";
+import Searchbar from "../components/General/Searchbar";
+import ListStock from "../components/StockModule/ListStock";
+import ProductManagement from "../components/StockModule/ProductManagement";
 
-const   Stock =() => {
+const Stock = () => {
   return (
     <div>
-    <Searchbar/>
-    <ListStock/>
-    <AllStockIn/>
-    {/* <StockProduct/> */}
-    {/* <NewStockProduct/> */}
-    {/* <SelectProduct/> */}
-    {/* <EditStock/> */}
+      <Searchbar />
+      <ListStock />
+      <AllStockIn />
+      {/* <EditStock/> */}
     </div>
   );
 };
 
 export default Stock;
-
-
-

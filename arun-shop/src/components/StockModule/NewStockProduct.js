@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Styling/StockProduct.css";
+import "./Styling/ProductManagement.css";
 import cancel from "../../Resources/icons/cancel.svg";
 import ListStock2 from "../HistoryModule/ListStock2";
 

@@ -1,8 +1,6 @@
-// ListStock.js
-
 import React, { useState } from "react";
 import "./Styling/Liststock.css";
-import Delete from "./Delete";
+import EditDeleteModal from "./EditDeleteModal"; // Import the EditDeleteModal component
 
 function Product({ id, dateTime, total, description, onDelete }) {
   const handleDelete = () => {
@@ -10,15 +8,16 @@ function Product({ id, dateTime, total, description, onDelete }) {
   };
 
   return (
-    <div className="each-product">
-      <div className="product-name-and-pf">
-        <p id="product-id">#{id}</p>
-      </div>
-      <div id="date-time">{dateTime}</div>
-      <p id="product-total">{total} product</p>
-      <div id="product-description">${description}</div>
-      <Delete onDelete={handleDelete} />
-    </div>
+    <tr className="each-product">
+      <td>{id}</td>
+      <td>{dateTime}</td>
+      <td>{total} product</td>
+      <td>${description}</td>
+      <td>
+        {/* Use EditDeleteModal instead of Delete */}
+        <EditDeleteModal onDelete={handleDelete} />
+      </td>
+    </tr>
   );
 }
 
@@ -43,13 +42,22 @@ function Liststock() {
 
   return (
     <div>
-      {products.map((product, index) => (
-        <div key={index} className="action-on-product">
-          <div className="product-container">
-            <Product {...product} onDelete={handleDelete} />
-          </div>
-        </div>
-      ))}
+      <table className="product-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date/Time</th>
+            <th>Total</th>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product, index) => (
+            <Product key={index} {...product} onDelete={handleDelete} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
