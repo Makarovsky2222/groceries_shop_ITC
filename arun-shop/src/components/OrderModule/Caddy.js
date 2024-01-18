@@ -169,8 +169,9 @@ const Caddy = () => {
           </Modal.Body>
         </Modal>
       )}
+
       {/* Quantity Input Modal */}
-      <Modal show={showQuantityModal} onHide={handleQuantityModalClose}>
+      <Modal className="quantityModal" show={showQuantityModal} onHide={handleQuantityModalClose}>
         <Modal.Header>
           <Modal.Title>Enter Quantity</Modal.Title>
         </Modal.Header>
