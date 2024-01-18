@@ -20,7 +20,7 @@ function Product({ id, dateTime, total, description, onDelete }) {
     </tr>
   );
 }
-
+// function
 function Liststock() {
   const [products, setProducts] = useState([
     {
