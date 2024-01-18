@@ -6,6 +6,7 @@ import SelectProduct from '../components/StockModule/SelectProduct';
 import Searchbar from'../components/General/Searchbar';
 import EditStock from '../components/StockModule/EditStock';
 import ListStock from '../components/StockModule/ListStock';
+
 const   Stock =() => {
   return (
     <div>

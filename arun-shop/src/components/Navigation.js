@@ -17,7 +17,7 @@ const Navigation = ({  isAuthenticated, setAuthenticated  }) => {
 
   useEffect(() => {
     // Check if user is authenticated and navigate to /order
-    if (isAuthenticated && window.location.pathname === "/login") {
+    if (isAuthenticated && (window.location.pathname === "/login" ||window.location.pathname === "/")) {
       console.log("test")
       navigate("/order");
     }
