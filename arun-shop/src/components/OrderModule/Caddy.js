@@ -115,6 +115,7 @@ const Caddy = () => {
           payableAmount={subtotal}
           onClose={handleClosePayment}
           onComplete={handlePaymentComplete}
+          selectedProducts={droppedProducts}
         />
       )}
 

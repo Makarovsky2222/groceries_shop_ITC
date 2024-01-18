@@ -1,14 +1,20 @@
 import React, { useState, useMemo } from "react";
 import OrderList from "./OrderList";
+import { useEffect } from "react";
 import OrderDetails from "./OrderDetails";
 import SearchBarOrders from "./SearchBarOrders";
 
-const OrderManagement = ({ orders }) => {
+const OrderManagement = ({ orders: initialOrders }) => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterBy, setFilterBy] = useState(""); 
-  const [ordersList, setOrdersList] = useState(orders);
+  const [filterBy, setFilterBy] = useState("");
+  const [ordersList, setOrdersList] = useState(initialOrders);
+
+  useEffect(() => {
+    // Update local state when context changes
+    setOrdersList(initialOrders);
+  }, [initialOrders]);
 
   const handleOrderClick = (order) => {
     setSelectedOrder(order);

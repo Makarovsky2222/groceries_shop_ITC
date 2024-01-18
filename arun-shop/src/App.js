@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Categories from "./pages/Categories";
 import DateTime from "./components/DateModule/DateTime";
 import Stock from "./pages/Stock";
+import { OrderProvider } from "./components/HistoryModule/OrderContext";
 
 // testing route
 import CateTest from "./pages/BackendTest/CateTest";
@@ -36,6 +37,8 @@ const App = () => {
         />
         <main>
           <DateTime />
+          <OrderProvider>
+
           <Routes>
             <Route
               exact
@@ -59,16 +62,17 @@ const App = () => {
               }
             />
             <Route exact path="/home" element={<Home />} />
-            <Route exact path="/order" element={<Order />} />
-            <Route exact path="/categories" element={<Categories />} />
-            <Route exact path="/history" element={<History />} />
-            <Route exact path="/about" element={<SignUp />} />
-            <Route exact path="/stock" element={<Stock />} />
-
+              <Route exact path="/order" element={<Order />} />
+              <Route exact path="/categories" element={<Categories />} />
+              <Route exact path="/history" element={<History />} />
+              <Route exact path="/about" element={<SignUp />} />
+              <Route exact path="/stock" element={<Stock />} />
             <Route exact path="/cateTest" element={<CateTest />} />
             <Route exact path="/prodTest" element={<ProdTest />} />
             <Route exact path="/orderTest" element={<OrderTest />} />
           </Routes>
+          </OrderProvider>
+
         </main>
       </div>
     </Router>
