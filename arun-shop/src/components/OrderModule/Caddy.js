@@ -169,35 +169,35 @@ const Caddy = () => {
           </Modal.Body>
         </Modal>
       )}
-
-      {/* Quantity Input Modal */}
-      <Modal className="quantityModal" show={showQuantityModal} onHide={handleQuantityModalClose}>
-        <Modal.Header>
-          <Modal.Title>Enter Quantity</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="quantityToAdd">
-              <Form.Label>Quantity:</Form.Label>
-              <Form.Control
-                type="number"
-                value={quantityToAdd}
-                onChange={(e) =>
-                  setQuantityToAdd(parseInt(e.target.value) || 0)
-                }
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleQuantityModalClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleQuantityModalSubmit}>
-            Add to Caddy
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <div className="quantityModal">
+        <Modal show={showQuantityModal} onHide={handleQuantityModalClose}>
+          <Modal.Header>
+            <Modal.Title>Enter Quantity</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group controlId="quantityToAdd">
+                <Form.Label>Quantity:</Form.Label>
+                <Form.Control
+                  type="number"
+                  value={quantityToAdd}
+                  onChange={(e) =>
+                    setQuantityToAdd(parseInt(e.target.value) || 0)
+                  }
+                />
+              </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleQuantityModalClose}>
+              Cancel
+            </Button>
+            <Button variant="primary" onClick={handleQuantityModalSubmit}>
+              Add to Caddy
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
     </div>
   );
 };
