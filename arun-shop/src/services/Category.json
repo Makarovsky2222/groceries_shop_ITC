@@ -1,0 +1,54 @@
+{
+  "categories": [
+    {
+      "name": "Fruits",
+      "color": "#FFA500",
+      "image_url": ""
+    },
+    {
+      "name": "Vegetables",
+      "color": "#008000",
+      "image_url": ""
+    },
+    {
+      "name": "Dairy",
+      "color": "#ADD8E6",
+      "image_url": ""
+    },
+    {
+      "name": "Meat and Poultry",
+      "color": "#8B4513",
+      "image_url": ""
+    },
+    {
+      "name": "Bakery",
+      "color": "#FFD700",
+      "image_url": ""
+    },
+    {
+      "name": "Canned Goods",
+      "color": "#808080",
+      "image_url": ""
+    },
+    {
+      "name": "Snacks",
+      "color": "#FF6347",
+      "image_url": ""
+    },
+    {
+      "name": "Beverages",
+      "color": "#00CED1",
+      "image_url": ""
+    },
+    {
+      "name": "Frozen Foods",
+      "color": "#87CEEB",
+      "image_url": ""
+    },
+    {
+      "name": "Cleaning Supplies",
+      "color": "#FFFF00",
+      "image_url": ""
+    }
+  ]
+}

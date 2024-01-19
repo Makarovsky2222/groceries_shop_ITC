@@ -48,6 +48,8 @@ const ProdTest = () => {
     console.log(updatedProducts);
   };
 
+
+
   return (
     <div>
         <input type="file" id="image" />

@@ -10,9 +10,9 @@ const OrderList = ({ orders, onOrderClick, onSort }) => {
           <tr>
             <th>ID</th>
             <th>Date</th>
+            <th>Payment Method</th>
             <th>Cash (USD)</th>
             <th>Cash (Riel)</th>
-            <th>Payment Method</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -21,9 +21,9 @@ const OrderList = ({ orders, onOrderClick, onSort }) => {
             <tr key={order.id} onClick={() => onOrderClick(order)}>
               <td>{order.id}</td>
               <td>{order.date}</td>
+              <td>{order.paymentMethod}</td>
               <td>${order.amount.toFixed(2)}</td>
               <td>{(order.amount * 4100).toFixed(0)}៛</td>
-              <td>{order.paymentMethod}</td>
               <td>
                 <button>See Details</button>
               </td>

@@ -1,11 +1,12 @@
-// HistoryOrder.js
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OrderManagement from "./OrderManagement";
 import FinancialReport from "./FinancialReport";
-import './Styling/HistoryOrder.css';
+import "./Styling/HistoryOrder.css";
+import { useOrderContext } from "./OrderContext";
 
 const HistoryOrder = () => {
-  // Initial data with more orders and products
+  const orderContext = useOrderContext();
+
   const initialOrders = [
     {
       id: "1",
@@ -30,12 +31,54 @@ const HistoryOrder = () => {
     // ... additional orders
   ];
 
+  const detailedInitialOrders = mapOrdersToDetails(initialOrders);
+
+  // Declare combinedOrders outside useEffect
+  const [combinedOrders, setCombinedOrders] = useState([]);
+
+  useEffect(() => {
+    const additionalOrders = orderContext.orderHistory;
+    const combinedOrdersData = combineOrders(initialOrders, additionalOrders);
+    setCombinedOrders(combinedOrdersData);
+    console.log("Initial Orders:", initialOrders);
+    console.log("additionalOrders:", additionalOrders);
+    console.log("Combined Orders:", combinedOrdersData);
+  }, [orderContext]);
+
   return (
     <div className="history-order">
-      <OrderManagement orders={initialOrders} />
-      <FinancialReport orders={initialOrders} />
+      <OrderManagement orders={combinedOrders} />
+      <FinancialReport orders={combinedOrders} />
     </div>
   );
+};
+
+// Helper function to map orders to detailed format
+const mapOrdersToDetails = (orders) =>
+  orders.map((order) => ({
+    ...order,
+    products: order.products
+      ? order.products.map((product) => ({
+          amount: product.price,
+          category_id: "1", // Replace with the actual category_id
+          description: "", // Add description if available
+          image_url: "", // Add image_url if available
+          key: "", // Add key if available
+          name: product.name,
+          price: product.price,
+          tax: 0.1, // Replace with the actual tax
+        }))
+      : [],
+  }));
+
+const combineOrders = (initialOrders, additionalOrders) => {
+  let combinedOrders = [];
+  // Combine initial orders
+  combinedOrders = combinedOrders.concat(mapOrdersToDetails(initialOrders)); // Combine additional orders
+  additionalOrders.forEach((order) => {
+    combinedOrders = combinedOrders.concat(order);
+  });
+  return combinedOrders;
 };
 
 export default HistoryOrder;

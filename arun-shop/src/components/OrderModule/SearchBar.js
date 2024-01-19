@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const SearchBar = ({ onSearch, categories, onCategoryFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(""); // Fix: use state for selectedCategory
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -13,7 +13,7 @@ const SearchBar = ({ onSearch, categories, onCategoryFilter }) => {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    onCategoryFilter(category);
+    onCategoryFilter(category); // Fix: pass an empty string for "All Categories"
   };
 
   return (
@@ -29,7 +29,7 @@ const SearchBar = ({ onSearch, categories, onCategoryFilter }) => {
         <div className="dropdown">
           <ul>
             <li onClick={() => handleCategoryChange("")}>All Categories</li>
-            {categories.map((category) => (
+            {categories?.map((category) => (
               <li key={category} onClick={() => handleCategoryChange(category)}>
                 {category}
               </li>

@@ -1,88 +1,105 @@
 /* Styling/HistoryOrder.css */
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.history-order {
+  max-width: 90%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  position: absolute;
+  left: 15%;
+  top: 15%;
+}
+
+.order-management {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.order-list {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+button {
+  padding: 8px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.order-details {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
   .history-order {
-    max-width: 90%; /* Adjusted to 80% for better responsiveness */
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex; /* Changed from absolute positioning */
-    justify-content: space-between; /* Adjusted to space between OrderList and OrderDetails */
-    gap:50px;
-    position: absolute;
-    left:15%;
-    top:15%;
-  }
-  
-  .order-management {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%; /* Adjusted width for better spacing */
-  }
-  
-  .order-list {
-    margin-bottom: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  th, td {
     padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
   }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  button {
-    padding: 8px;
-    margin: 5px;
-    cursor: pointer;
-  }
-  
+
+  .order-management,
   .order-details {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Adjusted width for better spacing */
+    width: 100%;
   }
-  
-  .order-details-panel {
-    position: relative;
-    left:20px;
+
+  table {
+    font-size: 14px;
   }
-  @media screen and (max-width: 600px) {
-    .history-order {
-      flex-direction: column; /* Adjusted to column layout for smaller screens */
-      padding: 10px;
-    }
-  
-    .order-management,
-    .order-details {
-      width: 100%; /* Full width for smaller screens */
-    }
-  
-    table {
-      font-size: 14px;
-    }
-  
-    .order-details {
-      padding: 10px;
-      margin-top: 20px;
-    }
+
+  .order-details {
+    padding: 10px;
+    margin-top: 20px;
   }
-  
+}

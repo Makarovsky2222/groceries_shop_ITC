@@ -1,0 +1,913 @@
+{
+  "products": [
+    {
+      "name": "Raspberry Bliss",
+      "price": 2.99,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Plump and flavorful raspberries",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Cherries Jubilee",
+      "price": 4.29,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Sweet and succulent cherries",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Honeydew Melon",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.17,
+      "description": "Juicy and refreshing honeydew melon",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Grapes Galore",
+      "price": 2.69,
+      "amount": 1000,
+      "tax": 0.13,
+      "description": "Assorted red and green grapes",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Peach Perfection",
+      "price": 3.79,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Ripe and sweet peaches",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Passion Fruit",
+      "price": 2.89,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Exotic and tangy passion fruits",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Cantaloupe Crush",
+      "price": 3.29,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Sweet and juicy cantaloupe melon",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Blackberry Burst",
+      "price": 4.49,
+      "amount": 1000,
+      "tax": 0.2,
+      "description": "Plump and rich blackberries",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Apricot Adventure",
+      "price": 2.59,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Delicious and velvety apricots",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Pear Paradise",
+      "price": 3.99,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Sweet and crisp pear selection",
+      "category_id": "IDbF977gXgxWRP1HKeg9",
+      "image_url": ""
+    },
+    {
+      "name": "Organic Baby Carrots",
+      "price": 1.19,
+      "amount": 1000,
+      "tax": 0.08,
+      "description": "Fresh and organic baby carrots",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Farm Fresh Broccoli",
+      "price": 1.99,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Locally sourced farm-fresh broccoli",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Juicy Red Tomatoes",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Ripe and juicy red tomatoes",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Crispy Iceberg Lettuce",
+      "price": 1.79,
+      "amount": 1000,
+      "tax": 0.09,
+      "description": "Crispy and refreshing iceberg lettuce",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Sweet Bell Peppers",
+      "price": 3.29,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Assorted sweet bell peppers",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Organic Spinach",
+      "price": 2.89,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Fresh and organic spinach leaves",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Zesty Jalapeno Peppers",
+      "price": 1.99,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Spicy and zesty jalapeno peppers",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Cucumber Crisp",
+      "price": 1.49,
+      "amount": 1000,
+      "tax": 0.07,
+      "description": "Crisp and refreshing cucumber",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Fresh Cauliflower",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Fresh and versatile cauliflower",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Green Beans Bundle",
+      "price": 1.69,
+      "amount": 1000,
+      "tax": 0.08,
+      "description": "Crisp and green bundle of beans",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Sweet Corn Ears",
+      "price": 2.29,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Sweet and juicy corn ears",
+      "category_id": "cS6bRmSuhl4BbmngaSx5",
+      "image_url": ""
+    },
+    {
+      "name": "Organic Whole Milk",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Rich and creamy organic whole milk",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Greek Yogurt",
+      "price": 2.99,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Thick and tangy Greek yogurt",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Farm Fresh Eggs",
+      "price": 2.19,
+      "amount": 1000,
+      "tax": 0.11,
+      "description": "Locally sourced farm-fresh eggs",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Cheddar Cheese Block",
+      "price": 4.99,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Sharp and flavorful cheddar cheese block",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Butter Bliss",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Creamy and spreadable butter",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Almond Milk",
+      "price": 3.29,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Nutty and dairy-free almond milk",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Cottage Cheese",
+      "price": 1.89,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Light and creamy cottage cheese",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Swiss Cheese Slices",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Mild and meltable Swiss cheese slices",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Vanilla Ice Cream",
+      "price": 5.99,
+      "amount": 1000,
+      "tax": 0.25,
+      "description": "Classic and indulgent vanilla ice cream",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Whipped Cream Canister",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Convenient and fluffy whipped cream canister",
+      "category_id": "o05qsdAXeCKDit3Aum6Q",
+      "image_url": ""
+    },
+    {
+      "name": "Grass-Fed Beef Sirloin Steak",
+      "price": 12.99,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Premium grass-fed beef sirloin steak",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Free-Range Chicken Breast",
+      "price": 8.49,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Tender and free-range chicken breast fillet",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Smoked Turkey Drumsticks",
+      "price": 6.99,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Savory and smoked turkey drumsticks",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Pork Tenderloin",
+      "price": 9.89,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Juicy and flavorful pork tenderloin",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Ground Bison",
+      "price": 10.99,
+      "amount": 1000,
+      "tax": 0.2,
+      "description": "Lean and sustainable ground bison",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Lamb Chops",
+      "price": 14.79,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Tender and succulent lamb chops",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Chicken Sausage Links",
+      "price": 7.29,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Flavorful and plump chicken sausage links",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Salmon Fillets",
+      "price": 11.49,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Fresh and omega-3 rich salmon fillets",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Turkey Burgers",
+      "price": 8.99,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Lean and flavorful turkey burgers",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Duck Breast",
+      "price": 13.99,
+      "amount": 1000,
+      "tax": 0.24,
+      "description": "Rich and tender duck breast",
+      "category_id": "4DF4Lp9QCd8IrN5Cvi3U",
+      "image_url": ""
+    },
+    {
+      "name": "Artisan Baguette",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Crusty and chewy artisan baguette",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Chocolate Croissants",
+      "price": 2.99,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Buttery and indulgent chocolate croissants",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Blueberry Muffins",
+      "price": 1.89,
+      "amount": 1000,
+      "tax": 0.11,
+      "description": "Moist and flavorful blueberry muffins",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Cinnamon Rolls",
+      "price": 4.99,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Soft and gooey cinnamon rolls",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Sourdough Bread",
+      "price": 3.29,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Tangy and rustic sourdough bread",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Red Velvet Cupcakes",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Velvety and decadent red velvet cupcakes",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Whole Wheat Bagels",
+      "price": 1.89,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Nutty and wholesome whole wheat bagels",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Apple Pie",
+      "price": 8.49,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Classic and comforting apple pie",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Oatmeal Raisin Cookies",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Chewy and hearty oatmeal raisin cookies",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Pumpkin Spice Loaf",
+      "price": 4.99,
+      "amount": 1000,
+      "tax": 0.2,
+      "description": "Warm and spiced pumpkin spice loaf",
+      "category_id": "nz6KMqbAeGbF2R21W8eg",
+      "image_url": ""
+    },
+    {
+      "name": "Organic Tomato Soup",
+      "price": 2.99,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Rich and flavorful organic tomato soup",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Chunky Vegetable Stew",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Hearty and wholesome chunky vegetable stew",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Cannellini Beans",
+      "price": 1.79,
+      "amount": 1000,
+      "tax": 0.08,
+      "description": "Creamy and versatile cannellini beans",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Sweet Corn Kernels",
+      "price": 1.29,
+      "amount": 1000,
+      "tax": 0.06,
+      "description": "Sweet and golden sweet corn kernels",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Spaghetti in Marinara Sauce",
+      "price": 2.59,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Classic spaghetti in rich marinara sauce",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Chickpeas",
+      "price": 1.49,
+      "amount": 1000,
+      "tax": 0.07,
+      "description": "Nutty and protein-packed chickpeas",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Cream of Mushroom Soup",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Velvety and comforting cream of mushroom soup",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Pineapple Chunks in Juice",
+      "price": 1.99,
+      "amount": 1000,
+      "tax": 0.09,
+      "description": "Sweet and juicy pineapple chunks in natural juice",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Black Beans",
+      "price": 1.59,
+      "amount": 1000,
+      "tax": 0.08,
+      "description": "Hearty and flavorful black beans",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Tuna in Olive Oil",
+      "price": 3.99,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Premium tuna fillets in rich olive oil",
+      "category_id": "AvgqBLTsgPW34fKNGUC8",
+      "image_url": ""
+    },
+    {
+      "name": "Classic Potato Chips",
+      "price": 1.99,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Thin and crispy classic potato chips",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Mixed Nuts Trail Mix",
+      "price": 4.29,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "A savory mix of roasted nuts and dried fruits",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Cheese Crackers",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Crunchy and cheesy bite-sized crackers",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Popcorn Variety Pack",
+      "price": 3.99,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "A mix of butter, caramel, and cheddar popcorn",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Chocolate-covered Pretzels",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Sweet and salty chocolate-covered pretzels",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Vegetable Chips",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Crispy and colorful vegetable chips",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Granola Bars Variety Pack",
+      "price": 4.99,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Assorted granola bars for a quick snack",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Dried Mango Slices",
+      "price": 2.29,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Sweet and chewy dried mango slices",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Rice Crackers Mix",
+      "price": 3.79,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "A crunchy mix of savory rice crackers",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Pretzel Sticks",
+      "price": 1.89,
+      "amount": 1000,
+      "tax": 0.09,
+      "description": "Crunchy and salty pretzel sticks",
+      "category_id": "rxYWvKr5xBvsDBiDPKaj",
+      "image_url": ""
+    },
+    {
+      "name": "Cold Brew Coffee",
+      "price": 3.99,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Smooth and bold cold brew coffee",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Green Tea",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Refreshing and antioxidant-rich green tea",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Sparkling Water Variety Pack",
+      "price": 1.99,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Assorted flavors of crisp sparkling water",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Orange Juice",
+      "price": 3.29,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Freshly squeezed and vitamin-packed orange juice",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Coconut Water",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Hydrating and naturally sweet coconut water",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Protein Shake",
+      "price": 4.99,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Protein-packed and creamy shake",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Chai Latte",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Spiced and comforting chai latte",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Cranberry Juice",
+      "price": 2.99,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Tart and antioxidant-rich cranberry juice",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Lemonade",
+      "price": 1.89,
+      "amount": 1000,
+      "tax": 0.09,
+      "description": "Sweet and tangy freshly squeezed lemonade",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Iced Peppermint Mocha",
+      "price": 4.49,
+      "amount": 1000,
+      "tax": 0.2,
+      "description": "Icy and indulgent peppermint mocha",
+      "category_id": "Az4EEb85YLmSHOFPlf8C",
+      "image_url": ""
+    },
+    {
+      "name": "Frozen Pizza Margherita",
+      "price": 5.99,
+      "amount": 1000,
+      "tax": 0.25,
+      "description": "Classic Margherita pizza with a crispy crust",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Chicken Tenders",
+      "price": 4.49,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Golden and crispy chicken tenders",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Vegetable Spring Rolls",
+      "price": 3.79,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Delicious and crispy vegetable spring rolls",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Shrimp Fried Rice",
+      "price": 6.29,
+      "amount": 1000,
+      "tax": 0.28,
+      "description": "Savory and flavorful shrimp fried rice",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Frozen Lasagna",
+      "price": 7.99,
+      "amount": 1000,
+      "tax": 0.3,
+      "description": "Layers of pasta, cheese, and rich tomato sauce",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Mango Sorbet",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Cool and refreshing mango sorbet",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Spinach and Feta Stuffed Chicken",
+      "price": 8.99,
+      "amount": 1000,
+      "tax": 0.35,
+      "description": "Chicken breasts stuffed with spinach and feta",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Chocolate Chip Cookie Dough",
+      "price": 4.29,
+      "amount": 1000,
+      "tax": 0.2,
+      "description": "Chunks of chocolate chip cookie dough",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Vegetarian Breakfast Burritos",
+      "price": 5.49,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Flavorful and hearty vegetarian breakfast burritos",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Vanilla Bean Ice Cream",
+      "price": 6.99,
+      "amount": 1000,
+      "tax": 0.25,
+      "description": "Creamy and indulgent vanilla bean ice cream",
+      "category_id": "sXI0YSsL4yhk8jJA2g5r",
+      "image_url": ""
+    },
+    {
+      "name": "Multi-Surface Cleaner Spray",
+      "price": 3.99,
+      "amount": 1000,
+      "tax": 0.18,
+      "description": "Versatile cleaner for various surfaces",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Disinfecting Wipes",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Convenient disinfecting wipes for quick cleaning",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "All-Purpose Cleaning Vinegar",
+      "price": 1.99,
+      "amount": 1000,
+      "tax": 0.1,
+      "description": "Natural and eco-friendly all-purpose cleaning vinegar",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Dish Soap",
+      "price": 2.79,
+      "amount": 1000,
+      "tax": 0.14,
+      "description": "Effective and gentle dish soap for daily use",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Bleach",
+      "price": 4.99,
+      "amount": 1000,
+      "tax": 0.22,
+      "description": "Powerful bleach for disinfection and stain removal",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Sponge Set",
+      "price": 1.89,
+      "amount": 1000,
+      "tax": 0.09,
+      "description": "Durable sponge set for various cleaning tasks",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Toilet Bowl Cleaner Gel",
+      "price": 3.29,
+      "amount": 1000,
+      "tax": 0.15,
+      "description": "Thick gel for deep cleaning and freshening",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Microfiber Cleaning Cloths",
+      "price": 2.49,
+      "amount": 1000,
+      "tax": 0.12,
+      "description": "Lint-free and absorbent microfiber cleaning cloths",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Glass Cleaner Spray",
+      "price": 3.49,
+      "amount": 1000,
+      "tax": 0.16,
+      "description": "Streak-free glass cleaner for sparkling windows",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    },
+    {
+      "name": "Trash Bags (Kitchen)",
+      "price": 4.79,
+      "amount": 1000,
+      "tax": 0.2,
+      "description": "Strong and reliable kitchen trash bags",
+      "category_id": "nh5Y971fHhkjvt9RlH0V",
+      "image_url": ""
+    }
+  ]
+}

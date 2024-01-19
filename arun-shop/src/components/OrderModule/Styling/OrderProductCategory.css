@@ -11,14 +11,24 @@
   transition: transform 0.3s; /* Added a transform transition for a subtle effect on hover */
   cursor: pointer;
   flex-grow: 1; /* Allow cards to grow and fill available space */
-  max-width: 200px; /* Optionally, set a max-width for each card */
+  width:80%;
 }
 
-/* Add this class for the wrapper of category cards */
+/* Update OrderProductCategory.css */
 .category-wrapper {
   display: flex;
   justify-content: center;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  max-width: 70%; /* Set the maximum width for the category wrapper */
+  white-space: nowrap; /* Prevent category cards from wrapping to the next line */
+  margin: 0 auto; /* Center the category wrapper */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  right:20%
 }
+
   
   .category-card:hover {
     transform: translateY(-5px); /* Move the card slightly upward on hover */
@@ -28,13 +38,3 @@
     background-color: #007bff; /* Background color for the selected category */
     color: white; /* Text color for the selected category */
   }
-  
-  /* Add this class for the wrapper of category cards */
-  .category-wrapper {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    right:30%
-  }
-
-  
