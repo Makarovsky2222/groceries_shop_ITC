@@ -14,6 +14,7 @@ import handleGetProducts from "../../pages/BackendTest/ProdTest";
 import { getProductsByCategoryId } from "../../services/Product";
 
 const OrderProduct = () => {
+  const [loading, setLoading] = useState(true);
   const [allCategories, setAllCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -44,6 +45,8 @@ const OrderProduct = () => {
     } catch (error) {
       console.error("Error loading categories:", error);
       // Handle the error appropriately
+    } finally {
+      setLoading(false); // Set loading to false once categories are loaded (or an error occurs)
     }
   };
 
@@ -94,28 +97,34 @@ const OrderProduct = () => {
             onCategoryFilter={handleCategoryFilter}
           />
         </div>
-        <div className="category-wrapper">
-          {filteredCategories.map((category) => (
-            <div
-              key={category.name}
-              className={`category-card ${
-                selectedCategory === category.name ? "selected" : ""
-              }`}
-              onClick={() => handleCategoryFilter(category.name)}
-            >
-              {category.name}
+        {loading ? (
+          <p>Loading categories...</p>
+        ) : (
+          <>
+            <div className="category-wrapper">
+              {filteredCategories.map((category) => (
+                <div
+                  key={category.name}
+                  className={`category-card ${
+                    selectedCategory === category.name ? "selected" : ""
+                  }`}
+                  onClick={() => handleCategoryFilter(category.name)}
+                >
+                  {category.name}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        {filteredCategories.map((category) => (
-          <Category
-            id={category.id}
-            name={category.name}
-            color={category.color}
-          />
-        ))}
-
-        <Caddy />
+            {filteredCategories.map((category) => (
+              <Category
+                key={category.id}
+                id={category.id}
+                name={category.name}
+                color={category.color}
+              />
+            ))}
+            <Caddy />
+          </>
+        )}
       </div>
     </DndProvider>
   );
