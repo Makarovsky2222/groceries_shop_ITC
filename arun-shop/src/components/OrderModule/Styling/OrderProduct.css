@@ -12,5 +12,6 @@
 .category-wrapper {
   display: contents;
   flex-direction: row;
+  
   /* Add styles if necessary */
 }

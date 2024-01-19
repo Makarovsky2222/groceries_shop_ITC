@@ -10,9 +10,9 @@ const OrderList = ({ orders, onOrderClick, onSort }) => {
           <tr>
             <th>ID</th>
             <th>Date</th>
+            <th>Payment Method</th>
             <th>Cash (USD)</th>
             <th>Cash (Riel)</th>
-            <th>Payment Method</th>
             <th>Action</th>
           </tr>
         </thead>

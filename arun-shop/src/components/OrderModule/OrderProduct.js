@@ -1,24 +1,21 @@
 // OrderProduct.js
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import Category from "../Category";
 import Caddy from "./Caddy";
 import SearchBar from "./SearchBar";
-import categoriesData from "./categories.json";
 import "./Styling/OrderProduct.css";
 import "./Styling/OrderProductCategory.css";
 import "./Styling/SearchBar.css";
 import { getAllCategory } from "../../services/Category";
-import handleGetProducts from "../../pages/BackendTest/ProdTest"
+import handleGetProducts from "../../pages/BackendTest/ProdTest";
 import { getProductsByCategoryId } from "../../services/Product";
 
 const OrderProduct = () => {
-  
-  // const initialCategories = useMemo(() => getAllCategory(), []);
-  const [filteredCategories, setFilteredCategories] =
-    useState();
+  const [allCategories, setAllCategories] = useState([]);
+  const [filteredCategories, setFilteredCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
@@ -27,11 +24,10 @@ const OrderProduct = () => {
 
   const loadCategories = async () => {
     try {
-      const allCategories = await getAllCategory();
+      const fetchedCategories = await getAllCategory();
 
-      if (allCategories) {
-
-        const formattedCategories = allCategories.map((category) => {
+      if (fetchedCategories) {
+        const formattedCategories = fetchedCategories.map((category) => {
           // Customize the format based on your requirements
           return {
             id: category.id,
@@ -40,6 +36,7 @@ const OrderProduct = () => {
             image_url: category.image_url,
           };
         });
+        setAllCategories(formattedCategories);
         setFilteredCategories(formattedCategories);
       } else {
         // Handle error loading categories
@@ -50,27 +47,42 @@ const OrderProduct = () => {
     }
   };
 
-  const handleSearch = (searchTerm) => {
-    const filtered = filteredCategories.filter((category) => {
-      const lowerCaseSearch = searchTerm.toLowerCase();
-      return category.products.some((product) =>
-        product.name.toLowerCase().includes(lowerCaseSearch)
-      );
-    });
+  const handleSearch = async (searchTerm) => {
+    const lowerCaseSearch = searchTerm.toLowerCase();
+    const filtered = [];
+
+    for (const category of allCategories) {
+      try {
+        const prods = await getProductsByCategoryId(category.id);
+        const filteredProducts = prods.filter((product) =>
+          product.name.toLowerCase().includes(lowerCaseSearch)
+        );
+
+        filtered.push({
+          ...category,
+          products: filteredProducts,
+        });
+      } catch (error) {
+        console.error(
+          `Error fetching products for category ${category.id}:`,
+          error
+        );
+      }
+    }
+
     setFilteredCategories(filtered);
     setSelectedCategory(null); // Reset selected category when searching
   };
 
   const handleCategoryFilter = (category) => {
     if (category === "") {
-      setFilteredCategories(filteredCategories);
+      setFilteredCategories(allCategories);
     } else {
-      const filtered = filteredCategories.filter((cat) => cat.name === category);
+      const filtered = allCategories.filter((cat) => cat.name === category);
       setFilteredCategories(filtered);
       setSelectedCategory(category);
     }
   };
-
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -78,12 +90,12 @@ const OrderProduct = () => {
         <div className="search-bar-wrapper">
           <SearchBar
             onSearch={handleSearch}
-            categories={filteredCategories?.map((cat) => cat.name)}
+            categories={allCategories.map((cat) => cat.name)}
             onCategoryFilter={handleCategoryFilter}
           />
         </div>
         <div className="category-wrapper">
-          {filteredCategories?.map((category) => (
+          {filteredCategories.map((category) => (
             <div
               key={category.name}
               className={`category-card ${
@@ -95,15 +107,16 @@ const OrderProduct = () => {
             </div>
           ))}
         </div>
-        {filteredCategories?.map((category) => (
-          <Category id={category.id}
-          name={category.name} 
-          color={category.color} />
+        {filteredCategories.map((category) => (
+          <Category
+            id={category.id}
+            name={category.name}
+            color={category.color}
+          />
         ))}
 
         <Caddy />
       </div>
-      <button onClick={handleGetProducts}>Get Products</button>
     </DndProvider>
   );
 };
