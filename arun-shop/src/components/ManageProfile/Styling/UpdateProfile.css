@@ -1,0 +1,37 @@
+.section-control {
+    display: flex;
+    width: 1200px;
+    height: 993.066px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #DB9E00;
+}
+
+.profile-container {
+    height: 420px;
+    width: 300px;
+    margin-top: 130px;
+    margin-left: 130px;
+
+
+}
+
+.pf-text {
+    color: var(--Black, #000);
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.line {
+    height: 3px;
+    width: 150px;
+    background-color: var(--Primary, #DB9E00);
+
+}
+
+
