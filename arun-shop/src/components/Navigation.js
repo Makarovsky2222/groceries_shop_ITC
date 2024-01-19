@@ -17,7 +17,7 @@ const Navigation = ({  isAuthenticated, setAuthenticated  }) => {
 
   useEffect(() => {
     // Check if user is authenticated and navigate to /order
-    if (isAuthenticated && window.location.pathname === "/login") {
+    if (isAuthenticated && (window.location.pathname === "/login" ||window.location.pathname === "/")) {
       console.log("test")
       navigate("/order");
     }
@@ -98,13 +98,13 @@ const Navigation = ({  isAuthenticated, setAuthenticated  }) => {
             )}
             {isReduced ? (
               <li>
-                <Link to="/product">
+                <Link to="/stock">
                   <img src={stocklogo} alt="Stock Logo" />
                 </Link>
               </li>
             ) : (
               <li>
-                <Link to="/product">
+                <Link to="/stock">
                   <img src={stocklogo} alt="Stock Logo" />
                   <div className="textlogo">STOCK</div>
                 </Link>

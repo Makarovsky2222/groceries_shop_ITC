@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./Styling/PaymentWindow.css";
+import { useOrderContext } from "../HistoryModule/OrderContext";
 
-const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
+const PaymentWindow = ({ payableAmount, onClose, onComplete, selectedProducts }) => {
+  const { addOrderToHistory } = useOrderContext();
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("cash");
   const [paymentAmount, setPaymentAmount] = useState("");
 
@@ -15,7 +17,18 @@ const PaymentWindow = ({ payableAmount, onClose, onComplete }) => {
 
   const handleSubmitOrder = () => {
     if (paymentAmount && parseFloat(paymentAmount) >= payableAmount) {
+
+      const newOrder = {
+        id: Date.now().toString(),
+        date: new Date().toLocaleDateString(),
+        amount: parseFloat(paymentAmount),
+        paymentMethod: selectedPaymentMethod,
+        products: selectedProducts,
+      }
+      console.log(newOrder);
+
       onComplete();
+      addOrderToHistory(newOrder);
     } else {
       console.error('Invalid payment amount. Please enter a valid amount.');
     }

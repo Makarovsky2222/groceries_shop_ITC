@@ -1,7 +1,10 @@
 //Home.js
 import React from "react";
 import { getUserID, logout } from "../services/Authentication";
-import { getMe, updateUser } from "../services/UserServices";
+import { getMe } from "../services/UserServices";
+import { updateUser } from "../services/UserServices";
+// import { getMe, updateUser } from "../services/UserServices";
+import Searchbar from '../components/General/Searchbar';
 
 const Home = () => {
     const profile = async () => {
@@ -29,9 +32,10 @@ const Home = () => {
 
     return (
         <div>
-            Home
-            <button onClick={profile}>getMe</button>
-            <button onClick={editUser}>Update User</button>
+
+            <Searchbar />
+
+            
         </div>
     )
 };

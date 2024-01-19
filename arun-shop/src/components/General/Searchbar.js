@@ -1,25 +1,15 @@
 //Searchbar.js
 import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import "./Searchbar.css";
+import './Styling/Searchbar.css';
+import DropDown from "./DropDown";
 
-const SearchBar = () => {
-  const categories = ["Vegetables", "Fruits", "Ingredients", "Meats", "Drinks"];
-
+const Searchbar = () => {
+  
   return (
     <div className="filterWithSearchbar">
       {/* Filter categories */}
-      <Dropdown className="filter-container">
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          FILTER CATEGORY
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu id="dropdown-menu">
-          {categories.map((category, index) => (
-            <Dropdown.Item href="#/action-1"> {category} </Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
+      <DropDown className="filter-container"/>
+      
 
       {/* Search */}
       <form className="search-container" action=" ">
@@ -36,4 +26,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Searchbar;
