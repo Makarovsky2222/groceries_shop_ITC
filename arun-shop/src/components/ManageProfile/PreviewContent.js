@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Styling/PreviewContent.css'
 import imageCancel from '../../Resources/icons/cancel.svg'
 // import { UploadImage } from './UploadImage';
+import { getMe,  } from "../../services/UserServices"
+import { getUserID } from '../../services/Authentication'
 
 
 function PreviewContent() {
+
+    const [user, setUser] = useState()
+    useEffect(() => {
+
+        const loadUser = async () => {
+            const uid = getUserID()
+            const user =  await getMe(uid)
+            setUser(user)
+        }
+        loadUser()
+    })
 
     return (
         <div className="control-section">
@@ -21,28 +34,28 @@ function PreviewContent() {
 
             <div className='long-container'>
                 <p id='inputlong-text' type="text">
-                    Strawie
+                    {user?.username}
                 </p>
             </div>
 
             <div className='short-container'>
                 <p id='inputshort-text' type="text" >
-                    Chhor
+                    {user?.firstname}
                 </p>
                 <p id='inputshort-text' type="text" >
-                    Daphea
+                {user?.lastname}
                 </p>
             </div>
 
             <div className='long-container'>
                 <p id='inputlong-text' type="text" >
-                    sophartchhordaphea@gmail.com
+                {user?.email}
                 </p>
             </div>
 
             <div className='long-container'>
                 <p id='inputlong-text' type="text" >
-                    070884241
+                {user?.phone_number}
                 </p>
             </div>
            
