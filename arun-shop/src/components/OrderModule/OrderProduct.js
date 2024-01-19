@@ -75,13 +75,13 @@ const OrderProduct = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="order-dashboard">
-        {/* <div className="search-bar-wrapper">
+        <div className="search-bar-wrapper">
           <SearchBar
             onSearch={handleSearch}
             categories={filteredCategories?.map((cat) => cat.name)}
             onCategoryFilter={handleCategoryFilter}
           />
-        </div> */}
+        </div>
         <div className="category-wrapper">
           {filteredCategories?.map((category) => (
             <div

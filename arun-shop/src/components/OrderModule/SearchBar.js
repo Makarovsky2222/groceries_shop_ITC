@@ -29,7 +29,7 @@ const SearchBar = ({ onSearch, categories, onCategoryFilter }) => {
         <div className="dropdown">
           <ul>
             <li onClick={() => handleCategoryChange("")}>All Categories</li>
-            {categories.map((category) => (
+            {categories?.map((category) => (
               <li key={category} onClick={() => handleCategoryChange(category)}>
                 {category}
               </li>

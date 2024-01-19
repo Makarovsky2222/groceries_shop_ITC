@@ -124,10 +124,9 @@ export async function getProductsByCategoryId(categoryId) {
         id: doc.id,
         ...doc.data()
       })).filter((product) => {
-        return product.category_id == categoryId
+        return product.category_id === categoryId
       });
       
-      console.log("data: ", products)
       return products;
     } catch (error) {
       console.error('Error retrieving products:', error);
